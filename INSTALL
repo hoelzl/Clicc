@@ -1,0 +1,178 @@
+ ---------------------------------------------------------------------
+ Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel, Germany
+ ---------------------------------------------------------------------
+ Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+            ------------------------------------------------------
+ Funktion : Installation notes for CLiCC
+
+ $Revision: 1.14 $
+ $Id: INSTALL,v 1.14 1994/06/23 14:57:59 hk Exp $
+ ---------------------------------------------------------------------
+ 
+ This  file describes  the  system requirements  and  the installation
+ procedure for the CLiCC Common Lisp to C compiler.
+ 
+ See the files README, README.* and COPYRIGHT for further information.
+ Look at  src/compiler/README and  lib/README to get information about
+ how to use CLiCC.  After installation you should apply  CLiCC  to our
+ test suite in src/test. Look at src/test/README for details.
+ 
+ ---------------------------------------------------------------------
+ 
+ 0. Requirements
+    ~~~~~~~~~~~~
+ First of all note that you need a  Common Lisp  system to boot CLiCC.
+ You also need a C compiler available on your target system,  i.e. the
+ machine on which you want to run the executables.  This machine might
+ be but of course needs not to be the same as your development system,
+ i.e. the machine on which you want to run CLiCC.
+ 
+ You might compile CLiCC to C, and then use it as an application
+ program  with command line arguments. 
+ 
+ The following is a list of Common Lisp systems we tested to be usable
+ for CLiCC to run: 
+ 
+   - Allegro Common Lisp 4.1 (Franz Inc.)
+   - Sun (Lucid) Common Lisp 4.0 (Sun Microsystems Inc., Lucid Inc.)
+   - CMU Common Lisp 17c (Carnegie Mellon University)
+   - CLISP "August 1993" (Bruno Haible & Michael Stoll)
+   - AKCL 1.615 (Austin Kyoto Common Lisp) with September-16-92-PCL-f
+
+ But CLiCC should run on every system which implements Common Lisp as
+ described in CLtL1 with additional CLOS support.
+
+ You need an ANSI-C or K&R-C compiler to generate the executables. On
+ PC compatible machines you have to use a 32-bit C compiler, preferably
+ the GNU-C port of DJ Delorie.
+ 
+ If you want to use  the makefiles contained in our distribution,  you 
+ will  need the  GNU Make Utility  "gmake".  GNU  Make is available on 
+ ftp.informatik.uni-kiel.de (134.245.15.113) as:
+ 
+   /pub/systems/gnu/make-<version>.tar.gz
+ 
+ ---------------------------------------------------------------------
+ 
+ 1. Installation
+    ~~~~~~~~~~~~
+ These steps generate the CLiCC runtime-system library from the
+ precompiled lisp files of the runtime system, which are part of this
+ distribution. These are ANSI-C files. You have to recompile them, as
+ described below, if you want to use a K&R-C compiler. 
+ 
+ a) Decide where to  locate the CLiCC root directory, further referred 
+    to as $CLICCROOT.  You need approx.  9 MByte  of free  disk  space 
+    available.
+ 
+ b) Set the environment variable CLICCROOT to point to this directory.
+ 
+ c) Locate your Common Lisp system, further referred to as "lisp".
+ 
+ d) Locate your C compiler,  further referred to as "yourcc". Edit the
+    files
+ 
+      $CLICCROOT/bin/rt   and    $CLICCROOT/bin/cl .
+ 
+    and change the parameters "CC=gcc" into "CC=yourcc".
+ 
+ e) Run  $CLICCROOT/bin/rt  to generate the  CLiCC runtime  libraries
+    $CLICCROOT/lib/rtc.a  and  $CLICCROOT/lib/rtl.a.  Those libraries
+    will be linked with application programs compiled by CLiCC.
+ 
+ ---------------------------------------------------------------------
+ 
+ If you want to use a K&R-C compiler or change other qualities of the
+ Lisp part of the runtime system, you have to recompile it. Add the
+ following steps to the procedure described above:
+
+ d1) If you want to use a K&R-C compiler, edit the file
+ 
+      $CLICCROOT/src/compiler/clcdef.lisp 
+   
+    and change the line
+ 
+        (defvar *ANSI-C* T)
+ 
+    into
+ 
+        (defvar *ANSI-C* NIL)
+ 
+ d2) Change to the directory $CLICCROOT/src/compiler.
+ 
+ d3) Start Common Lisp. Load the file "clcload.lisp". 
+    Run (compile-clicc) first and then (ask-runtime). 
+    Answer "K" and "A" and take a cup of tea.
+ 
+         ------------------------------------------------------------
+         At this point you can  decide to generate separate files for 
+         each runtime system function, which will take quite a lot of
+         installation  time,  but helps to generate much smaller exe-
+         cutables.  If you want  to  split the runtimesystem,  toggle 
+         "S)plit" to be "on". Type "K" if splitting has changed
+	 relating to the last run of (ask-runtime), before answering
+	 "A". 
+         ------------------------------------------------------------
+ 
+ ---------------------------------------------------------------------
+ 
+ 2. Example Dialogue
+    ~~~~~~~~~~~~~~~~
+ The following  shows an example  dialogue to install CLiCC,  using a
+ shell prompting with "% ", and a  Common Lisp system  prompting with
+ "cl>":
+ 
+   -------------------------------------------------------------------
+   % mkdir ~/CLiCC
+   % setenv CLICCROOT ~/CLiCC
+   % cd ~/CLiCC
+   % cd src/compiler
+   % lisp
+
+   ...
+
+   cl> (load "clcload.lisp")
+   ; Loading ...
+
+   ...
+
+   cl> (compile-clicc)
+   ;;; CLiCC, the Common Lisp to C Compiler --- Version 0.6.4
+   ;;; Copyright (C) 1994 Christian-Albrechts-Universitaet zu Kiel
+   
+   ...
+
+   cl> (ask-runtime)
+   A)ll L)isp-module I)nline-module 
+   P)rint messages is on  S)plit is off  O)nly Pass1 is off  K)ill C-Files 
+   choose: K
+   A)ll L)isp-module I)nline-module 
+   P)rint messages is on  S)plit is off  O)nly Pass1 is off  K)ill C-Files 
+   choose: A
+   ;;; Initialize Special Forms
+   ;;; Initialize System Macros
+   ;;; Initialize System Functions
+   ;;; Initialize Evaluator
+   ;;; Syntactic and semantic analysis
+   ;;; File "inline.lisp"
+
+   ...
+
+   cl> (exit)
+  
+   % $CLICCROOT/bin/rt
+   gcc -I/home/karlo/wg/CLiCC/lib -O -c values.c unix.c
+   system.c symbols.c structure.c string.c progv.c packages.c number.c 
+   list.c keysort.c funcall.c foreign.c file.c environ.c debug.c clos.c
+   character.c catch.c array.c
+
+   ...
+
+   cp lisp.syntax /home/karlo/wg/CLiCC/lib
+   cp lisp.def /home/karlo/wg/CLiCC/lib
+   cp inline.h lisp.h /home/karlo/wg/CLiCC/lib
+ 
+   % 
+   -------------------------------------------------------------------
+
+

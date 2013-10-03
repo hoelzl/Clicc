@@ -1,0 +1,267 @@
+.\" -------------------------------------------------------------------------
+.\" Projekt : CLICC - a Common Lisp to C Compiler
+.\"           -----------------------------------
+.\" Function : The CLICC Manual Page
+.\"
+.\" $Source: /home3/apply/public/clicc-0.6.4/doc/RCS/clicc.1,v $
+.\" $Author: hk $
+.\" $Revision: 1.3 $
+.\" $Date: 1993/12/09 15:04:30 $
+.\" -------------------------------------------------------------------------
+.\"
+.TH CLiCC 1 "30 Jul 1993"
+.SH NAME
+clicc \- Common Lisp to C compiler
+.SH SYNOPSIS
+within Common Lisp:
+
+(clicc <filename>
+.PD 0
+.IP
+.I :verbose
+<T_or_NIL>
+.IP
+.I :print
+<T_or_NIL>
+.IP
+.I :memsizes
+<memsizes>
+.IP
+.I :no-codegen
+<T_or_NIL>
+.IP
+.I :ti-level        
+<0..3>
+.IP
+.I :module-compiler 
+<T_or_NIL>
+.IP
+.I :out             
+<filename>
+.IP
+.I :max-lines       
+<count>
+.IP
+.I :split           
+<T_or_NIL>
+.IP
+.I :flat-ifs        
+<T_or_NIL>)
+
+.SH DESCRIPTION
+.I CLiCC
+is a Common Lisp to C Compiler.  It generates C-executables 
+from Common Lisp application programs. 
+.I CLiCC 
+is not a Common Lisp 
+system.  Hence it does  not  include any  program  development or 
+debugging support.  
+.I CLiCC 
+is intended to  be used as an  addon to 
+existing Common Lisp systems for generating portable applications.
+ 
+.I CLiCC 
+supports a subset of Common Lisp + CLOS, which we call CL_0
+(CommonLisp_0).  CL_0  is a strict and very large  subset of full
+Common Lisp + CLOS, without  (EVAL ...) and friends.  At present,
+CL_0 is based on CLtL1,  but  we  are  working towards  CLtL2 and
+ANSI-CL.
+ 
+The target language is a subset of C. 
+.I CLiCC 
+can be configured to generate either ANSI-C or K&R-C.  The generated C
+code is compilable using a conventional C compiler on the target
+machine, and must be linked with the
+.I CLiCC 
+runtime library in order to generate executables.
+
+.SH OPTIONS
+.TP
+.IR ":verbose   " <T_or_NIL>
+Output initial logo  (
+.I T
+)  or supress it  (
+.I NIL
+).
+
+.TP
+.IR ":print    " <T_or_NIL>
+Output lots of progress messages  (
+.I T
+)  or keep
+quiet  (
+.I NIL
+).
+
+.TP
+.IR ":memsizes    " <memsizes>
+Determines the minimal and maximal sizes for heap and stack that are
+initially allocated by the generated program. 
+<memsizes> has the form  
+.IP
+.I ((stack-min . stack-max) 
+.IP
+.I (formheap-min . formheap-max) 
+.IP
+.I (fixnumheap-min . fixnumheap-max) 
+.IP
+.IR "(floatheap-min . floatheap-man))".
+.IP 
+All elements of this data structure are fixnums. At startup time the
+compiled program tries to allocate the maximal amount of memory for
+each of its memory areas. If not that much memory is available it
+succesively halfs its requirements until they are satisfied.  If the
+available memory falls below the minimal amount, the program gives up.
+
+.TP
+.IR ":no-codegen     " <T_or_NIL>
+Do not generate code, only run all prior passes  (
+.I T
+)  or generate object (= C) code  (
+.I NIL
+).
+
+.TP
+.IR ":ti-level      "  <0..3>
+Controls the intensity of type inference, which
+.I CLiCC 
+should perform.
+.I ti-level
+ranges from 0  (no type inference)  to 3  (exhaustive type inference).
+.I ti-level
+3 can take quite a long time on medium or large size programs.
+ 
+.TP
+.IR ":module-compiler   " <T_or_NIL>
+.I CLiCC
+acts as a module compiler  (
+.I T
+)  or as an application compiler which compiles whole programs  (
+.I NIL
+). The module compiler allows seperate compilation of Lisp modules. 
+
+.TP
+.IR ":out " <filename>
+<filename> is the name of the file 
+.I CLiCC
+will generate from its input.
+The default is the same name as the input file but with extension ".c"
+
+.TP
+.IR ":max-lines   "  <count>
+if 
+.I :split
+-mode is off, 
+.I :max-lines
+limits the maximal number of lines in generated C-files to <count>. If
+<count> has the value 
+.I NIL
+no spliting of files takes place.
+
+.TP
+.IR ":split       " <T_or_NIL>
+generate a C-file for each function  (
+.I T
+)  or put all generated code in one file  (
+.I NIL
+) according to the 
+.I :max-lines
+option.
+
+.TP 
+.IR ":flat-ifs    " <T_or_NIL>)
+controls the generated C-code for conditionals.
+Generate either nested C-ifs  ( 
+.I T
+)  or flat C-ifs with gotos. Some C-Compiler cannot compile highly
+nested control structures.
+
+
+.SH REFERENCE
+
+The language implemented conforms to
+
+.RS 1
+      Heinz Knutzen: Common Lisp_0 Sprachdefinition.
+      APPLY technical report APPLY/CAI/II.2/1.	
+      CAU Kiel, April 1993
+.RE
+
+it contains the negative diffs relative to
+
+.RS 1
+      Guy L. Steele Jr.: Common Lisp - The Language.
+      Digital Press. 1st edition 1984, 465 pages.
+      ("CLtL1" for short)
+.RE
+
+.SH ENVIRONMENT
+.TP
+.BR CLICCROOT
+is used for determining the base directory of 
+.I CLiCC 
+specific files.
+
+.SH FILES
+All file locations are relative to the 
+.I CLiCC
+base directory:
+.TP
+.I README INSTALL COPYRIGHT
+if you haven't read them do so now.
+.TP
+.I doc/*
+numerous documentation files
+.TP
+.I src/compiler/config.lisp
+.I src/compiler/clcdef.lisp
+various configuration parameters
+.TP
+.I src/compiler/*.lisp
+.I CLiCC
+compiler source code
+.TP
+.I src/runtime/c/*.c
+.I CLiCC
+kernel run time system source code
+.TP
+.I src/runtime/lisp/*.lisp
+.I CLiCC 
+run time system source code 
+.TP
+.I src/runtime/lisp2c/*.c
+.I CLiCC 
+run time system compiled from LISP to C
+
+.SH SEE ALSO
+.IR cmulisp (1),
+.IR clisp (1),
+.IR cc(1).
+
+.SH PROJECTS
+More work on type inference and related optimizations; improving the
+object oriented part; including a mean and lean foreign
+function interface for integration with the C world.
+
+.SH AUTHORS
+.HP 0
+Wolfgang Goerigk, wg@informatik.uni-kiel.de
+.HP 0
+Ulrich Hoffmann, uho@informatik.uni-kiel.de
+.HP 0
+Heinz Knutzen, hk@informatik.uni-kiel.de
+
+.SH MAIL ADDRESS
+
+.PD 0
+.HP 0
+Institut fuer Informatik und Praktische Mathematik
+.HP 0
+Preusserstr. 1 - 9
+.HP 0
+24105 Kiel, Germany
+
+This work was supported by the German Federal Ministry for Research
+and Technology (BMFT) within the joint project APPLY .
+
+

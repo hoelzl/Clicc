@@ -1,0 +1,29 @@
+-----------------------------------------------------------------------------
+ Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel, Germany
+-----------------------------------------------------------------------------
+ Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+            ------------------------------------------------------
+ Funktion : README for the directory src/test
+
+ $Revision: 1.2 $
+ $Id: README,v 1.2 1994/01/10 11:07:50 hk Exp $
+-----------------------------------------------------------------------------
+
+This directory contains a test suite for CLiCC
+----------------------------------------------
+
+Compile the file testmain.lisp with CLiCC, run the command
+../../bin/cl testmain and execute the resulting file testmain.
+
+When you type 'a', every test will be run and its result will be
+checked against the expected result. 
+If everything works fine, you should get only a messages about
+two failed tests:
+;;; ----------------------------------------------------------------------------
+;;; Failed tests: 
+;;;   Binding  6 (uses ANSI CL's declaration scope)
+;;;   Binding 13 (uses ANSI CL's declaration scope)
+;;; ----------------------------------------------------------------------------
+This is ok, because CLiCC currently implements the declaration scope
+rules of CLtL1 and these tests expect the declaration scope rules of
+CLtL2. 

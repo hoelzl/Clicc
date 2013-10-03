@@ -1,0 +1,50 @@
+#------------------------------------------------------------------------------
+# Project  : APPLY - A Practicable And Portable Lisp Implementation
+#            ------------------------------------------------------
+# Function : Generates C runtime-modules for CLICC.
+#            Uses optional parameter OPTIMIZE = <-{O | g}>.
+#            Uses Environment variable CLICCROOT and CROSS386.
+#
+# $Revision: 1.6 $
+# $Source: /home3/apply/public/clicc-0.6.4/src/runtime/c/RCS/GNUmakefile386,v $
+# $Author: uho $
+# $Date: 1993/06/08 12:59:14 $
+#------------------------------------------------------------------------------
+
+CC	= $(CROSS386)/gcc
+OPTIMIZE = -O # alternative to -O is -g
+CFLAGS	= -I$(CLICCROOT)/lib $(OPTIMIZE)
+ARFLAGS	= r
+
+ifeq ($(findstring -g,$(OPTIMIZE)), -g)
+override CFLAGS := $(CFLAGS) -DDEBUG
+endif
+
+MAIN.C	= main.c
+SOURCES 	= $(wildcard *.c)
+
+ifeq ($(findstring -g,$(OPTIMIZE)), -g)
+ LIBRARY	= $(CLICCROOT)/lib/rtc-g.a386
+ MAIN.O 	= $(CLICCROOT)/lib/main-g.o386
+ INITIALIZE.O = $(CLICCROOT)/lib/initialize-g.o386
+else
+ LIBRARY	= $(CLICCROOT)/lib/rtc.a386
+ MAIN.O 	= $(CLICCROOT)/lib/main.o386
+ INITIALIZE.O = $(CLICCROOT)/lib/initialize.o386
+endif
+
+.PRECIOUS: $(LIBRARY) $(MAIN.O) $(INITIALIZE.O)
+
+all: $(LIBRARY) $(MAIN.O) $(INITIALIZE.O)
+
+$(LIBRARY): $(SOURCES)
+	$(COMPILE.c) $?
+	$(AR) $(ARFLAGS) $@ $(?:.c=.o)
+	rm *.o
+	$(CROSS386)/ranlib $@
+
+$(MAIN.O): $(MAIN.C)
+	$(COMPILE.c) -o $@ $<
+
+$(INITIALIZE.O): $(MAIN.C)
+	$(COMPILE.c) -DNOMAIN -o $@ $<

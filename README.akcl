@@ -1,0 +1,36 @@
+-----------------------------------------------------------------------------
+ Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel, Germany
+-----------------------------------------------------------------------------
+ Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+            ------------------------------------------------------
+ Funktion : AKCL specific README for CLICC
+
+ $Revision: 1.1 $
+ $Id: README.akcl,v 1.1 1993/12/23 14:26:03 hk Exp $
+-----------------------------------------------------------------------------
+
+
+
+Please read the files README, COPYRIGHT and INSTALL first.
+This file contains only AKCL specific information.
+
+
+--------------------------------------------------------------------------------
+
+CLICC has been successfully used under AKCL 1.615.  Since AKCL doesn't
+support CLOS by its own, you have to install a version of PCL, which
+is an implementation of CLOS from PARC Xeroc.  We have used
+September-16-92-PCL-f, which you can get by ftp from parcftp.xerox.com
+in the directory /pub/pcl.  Follow the instructions given in the file
+readme.text in the PCL ditribution.  You may have to rename the Lisp
+files of the PCL ditribution from *.lisp *.lsp as described below.
+
+
+AKCL uses the default filename extension ".lsp", so
+rename (or link) all ".lisp"-Files  in the directory src/compiler in
+the CLiCC distribution to ".lsp":
+
+   cd $CLICCROOT/src/compiler	
+   for f in *.lisp; do
+     mv $f `basename $f .lisp`.lsp
+   done

@@ -1,0 +1,83 @@
+-----------------------------------------------------------------------------
+ Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel, Germany
+-----------------------------------------------------------------------------
+ Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+            ------------------------------------------------------
+ Funktion : CLISP specific README for CLICC
+
+ $Revision: 1.3 $
+ $Id: README.clisp,v 1.3 1993/08/31 09:26:21 uho Exp $
+-----------------------------------------------------------------------------
+
+
+
+Please read the files README, COPYRIGHT and INSTALL first.
+This file contains only CLISP specific information.
+
+
+
+--------------------------------------------------------------------------------
+
+CLICC has been successfully used under CLISP (22Aug93).
+Since CLISP has now an own version of CLOS, PCL is no longer required
+for running CLICC under CLISP. You can get CLISP for a broad variety
+of platforms at ma2s2.mathematik.uni-karlsruhe.de in the
+directory /pub/lisp/clisp.
+
+To bring up CLICC on CLISP follow these steps:
+
+--------------------------------------------------------------------------------
+
+1) Follow the instructions in INSTALL topic 1a) to 1e)
+
+--------------------------------------------------------------------------------
+
+2) CLISP uses the default filename extension ".lsp", so
+   rename (or link) all ".lisp"-Files to ".lsp":
+
+   cd $CLICCROOT/src/compiler	
+   for f in *.lisp; do
+     mv $f `basename $f .lisp`.lsp
+   done
+
+--------------------------------------------------------------------------------
+
+3) Load CLICC
+   $ cd $CLICCROOT/src/compiler
+   $ clisp
+   > (load "clcload")
+   
+--------------------------------------------------------------------------------
+
+4) Compile CLICC
+   > (compile-clicc)
+   Yes, there are a lot of warnings. You can ignore them.
+
+--------------------------------------------------------------------------------
+
+5) Build a CLISP image of CLICC
+   > (saveinitmem)
+   > (bye)
+   mv lispinit.mem clicc.mem
+
+--------------------------------------------------------------------------------
+
+6) Create a shell script, named 'clicc', which starts CLISP with the
+   just generated CLICC image,
+   like this:
+   echo ";;; -----------------------------------------------------------"
+   echo ";;; CLiCC, the Common Lisp to C Compiler   ---    CLISP Version"
+   echo ";;; Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel"
+   echo ";;; -----------------------------------------------------------"
+   exec <path.to.your.lisp.run>/lisp.run -M \
+        <path.to.your.clicc.mem>/clicc.mem -m 3MB -q "$@"
+
+--------------------------------------------------------------------------------
+
+7) Start CLICC and compile lisp files
+   $ clicc
+   > (clicc <your.file>)
+   
+--------------------------------------------------------------------------------
+
+8) Proceed as described in INSTALL topic 2)

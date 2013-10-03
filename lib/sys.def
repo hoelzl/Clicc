@@ -1,0 +1,476 @@
+;;;-*-lisp-*-
+;;;-----------------------------------------------------------------------------
+;;; Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel, Germany
+;;;-----------------------------------------------------------------------------
+;;; Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+;;;            ------------------------------------------------------
+;;; Funktion : Beschreibung der in C geschriebenen Systemfunktionen 
+;;;
+;;; $Revision: 1.43 $
+;;; $Log: sys.def,v $
+;;; Revision 1.43  1994/05/24  14:09:01  sma
+;;; most-positive-fixnum, most-negaitiv-fixnum werden jetzt in fspec.c je
+;;; nach Obrep zur Laufzeit berechnet.
+;;;
+;;; Revision 1.42  1994/04/22  14:04:15  pm
+;;; Foreign Function Interface voellig ueberarbeitet.
+;;; - Weitere Funktionen eingtragen.
+;;;
+;;; Revision 1.41  1994/04/18  11:42:22  pm
+;;; Foreign Function Interface voellig ueberarbeitet.
+;;; - Unbenoetigte Laufzeitsystemfunktionen herausgenommen
+;;; - Benoetigte Laufzeitsystemfunktionen angepasst bzw. eingtragen
+;;;
+;;; Revision 1.40  1994/02/08  13:50:39  sma
+;;; Annotation my-last-arg-may-be-rest-var bei funs, die angibt, daﬂ das
+;;; letzte Argument der hiermit annotierten Funktion auch ein rest-listen
+;;; Parameter sein kann. Die Annotation enth‰lt in diesem Falle den Namen
+;;; (als Keyword) ihrer Funktion.
+;;;
+;;; Revision 1.39  1994/01/27  16:20:53  kl
+;;; rt::fixnump eingetragen.
+;;;
+;;; Revision 1.38  1994/01/26  19:17:37  kl
+;;; Funktionen rt::<fix und rt::1-fix eingef¸hrt.
+;;;
+;;; Revision 1.37  1994/01/24  16:35:43  sma
+;;; Not und null auskommentiert (jetzt in pred.lisp implemtiert),
+;;; rt::new-struct ver‰ndert, rt::struct-size gelˆscht, Definition der
+;;; Symbole T und NIL gelˆscht. T wird in lisp.lisp definiert, NIL ist dem
+;;; Compiler immer bekannt.
+;;;
+;;; Revision 1.36  1994/01/21  14:52:04  ft
+;;; Erweiterung um die Funktion decode-float.
+;;;
+;;; Revision 1.35  1994/01/21  10:36:29  ft
+;;; Neue Funktionen zur Berechnung von Floatingpointkonstanten.
+;;;
+;;; Revision 1.34  1994/01/21  08:21:36  sma
+;;; Erneute ƒnderung der Symbolrepr‰sentation (letzte ƒnderung war keine
+;;; so gute Idee). Neue Funktionen rt::symp und rt::unbound-value.
+;;;
+;;; Revision 1.33  1994/01/14  09:17:17  sma
+;;; ƒnderungen f¸r char.lisp/character.c
+;;;
+;;; Revision 1.32  1994/01/13  16:34:13  sma
+;;; ƒnderungen an Funktionen f¸r symbols. Mehr Lisp, weniger C.
+;;; rt::(set)-struct-ref-internal heiﬂt jetzt rt::structure-ref. Die
+;;; set-Variante wird jetzt mit setf definiert.
+;;;
+;;; Revision 1.31  1994/01/06  17:32:37  sma
+;;; Neue Annotation :need-no-stack ¸berall eingef¸gt, wo mˆglich und
+;;; sinnvoll.  Dient dazu, in der Codegeneration mehr COPY-Befehle
+;;; einzusparen. Siehe log message von 1.45 von cgfuns.
+;;;
+;;; Revision 1.30  1994/01/05  12:59:44  sma
+;;; Namens‰nderung: -internal postfix gelˆscht. Einige Deklarationen
+;;; gelˆscht, f¸r die keine Laufzeitfunktionen existierten. Alle rt::
+;;; -Funktionen alphabetisch sortiert.
+;;;
+;;; Revision 1.29  1993/12/14  14:03:56  pm
+;;; package-name bei den FFI-symbolen teilweise von rt in ffi geaendert
+;;;
+;;; Revision 1.28  1993/12/14  12:28:08  sma
+;;; Namens‰nderungen durch Einf¸hrung von plain-vector-Typ.
+;;; %vector-length heiﬂt jetzt plain-vector-length,
+;;; simple-vector-element-code und make-simple-vector heiﬂen jetzt
+;;; plain-vector-element-code und make-plain-vector. (set-)svref wurden um
+;;; -internal erg‰nzt. ‹berfl¸ssige Deklaration von raw-list-length
+;;; entfernt.
+;;;
+;;; Revision 1.27  1993/12/09  14:03:19  sma
+;;; ƒnderungen f¸r neue Array-Repr‰sentation. Funktionsspezifikationen
+;;; f¸r jetzt in LISP definierte Funktionen entfernt.
+;;;
+;;; Revision 1.26  1993/11/04  13:45:25  atr
+;;; Die Funktionen catch-internal, unwind-protect-internal und
+;;; progv-internal weiter attributiert mit dem Slot has-funs-as-args.
+;;;
+;;; Revision 1.25  1993/11/04  12:54:02  uho
+;;; Signatur der Funktion rt::system eingefuegt.
+;;;
+;;; Revision 1.24  1993/10/20  10:05:27  hk
+;;; values, values-list, c-fclose, c-fgetc, c-fopen, c-fputc, c-fseek,
+;;; c-ftell, c-ungetc haben Seiteneffekte auf MV-Buffer bzw. Filesystem
+;;;
+;;; Revision 1.23  1993/10/19  11:14:58  atr
+;;; Tippfehler (funcall ... :has-funs-as-args (o)) --> ( ...
+;;; :has-funs-as-args (0))
+;;;
+;;; Revision 1.22  1993/10/19  10:40:56  atr
+;;; Die Slots read- write-list und Data-effects bei der Funktion init-main
+;;; auf Top gesetzt.
+;;;
+;;; Revision 1.21  1993/10/14  13:17:09  sma
+;;; new-struct-internal durch new-struct ersetzt.
+;;;
+;;; Revision 1.20  1993/10/09  18:42:33  atr
+;;; Die Funktion rt::throw-internal hat einen Jump-effect.
+;;; Der Slot has-funs-as-args bei Funcall und apply auf (0) gesetzt.
+;;;
+;;; Revision 1.19  1993/09/16  14:39:05  sma
+;;; Deklaration fuer raw-list-length und simple-assoc
+;;;
+;;; Revision 1.18  1993/08/24  11:15:22  pm
+;;; erweiterungen um C-Pointer-Funktionen
+;;;
+;;; Revision 1.17  1993/07/27  14:06:27  atr
+;;; UNKNOWN durch -1 ersetzt bei den Slots READ und WRITE-LISTS.
+;;; -1 kodiert das statische Level auf dem TOP-LEVEL, imported-funs koennen nur
+;;; auf globale Variablen lesend oder schreibend zugreifen.
+;;;
+;;; Revision 1.16  1993/07/22  08:41:34  pm
+;;; Funktion zum Testen auf C-Trukturen eingehaengt
+;;;
+;;; Revision 1.15  1993/07/21  13:28:14  pm
+;;; Weitere Eintraege fuer dass FFI, bezueglich C-Strukturen
+;;;
+;;; Revision 1.14  1993/07/19  15:14:55  uho
+;;; Unter dem Keyword :NAME stehen in .def-Files jetzt zusaetzlich zum
+;;; Namen des Moduls auch der Name der Initialisierungsfunktion und die
+;;; Symbol-Base (der Name des Tabelle der Symbole im generierten Code).
+;;;
+;;; Revision 1.13  1993/06/30  16:42:53  hk
+;;; Neue Funktionen rt::sxhash-simple-string, rt::sxhash-string und
+;;; rt::combine-hash.
+;;;
+;;; Revision 1.12  1993/06/25  09:07:32  atr
+;;; rt::make-instance-internal ist destruktiv.
+;;;
+;;; Revision 1.11  1993/06/17  09:03:40  hk
+;;; Copyrigth Notiz eingefuegt.
+;;;
+;;; Revision 1.10  1993/05/23  17:44:37  pm
+;;; in C geschrieben Konstruktor-, Test-
+;;; und Konvertierungsfunktionen fuer die primitiven C-Typen
+;;; eingehaengt
+;;;
+;;; Revision 1.9  1993/05/22  05:17:40  ft
+;;; :data-effect -> :data-effects
+;;;
+;;; Revision 1.8  1993/05/21  15:11:04  atr
+;;; die Slots read-list write-list und data-effects eingefuegt.
+;;;
+;;; Revision 1.7  1993/05/20  12:22:39  pm
+;;; Weitere Eintraege fuer das FFI
+;;;
+;;; Revision 1.6  1993/05/12  11:35:55  hk
+;;; rt::symbol-package-index eingetragen.
+;;;
+;;; Revision 1.5  1993/05/11  10:54:37  hk
+;;; first, .., fourth, rest gestrichen.
+;;;
+;;; Revision 1.4  1993/05/08  18:15:30  hk
+;;; rt::set-symbol-plist -> (setf symbol-plist)
+;;;
+;;; Revision 1.3  1993/05/03  12:10:36  pm
+;;; erweiterung um einige Funktionen des FFI
+;;;
+;;; Revision 1.2  1993/04/29  10:29:49  ft
+;;; Erweiterung um asin, acos und atan.
+;;;
+;;; Revision 1.1  1993/04/22  11:01:26  hk
+;;; Initial revision
+;;;
+;;;-----------------------------------------------------------------------------
+
+:sys T
+:name "sys" "Isys" "Ssys"
+:package "LISP"
+
+:fun
+(* :par-spec -1 :adr "Fmult")
+(+ :par-spec -1 :adr "Fplus")
+(- :par-spec -2 :adr "Fminus")
+(/ :par-spec -2 :adr "Fdiv")
+(/= :par-spec -2 :adr "Fnumneql")
+(1+ :par-spec 1 :adr "F1plus" :need-no-stack t)
+(1- :par-spec 1 :adr "F1minus" :need-no-stack t)
+(rt::1-fix :par-spec 1 :adr "F1minusfix" :need-no-stack t)
+(< :par-spec -2 :adr "Flt")
+(rt::<fix :par-spec 2 :adr "Fltfix")
+(<= :par-spec -2 :adr "Fle")
+(= :par-spec -2 :adr "Fnumeql")
+(> :par-spec -2 :adr "Fgt")
+(>= :par-spec -2 :adr "Fge")
+(acos :par-spec 1 :need-no-stack t)
+(append :par-spec -1 :data-effects :alloc)
+(apply :par-spec -3 :mv-spec t :has-funs-as-args (0)
+       :my-last-arg-may-be-rest-var :apply)
+(asin :par-spec 1 :need-no-stack t)
+(atan :par-spec -2)
+(atom :par-spec 1 :need-no-stack t :my-last-arg-may-be-rest-var :atom)
+(characterp :par-spec 1 :need-no-stack t)
+(compiled-function-p :par-spec 1 :adr "Ffunctionp")
+(cons :par-spec 2 :data-effects :alloc)
+(consp :par-spec 1 :need-no-stack t :my-last-arg-may-be-rest-var :consp)
+(cos :par-spec 1 :need-no-stack t)
+(decode-float :par-spec 1 :mv-spec 3 :need-no-stack t)
+(eq :par-spec 2)
+(eql :par-spec 2)
+(evenp :par-spec 1 :need-no-stack t)
+(floatp :par-spec 1 :need-no-stack t)
+(funcall :par-spec -2 :mv-spec t :has-funs-as-args (0))
+(functionp :par-spec 1 :need-no-stack t)
+(integer-length :par-spec 1 :need-no-stack t)
+(integerp :par-spec 1 :need-no-stack t)
+(rt::fixnump :par-spec 1 :need-no-stack t)
+(list :par-spec -1 :data-effects :alloc)
+(list* :par-spec -2 :data-effects :alloc)
+(listp :par-spec 1 :need-no-stack t)
+(minusp :par-spec 1 :need-no-stack t)
+(numberp :par-spec 1 :need-no-stack t)
+(oddp :par-spec 1 :need-no-stack t)
+(plusp :par-spec 1 :need-no-stack t)
+(simple-bit-vector-p :par-spec 1 :need-no-stack t)
+(simple-string-p :par-spec 1 :need-no-stack t)
+(simple-vector-p :par-spec 1 :need-no-stack t)
+(sin :par-spec 1 :need-no-stack t)
+(sqrt :par-spec 1 :need-no-stack t)
+(symbolp :par-spec 1 :need-no-stack t)
+(tan :par-spec 1 :need-no-stack t)
+(values :par-spec -1 :mv-spec t :write-list -1)
+(values-list :par-spec 1 :write-list -1 :need-no-stack t)
+(zerop :par-spec 1 :need-no-stack t)
+
+(rt::%car :par-spec 1 :need-no-stack t :my-last-arg-may-be-rest-var :car)
+(rt::%cdr :par-spec 1 :need-no-stack t :my-last-arg-may-be-rest-var :cdr)
+(rt::%logand :par-spec 2)
+(rt::%logior :par-spec 2)
+(rt::%lognot :par-spec 1)
+(rt::%logxor :par-spec 2)
+(rt::%rplaca :par-spec 2 :data-effects :dest)
+(rt::%rplacd :par-spec 2 :data-effects :dest)
+(rt::%shift-left :par-spec 2)
+(rt::%shift-right :par-spec 2)
+(rt::alpha-char-p :par-spec 1 :need-no-stack t)
+(rt::bitop :par-spec 4 :data-effects :dest)
+(rt::both-case-p :par-spec 1 :need-no-stack t)
+(rt::c-argc :par-spec 0 :need-no-stack t)
+(rt::c-argv :par-spec 0 :need-no-stack t)
+(rt::c-fclose :par-spec 1 :data-effects :dest)
+(rt::c-fgetc :par-spec 1 :data-effects :dest)
+(rt::c-file-length :par-spec 1)
+(rt::c-fopen :par-spec 2 :data-effects :alloc)
+(rt::c-fputc :par-spec 2 :data-effects :dest)
+(rt::c-fseek :par-spec 2 :data-effects :dest)
+(rt::c-ftell :par-spec 1 :data-effects :dest)
+(rt::c-getenv-internal :par-spec 1)
+(rt::c-stdin :par-spec 0)
+(rt::c-stdout :par-spec 0)
+(rt::c-system-internal :par-spec 1 :need-no-stack t)
+(rt::c-ungetc :par-spec 2 :data-effects :dest)
+(rt::calc-radix :par-spec 0 :need-no-stack t)
+(rt::calc-mant-dig :par-spec 0 :need-no-stack t)
+(rt::catch :par-spec 2 :mv-spec t :has-funs-as-args (1))
+(rt::ceiling :par-spec 2 :mv-spec 2)
+(rt::char-code :par-spec 1 :need-no-stack t)
+(rt::char-downcase :par-spec 1 :need-no-stack t)
+(rt::char-upcase :par-spec 1 :need-no-stack t)
+(rt::code-char :par-spec 1 :need-no-stack t)
+(rt::combine-hash :par-spec 2)
+(rt::constant-flag-p :par-spec 1)
+(rt::digit-char :par-spec 1 :need-no-stack t)
+(rt::expt :par-spec 2)
+(rt::fixnum-high-p :par-spec 2)
+(rt::fixnum-low-p :par-spec 2)
+(rt::float :par-spec 1)
+(rt::floor :par-spec 2 :mv-spec 2)
+(rt::graphic-char-p :par-spec 1 :need-no-stack t)
+(rt::init-main :par-spec 0 :adr "Imain" :write-list -1 :read-list -1 
+               :data-effects :alloc-dest-jump)
+(rt::init-keysort :par-spec 1)
+(rt::instance-ref :par-spec 2)
+(rt::instance-set :par-spec 3 :data-effects :dest)
+(rt::instancep :par-spec 1 :need-no-stack t)
+(rt::log :par-spec 2)
+(rt::lower-case-p :par-spec 1 :need-no-stack t)
+(rt::make-instance :par-spec 1 :data-effects :dest)
+(rt::make-symbol :par-spec 1 :data-effects :alloc)
+(rt::make-vector-t :par-spec 1 :data-effects :alloc)
+(rt::make-vector-fixnum :par-spec 1 :data-effects :alloc)
+(rt::make-vector-float :par-spec 1 :data-effects :alloc)
+(rt::make-vector-char :par-spec 2 :data-effects :alloc)
+(rt::make-vector-bit :par-spec 1 :data-effects :alloc)
+(rt::most-negative-fixnum :par-spec 0 :need-no-stack t)
+(rt::most-positive-fixnum :par-spec 0 :need-no-stack t)
+(rt::new-struct :par-spec 1 :data-effects :alloc)
+(rt::plain-vector-element-code :par-spec 1 :need-no-stack t)
+(rt::plain-vector-length :par-spec 1 :need-no-stack t)
+(rt::plain-vector-p :par-spec 1 :need-no-stack t)
+(rt::progv :par-spec 3 :mv-spec t :write-list -1 :has-funs-as-args (2))
+(rt::pvref :par-spec 2)
+(rt::round :par-spec 2 :mv-spec 2)
+(rt::sbvref :par-spec 2)
+(rt::set-constant-flag :par-spec 1 :data-effects :dest)
+(rt::set-pvref :par-spec 3 :data-effects :dest)
+(rt::set-sbvref :par-spec 3 :data-effects :dest)
+(rt::set-svref-internal :par-spec 3 :data-effects :dest)
+(rt::set-symbol-package :par-spec 2 :data-effects :dest)
+(rt::setup-symbols-iterator :par-spec 2 :data-effects :dest)
+(rt::shrink-smstr :par-spec 2)
+(rt::standard-char-p :par-spec 1 :need-no-stack t)
+(rt::structure-ref :par-spec 2)
+((setf rt::structure-ref) :par-spec 3 :data-effects :dest)
+(rt::struct-size :par-spec 1 :need-no-stack t)
+(rt::structp :par-spec 1 :need-no-stack t)
+(rt::svref-internal :par-spec 2)
+(rt::sxhash-string :par-spec 1 :need-no-stack t)
+(rt::symp :par-spec 1 :need-no-stack t)
+(rt::throw :par-spec -2 :mv-spec :JUMP :data-effects :jump)
+(rt::truncate :par-spec 2 :mv-spec 2)
+(rt::unbound-value :par-spec 0 :need-no-stack t)
+(rt::unbound-value-p :par-spec 1 :read-list -1)
+(rt::unix-current-directory :par-spec 0 :mv-spec 2)
+(rt::unix-file-mode :par-spec 1)
+(rt::unix-link-mode :par-spec 1)
+(rt::unix-readlink :par-spec 1 :mv-spec t)
+(rt::unwind-protect :par-spec 2 :mv-spec t :has-funs-as-args (0 1))
+(rt::upper-case-p :par-spec 1 :need-no-stack t)
+
+(rt::symbol-value :par-spec 1 :need-no-stack t)
+((setf rt::symbol-value) :par-spec 2 :data-effects :dest)
+(rt::symbol-plist :par-spec 1 :need-no-stack t)
+((setf rt::symbol-plist) :par-spec 2 :data-effects :dest)
+(rt::symbol-name :par-spec 1 :need-no-stack t)
+(rt::symbol-package :par-spec 1 :need-no-stack t)
+((setf rt::symbol-package) :par-spec 2 :data-effects :dest)
+
+
+;; FFI
+
+;; Ich glaube, alle make_* Funktionen sind destruktiv, denn sie zerstoeren
+;; ihre Argumente, indem sie den Typ aendern. -sma
+(ffi::c-char-p :par-spec 1)
+(ffi::c-short-p :par-spec 1)
+(ffi::c-int-p :par-spec 1)
+(ffi::c-long-p :par-spec 1)
+(ffi::c-unsigned-char-p :par-spec 1)
+(ffi::c-unsigned-short-p :par-spec 1)
+(ffi::c-unsigned-int-p :par-spec 1)
+(ffi::c-unsigned-long-p :par-spec 1)
+(ffi::c-float-p :par-spec 1)
+(ffi::c-double-p :par-spec 1)
+(ffi::c-long-double-p :par-spec 1)
+(ffi::c-string-p :par-spec 1)
+(ffi::free :par-spec 1)
+(rt::make-c-char :par-spec 1)
+(rt::make-c-short :par-spec 1)
+(rt::make-c-int :par-spec 1)
+(rt::make-c-long :par-spec 1)
+(rt::make-c-unsigned-char :par-spec 1)
+(rt::make-c-unsigned-short :par-spec 1)
+(rt::make-c-unsigned-int :par-spec 1)
+(rt::make-c-unsigned-long :par-spec 1)
+(rt::make-c-float :par-spec 1)
+(rt::make-c-double :par-spec 1)
+(rt::make-c-long-double :par-spec 1)
+(rt::cast-c-char :par-spec 1)
+(rt::cast-c-short :par-spec 1)
+(rt::cast-c-int :par-spec 1)
+(rt::cast-c-long :par-spec 1)
+(rt::cast-c-unsigned-char :par-spec 1)
+(rt::cast-c-unsigned-short :par-spec 1)
+(rt::cast-c-unsigned-int :par-spec 1)
+(rt::cast-c-unsigned-long :par-spec 1)
+(rt::cast-c-float :par-spec 1)
+(rt::cast-c-double :par-spec 1)
+(rt::cast-c-long-double :par-spec 1)
+(rt::make-lisp-character :par-spec 1)
+(rt::make-lisp-integer :par-spec 1)
+(rt::make-lisp-float :par-spec 1)
+(rt::internal-c-struct-p :par-spec 2)
+(rt::internal-c-union-p :par-spec 2)
+(rt::internal-c-handle-p :par-spec 2)
+(rt::internal-c-array-p :par-spec 2)
+(rt::internal-make-c-struct :par-spec 2)
+(rt::internal-make-c-union :par-spec 2)
+(rt::internal-make-c-array :par-spec 2)
+(rt::internal-copy-c-struct :par-spec 4)
+(rt::internal-copy-c-union :par-spec 4)
+(rt::internal-copy-c-array :par-spec 4)
+(rt::internal-get-struct-pointer :par-spec 2)
+(rt::internal-get-union-pointer :par-spec 2)
+(rt::internal-get-array-pointer :par-spec 2)
+(rt::c-struct-p :par-spec 1)
+(rt::c-union-p :par-spec 1)
+(rt::c-array-p :par-spec 1)
+(rt::c-handle-p :par-spec 1)
+(rt::internal-make-lisp-string :par-spec 1)
+(rt::internal-make-c-string :par-spec 1)
+(rt::internal-copy-c-string :par-spec 1)
+(rt::internal-get-symbol :par-spec 1)
+(rt::internal-get-address :par-spec 1)
+
+:eof
+
+;;(acosh :par-spec 1)
+;;(asinh :par-spec 1)
+;;(atanh :par-spec 1)
+;;(bit-vector-p :par-spec 1)
+;;(boole :par-spec 3)
+;;(cerror :par-spec -3)
+;;(character :par-spec 1)
+;;(cis :par-spec 1)
+;;(clear-input :par-spec -1)
+;;(clear-output :par-spec -1)
+;;(complex :par-spec -2)
+;;(constantp :par-spec 1)
+;;(cosh :par-spec 1)
+;;(decode-universal-time :par-spec -1)
+;;(delete-file :par-spec 1)
+;;(documentation :par-spec 2)
+;;(encode-universal-time :par-spec -7)
+;;(exp :par-spec 1)
+;;(fceiling :par-spec -2 :mv-spec 2)
+;;(ffloor :par-spec -2 :mv-spec 2)
+;;(file-author :par-spec 1)
+;;(file-string-length :par-spec 2)
+;;(file-write-date :par-spec 1)
+;;(finish-output :par-spec -1)
+;;(force-output :par-spec -1)
+;;(fround :par-spec -2 :mv-spec 2)
+;;(ftruncate :par-spec -2 :mv-spec 2)
+;;(gcd :par-spec -1)
+;;(get-decoded-time :par-spec 0)
+;;(get-internal-real-time :par-spec 0)
+;;(get-internal-run-time :par-spec 0)
+;;(get-universal-time :par-spec 0)
+;;(imagpart :par-spec 1)
+;;(lcm :par-spec -2)
+;;(listen :par-spec -1)
+;;(logbitp :par-spec 2)
+;;(logcount :par-spec 1)
+;;(logtest :par-spec 2)
+;;(merge :par-spec -5)
+;;(nintersection :par-spec -3)
+;;(nset-difference :par-spec -3)
+;;(nset-exclusive-or :par-spec -3)
+;;(nsubstitute :par-spec -4)
+;;(nsubstitute-if :par-spec -4)
+;;(nsubstitute-if-not :par-spec -4)
+;;(phase :par-spec 1)
+;;(provide :par-spec 1)
+;;(read-char-no-hang :par-spec -1)
+;;(realpart :par-spec 1)
+;;(rename-file :par-spec 2)
+;;(require :par-spec -2)
+;;(set-exclusive-or :par-spec -3)
+;;(signum :par-spec 1)
+;;(sinh :par-spec 1)
+;;(sleep :par-spec 1)
+;;(special-form-p :par-spec 1)
+;;(stable-sort :par-spec -3)
+;;(substitute-if :par-spec -4)
+;;(substitute-if-not :par-spec -4)
+;;(tanh :par-spec 1)
+;;(user-homedir-pathname :par-spec -1)
+
+;;(load :par-spec -2)
+;;(applyhook :par-spec -5)
+;;(compile :par-spec -2)
+;;(compile-file :par-spec -2)
+;;(compile-file :par-spec 1)
+;;(eval :par-spec 1)
+;;(evalhook :par-spec -4)
+;;(make-char :par-spec 1)

@@ -1,0 +1,18 @@
+--------------------------------------------------------------------------------
+This file describes extensions of the standard common lisp runtime system
+$Revision: 1.3 $
+--------------------------------------------------------------------------------
+
+rt:C-getenv (string)
+Execute the library function getenv() with argument string.
+
+rt:C-system (string)
+Execute the library function system() with argument string.
+
+rt:C-argc ()
+Get the number of arguments in the command line.
+
+rt:C-argv ()
+The arguments of the command line as a list. An Argument "@filename"
+will be substituted by the items of filename, which are separated by
+whitespace (e.g. SPACE, TAB, RETURN, NEWLINE, FORMFEED).

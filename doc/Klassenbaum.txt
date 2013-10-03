@@ -1,0 +1,71 @@
+                 Uebersicht zur Implementation der Zwischensprache
+	         -------------------------------------------------
+$Revision: 1.2 $
+$Log: Klassenbaum.txt,v $
+# Revision 1.2  1993/07/27  16:29:03  hk
+# Revision Keyword hinzugefuegt
+#
+
+zws-object -+- module
+	    |
+            +- var -+- static-+- defined-static -+- local-static --- cont 
+            |       |         |                  +- global-static
+            |       |         +- imported-static
+            |       +- dynamic
+            |
+	    +- slot-desc
+	    |
+	    +- params
+	    |
+	    +- opt --- key
+	    |
+            +- method-def
+	    |
+	    +- form -+- var-ref
+	             |
+                     +- named-const -+- defined-named-const
+                     |               +- imported-named-const
+	    	     |
+	             +- literal -+- sym -+- defined-sym
+                     |           |       +- imported-sym
+	    	     |           |
+	    	     |           +- structured-literal
+                     |           +- literal-instance
+	             |           +- simple-literal-+- null-form
+		     |                             +- character-form
+                     |     			   +- num -+- int
+                     |                                     +- ratio-form
+	             |                                     +- float-form
+                     |        			           +- complex-form
+		     |
+                     + - class-def -+- defined-class
+                     |              +- imported-class
+                     |
+	             +- fun -+- simple-fun -+- defined-fun -+- global-fun
+                     |       |              |               +- local-fun
+                     |       |              +- imported-fun -+- special-sys-fun
+                     |       |
+                     |       +- generic-fun -+- defined-generic-fun-+-global-generic-fun
+                     |                       |                      +-local-generic-fun
+                     |                       +- imported-generic-fun
+                     |
+                     +- app
+                     +- setq-form
+		     +- progn-form
+		     +- if-form
+		     +- switch-form
+		     +- labeled-form
+		     +- let*-form
+	             +- labels-form
+		     +- let/cc-form
+	             +- tagbody-form
+		     +- tagged-form
+		     +- mv-lambda 
+
+
+
+
+
+
+
+

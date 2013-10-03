@@ -1,0 +1,93 @@
+$Revision: 1.4 $
+
+Release Notes for CLiCC 0.6.4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Foreign function interface is usable now. Look at src/test/time.*
+  for an example. Documentation is not yet finished.
+
+- Print-Functions of defstruct are no longer ignored.
+
+- Function FORMAT knows about ~T directive now.
+
+- Functions  SCALE-FLOAT, FLOAT-RADIX, FLOAT-SIGN,
+  FLOAT-PRECISION and INTEGER-DECODE-FLOAT are implemented now.
+  The radix and significand-length are taken from float.h if an ANSI-C
+  compiler is used. These values are calculated by CLiCC otherwise.
+
+- *print-length* and *print-level* have been set to 50 because
+  *print-circle* is not implemented yet.
+
+- New scripts cl-s and rt-s to produce shared libraries (SUNOS only).
+
+- &rest arguments are stack allocated if the list is only locally used.
+
+- Better code for nested IF-expressions.
+
+- Inlining of functions across modules.
+
+- Most of the code for array functions is written in Lisp now.
+
+- Function BREAK may be used during macro expansion to debug expander
+  functions.
+
+- More descriptive error message if macro expansion fails.
+
+- More usable messages if type errors are found.
+
+- Many bug fixes.
+
+- KNOWN BUGS:
+  - next-method-list may be wrong in case of multiple inheritance.
+  - Compilation fails for functions which use local function
+    definitions in default forms for optional or keyword parameters.
+  - User defined methods for standard generic functions like
+    shared-initialize are silently ignored.
+  - Compilation fails if :documentation option in slots is used.
+  - Foreign function interface is not usable if CLiCC is compiled with
+    itself, because FORMAT directive ~^ is used but currently not
+    available in our imlementation of FORMAT.
+
+
+Release 0.6.3 was not widely distributed
+
+
+Release Notes for CLiCC 0.6.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- CLiCC can be compiled by itself now, to get a standalone compiler
+  which can be used without a lisp system. Compile the file
+  clicc.lisp in src/compiler/ by means of (clicc "clicc").
+
+- CLiCC runs with AKCL now.
+
+- Variable *OPTIMIZE* may be used to disable optimizations. Use this
+  in a first (fast !) run of CLiCC to check if your application
+  conforms to CL_0 and if the generated code runs as expected.
+
+- New papers cl0-engl.ps and Migration.ps .
+
+- Tail recursion elimination has been implemented, may be turned off by
+  *no-tail-recursion*
+
+- Method caching for generic functions with more than
+  *METHOD-CACHE-LIMIT* effective methods.
+
+- Commands rt and cl now call gcc by default.
+
+- Arguments of cl must have extension *.c now. 
+
+- Use 'cl file1.c .. filen.c'
+  to compile and link modules or splitted applications.
+
+- New function rt::system
+
+- The function format knows about ~[ and ~;
+
+- Pathnames are printed as #P now.
+
+- Functions logtest und logbit have been implemented
+
+- Command line interface for standalone version of CLiCC has been
+  changed, look at src/compiler/clicc.lisp
+

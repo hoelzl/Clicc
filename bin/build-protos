@@ -1,0 +1,21 @@
+#!/bin/csh
+#------------------------------------------------------------------------------
+#  Projekt  : CLICC - a Common Lisp to C Compiler
+#             -----------------------------------
+#  Function : Write prototypes of the functions in the CLICC runtime library
+#             into the file fun_decl.h .
+#             Uses the public domain program  cproto .
+#
+#  $Source: /home3/apply/public/clicc-0.6.4/bin/RCS/build-protos,v $
+#  $Author: hk $
+#  $Revision: 1.5 $
+#  $Date: 1993/07/01 09:17:36 $
+#------------------------------------------------------------------------------
+
+set echo
+cd $CLICCROOT/lib
+echo "" >sys.h
+cproto -e -f4 -I. ../src/runtime/c/*.c >sys.hh
+cat sys.hh > sys.h
+rm sys.hh
+

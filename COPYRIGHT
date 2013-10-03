@@ -1,0 +1,35 @@
+--------------------------------------------------------------------------------
+ Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel
+--------------------------------------------------------------------------------
+ Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+            ------------------------------------------------------
+ Funktion : COPYRIGHT Notice
+
+ $Revision: 1.1 $
+ $Id: COPYRIGHT,v 1.1 1993/06/18 13:05:19 hk Exp $
+-----------------------------------------------------------------------------
+
+Institut fuer Informatik und Praktische Mathematik
+Preusserstr. 1 - 9
+24105 Kiel, Germany
+(in the following named CAU Kiel)
+
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee is hereby granted,
+provided that the above copyright notice appear in all copies and that
+both that copyright notice and this permission notice and warranty
+disclaimer appear in supporting documentation, and that the name of
+CAU Kiel not be used in advertising or publicity pertaining to
+distribution of the software without specific, written prior
+permission.
+
+CAU Kiel disclaims all warranties with regard to this software, including
+all implied warranties of merchantability and fitness. In no event
+shall CAU Kiel be liable for any special, indirect or consequential
+damages or any damages whatsoever resulting from loss of use, data or
+profits, whether in an action of contract, negligence or other
+tortious action, arising out of or in connection with the use or
+performance of this software.
+
+
+

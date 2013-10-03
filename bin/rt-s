@@ -1,0 +1,27 @@
+#!/bin/sh
+#-----------------------------------------------------------------------------
+# Projekt: APPLY - A Practicable And Portable Lisp Implementation
+#          ------------------------------------------------------
+# Inhalt : Aufruf des Makefiles zum Updaten der Laufzeitsystem Bibliotheken.
+#
+# $Source: /home3/apply/public/clicc-0.6.4/bin/RCS/rt-s,v $
+# $Author: uho $
+# $Revision: 1.1 $
+# $Date: 1994/02/21 13:43:05 $
+#------------------------------------------------------------------------------
+
+
+as=`which as | tail -1`
+if [ "$as" != "/usr/lang/as" ]; then
+  echo To produce a shared executable you must use the original
+  echo assembler /usr/lang/as and not $as.
+  exit 1
+fi 
+
+gmake -C $CLICCROOT/src/runtime/c "OPTIMIZE=-O -fPIC -DSHARED_LIBRARY" \
+   "CC=gcc" "AR=ld" "ARFLAGS=-o" "LIBRARY=$CLICCROOT/lib/librtc.so" \
+   "RANLIB=echo >/dev/null"
+gmake -C $CLICCROOT/src/runtime/lisp2c "OPTIMIZE=-O -fPIC" "CC=gcc" \
+   "AR=ld" "ARFLAGS=-o" "LIBRARY=$CLICCROOT/lib/librtl.so" \
+   "RANLIB=echo >/dev/null"
+   

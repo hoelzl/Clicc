@@ -1,0 +1,14 @@
+#!/bin/sh
+#-----------------------------------------------------------------------------
+# Projekt: APPLY - A Practicable And Portable Lisp Implementation
+#          ------------------------------------------------------
+# Inhalt : Aufruf des Makefiles zum Updaten der Laufzeitsystem Bibliotheken.
+#
+# $Source: /home3/apply/public/clicc-0.6.4/bin/RCS/rt,v $
+# $Author: ft $
+# $Revision: 1.2 $
+# $Date: 1993/08/04 13:19:15 $
+#------------------------------------------------------------------------------
+
+gmake -C $CLICCROOT/src/runtime/c "OPTIMIZE=-O" "CC=gcc"
+gmake -C $CLICCROOT/src/runtime/lisp2c "OPTIMIZE=-O" "CC=gcc"

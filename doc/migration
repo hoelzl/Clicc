@@ -1,0 +1,180 @@
+-*-indented-text-*-
+--------------------------------------------------------------------------------
+$Header: /home3/apply/public/clicc-0.6.4/doc/RCS/migration,v 1.7 1993/08/04 13:37:55 hk Exp $
+
+                   Anleitung fuer die Migration 
+ 
+                               von 
+
+                      CommonLisp-Anwendungen 
+
+                              nach
+
+                          CommonLisp0
+
+
+$Revision: 1.7 $
+$Log: migration,v $
+# Revision 1.7  1993/08/04  13:37:55  hk
+# Formulierung zu eval und symbol-value geaendert, specific-eval
+# berichtigt.
+#
+# Revision 1.6  1993/08/04  13:07:31  hk
+# Kommentar zur Migration von (eval 'x) korrigiert.
+#
+# Revision 1.5  1993/07/27  16:27:58  hk
+# Revision Keyword hinzugefuegt
+#
+# Revision 1.4  1993/06/10  08:24:39  hk
+# Einfuegen undefinierter Funktionen, eval auf Quote, A-Listen Trick.
+#
+# Revision 1.3  1993/04/30  13:56:16  hk
+# Makroaufrufe vor Definitionen
+#
+# Revision 1.2  1992/10/05  13:53:55  hk
+# Erfahrungen aus der Migration von ALCSAT aus Paderborn sind eingeflossen.
+#
+# Revision 1.1  1992/09/29  10:25:13  uho
+# Initial revision
+#
+
+Hier sollen Idee und Anmerkungen gesammelt werden, wie man am besten
+das Tor zu CommonLisp durchschreiten kann.
+
+
+--------------------------------------------------------------------------------
+Im Programm benutzte aber nicht definierte Funktionen
+--------------------------------------------------------------------------------
+   Fuer sie koennen Definitionen eingefuehrt werden, die bei
+   Aktivierung zur Laufzeit mit einer entsprechenden Fehlermeldung
+   abbrechen.
+   Die neueste Version von CLICC f"ugt automatisch Definitionen f"ur
+   nicht definierte Funktionen ein. Ein Aufruf dieser Funktionen
+   f"uhrt zu einem Laufzeitfehler mit Angabe der aufgerufenen Funktion
+   und der aktuellen Parameter.
+
+--------------------------------------------------------------------------------
+Benutzung von EVAL
+--------------------------------------------------------------------------------
+   - Es ist nicht sinnvoll, in einer Standalone-Applikation EVAL zu
+     benutzen, da dann die Funktionsf"ahigkeit des Systems durch
+     Benutzereingaben beeinflu"st werden kann.
+
+   - Wenn f"ur alle Ausdr"ucke, auf die EVAL angewendet wird, gezeigt
+     wird, da"s es Listen sind, deren erstes Element ein Symbol ist,
+     das eine Funktion benennt, dann k"onnen alle Aufrufe von EVAL
+     durch Aufrufe einer neuen Funktion specific-eval ersetzt werden.
+       (DEFUN specific-eval (e)
+         (APPLY (SYMBOL-FUNCTION (CAR e)) (APPLY #'specific-eval (CDR e)))).
+	 
+     Zur Migration von SYMBOL-FUNCTION siehe unten.
+
+   - Wenn EVAL auf ein Argument angewendet wird, das zu einem Symbol
+     evaluiert [ (EVAL arg) ], dann laesst es sich durch
+     (SYMBOL-VALUE arg) ersetzen.
+
+   - Wenn eine Variable x den Wert (QUOTE <s-expr>) hat, dann l"a"st
+     sich (eval x) durch (cadr x) ersetzen.
+
+   - Wenn eine Liste von Wahrheitwerten mittels AND oder OR verkn"upft
+     werden soll, dann kann dies nicht durch Code der Gestalt
+     (APPLY #'AND l) erreicht werden, da AND und OR Makros sind und
+     nur direkt als Operatoren verwendet werden d"urfen.
+     Als Ausweg w"ahlen unerfahrene Programmierer dann folgenden Code:
+     (EVAL `(AND ,@l)).
+     In diesem Fall sollte man allerdings die Standardfunktionen EVERY
+     und SOME verwenden. (APPLY #'AND l) = (EVERY #'IDENTITY l).
+
+--------------------------------------------------------------------------------
+Anwendung von APPLY oder FUNCALL auf Symbole als Funktionsbezeichner
+--------------------------------------------------------------------------------
+   Die Funktionen APPLY und FUNCALL k"onnen in CLtL2 und in CL0 nicht
+   auf Symbole angewendet werden. Symbole m"ussen mit einem
+   "Aquivalent der Funktion SYMBOL-FUNCTION in Funktionen umgewandelt
+   werden. Vgl. SYMBOL-FUNCTION.
+   F"ur andere Lisp Funktionen, die Funktionen als Argument erhalten
+   (mapcar, Sequence-Funktionen), ist entsprechend vorzugehen.
+
+   Wenn in einer Applikation vom Benutzer Symbole eingegeben werden,
+   die Funktionen benennen, dann erfolgt vor einem Aufruf mittels
+   APPLY gew"ohnlich eine "Uberpr"ufung auf die G"ultigkeit des Symbols.
+   Wenn die "Uberpr"ufung durch eine Abfrage der Form
+   (if (member sym '(sym1 sym2 ... sym_n)) (apply sym ...) (error "...")) 
+   erfolgt, dann kann dies einfach in folgende Form "uberf"uhrt
+   werden:
+   (let ((fun (assoc sym `((sym1 . ,#'fun1)
+                           (sym2 . ,#'fun2) ...
+			   (sym_n . ,#'fun_n)))))
+     (if fun (apply fun ...) (error "...")))
+
+--------------------------------------------------------------------------------
+Benutzung von SYMBOL-FUNCTION
+--------------------------------------------------------------------------------
+   Die Funktion SYMBOL-FUNCTION kann in CL0 nicht benutzt werden.
+   Stattdessen mu"s eine programmspezifische Funktion erstellt werden,
+   die die Umsetzung von Symbolen in die entsprechenden Funktionen
+   vornimmt. Das ist nur dann m"oglich, wenn bekannt ist, f"ur welche
+   die Umsetzung potentiell zur Laufzeit erfolgt.
+
+   Die Umsetzung kann beispielsweise durch eine Hash-Table
+   erfolgen.
+   (setq *sym-fun-hash* (make-hash-table))
+   (setf (gethash '+ *sym-fun-hash*) #'+)
+   (setf (gethash '- *sym-fun-hash*) #'-)
+   (setf (gethash '* *sym-fun-hash*) #'*)
+   (setf (gethash '/ *sym-fun-hash*) #'/)
+   (defun specific-symbol-function (s) (gethash s *sym-fun-hash*))
+
+--------------------------------------------------------------------------------
+Unbenannte Funktionen, Lambda-Ausdruecke
+--------------------------------------------------------------------------------
+   Unbenannte Funktionen k"onnen in CLtL2 und in CL0 nicht durch
+   Listen der Gestalt '(lambda (..) .. ) dargestellt werden. Sie
+   m"ussen durch #'(lambda (..) .. ) ersetzt werden. Es mu"s
+   sichergestellt werden, da"s die umbenannten Ausdr"ucke nicht als
+   Listen verwendet werden.
+
+--------------------------------------------------------------------------------
+Ausdruecke, die im interaktivem System variabel, bei
+Komplettkompilation aber konstant sind.
+--------------------------------------------------------------------------------
+   Ggf. ist es sinnvoll eine abstrakte Interpretation auf dem Programm
+   durchzufuehren, wenn in Abhaengigkeit der Ausdruecke anderweitig
+   problematische Konstrukte ausgefuehrt werden. 
+   Z.B.:
+
+           (defun interact-p ()
+             (boundp 'interpreter))
+                 
+           (if (interact-p)
+               (eval (read))
+               42) 
+
+   Wenn bekannt ist, dass INTERPRETER ungebunden ist, liefert INTERACT-P
+   immer den Wert false. Das Conditional laesst sich dann zu 42 vereinfachen,
+   obwohl der THEN-Zweig ein nicht migrierbares Konstrukt enthaelt.
+
+--------------------------------------------------------------------------------
+Aufruf von Funktionen der interaktiven Programmentwicklungsumgebung 
+--------------------------------------------------------------------------------
+   Aufrufe des Editors, das Laden von Programmen, des Debuggers usw. muessen
+   durch anwendungsspezifische Spezialfunktionen ersetzt werden. Ggf. ist zu 
+   bedenken, ob das Programm ueberhaupt sinnvoll migriert werden soll, oder 
+   lieber doch unter der Kontrolle eines Lisp-Systems ablaufen soll. 
+
+--------------------------------------------------------------------------------
+Anwendungen ohne Hauptprogramm
+--------------------------------------------------------------------------------
+   Oft haben CL-Anwendungen zwar eine Hauptfunktion, sie wird aber nicht im
+   Programm, sondern vom Benutzer durch das Lisp-System aufgerufen. 
+   Der aufruf der Hauptfunktion muss als Top-Level-Form an die migrierte
+   Anwendung angehaengt werden.
+
+--------------------------------------------------------------------------------
+Aufrufe von Makros vor ihrer Definition
+--------------------------------------------------------------------------------
+   Makros m"ussen vor ihrer ersten Verwendung definiert werden, da ein
+   Makroaufruf sonst f"alschlich wie ein Aufruf einer unbekannten
+   Funktion angesehen wird.
+   Gegebenenfalls m"ussen Makrodefinition an den Programmanfang
+   verschoben werden.

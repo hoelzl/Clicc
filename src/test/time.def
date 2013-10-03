@@ -1,0 +1,43 @@
+;;;-----------------------------------------------------------------------------
+;;; Project  : APPLY - A Practicable And Portable Lisp Implementation
+;;;            ------------------------------------------------------
+;;; Content  : Declarations of UNIX times function and clock-t, tms types
+;;;
+;;; $Revision: 1.1 $
+;;; $Log: time.def,v $
+;;; Revision 1.1  1994/06/23  15:11:53  hk
+;;; Initial revision
+;;;
+;;;-----------------------------------------------------------------------------
+
+;;;----------------------------------------------------------------------
+;;; typedef	long	clock_t;	/* units=ticks (typically 60/sec) */
+;;;
+;;;
+;;;struct tms {
+;;;	clock_t	tms_utime;		/* user time */
+;;;	clock_t	tms_stime;		/* system time */
+;;;	clock_t	tms_cutime;		/* user time, children */
+;;;	clock_t	tms_cstime;		/* system time, children */
+;;;}
+;;;
+;;;#ifndef	KERNEL
+;;;clock_t times(/* struct tms *tmsp */);
+;;;#endif
+;;;----------------------------------------------------------------------
+
+(foreign-package-name "FFI")
+
+(def-c-type clock-t c-long)
+(def-c-type tms
+	(c-struct 
+		(utime clock-t) 
+		(stime clock-t) 
+		(cutime clock-t) 
+		(cstime clock-t)))
+(def-call-out times 
+	:name "times" 
+	:arguments ((c-ptr tms))
+	:return-type clock-t)
+
+

@@ -1,0 +1,75 @@
+Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+           ------------------------------------------------------
+           Anmerkungen zur Modulkompilation
+
+$Revision: 1.1 $
+$Log: module.doc,v $
+# Revision 1.1  1993/06/15  09:11:02  hk
+# Initial revision
+#
+
+Keywords
+--------
+Es gibt ein Keyword-Package, aber kein Keyword-Modul. Deshalb kann
+jedes Modul definierende Vorkommen von Keywords enthalten. Es mu"s
+verhindert werden, da"s in zwei unabh"angigen Modulen m1 und m2, die
+von einem weiteren Modul importiert werden, das selbe Keyword zweimal
+definiert wird. Deshalb wird gefordert, da"s die Definition eines
+Keywords in einem Modul m1-2 erfolgen mu"s, wenn es sowohl in m1 als
+auch in m2 zum ersten mal (definierend) verwendet wird. m1-2 mu"s
+sowohl von m1 als uch von m2 importiert werden.
+
+Inline Funktionen
+-----------------
+Der Compiler hat spezielles Wissen "uber den zu generierenden C Code f"ur
+Aufrufe von Funktionen wie eq, cons, integerp etc. .
+F"uer diese Funktionen m"ussen auch Definitionen bereitgestellt werden
+f"ur den Fall, da"s sie als funktionales Objekt verwendet werden. 
+Die Definitionen k"onnten in C aufgeschrieben werden, dann h"atte man
+den Code jedoch zweimal zu warten: in der C-Datei und im Compiler.
+Deshalb ist es angenehm, die Definitionen in Lisp in der Form
+(defun cons (x y) (cons x y)) zu schreiben.
+Diese Definitionen sind in der Datei inline.lisp zusammengefa"st und
+werden von Compiler in einem besonderen Modus *inline-module*
+uebersetzt.  Im diesem Modus ist eine Redefinition von
+Systemfunktionen erlaubt, angewandte Vorkommen verweisen jedoch
+weiterhin auf die Systemfunktion. Weiterhin wird keine Modul
+Beschreibung (.syntax, .def Dateien) generiert, da dem Compiler die
+Funktionen schon bekannt sind. Die Datei inline.h wird von der Datei
+lisp.h included.
+
+Lisp Modul
+----------
+Das Lisp-Modul wird im Modus *lisp-module* "ubersetzt. Dieser Modus
+bewirkt, da"s die Modul Beschreibung f"ur das Lisp Modul nicht gelesen
+wird. Das Lisp Modul enth"alt neben Definitionen f"ur das Lisp Package
+auch Definitionen f"ur das Runtime Package. Die
+Initialisierungsfunktion des Lisp Moduls tr"agt die im Lisp Modul
+definierten Symbole erst am Ende der Initialisierung in das Lisp
+Package ein, da dann erst das Package System initialisiert ist.
+
+Makros, die Lisp Funktionen benutzen
+------------------------------------
+Bei der "Ubersetzung des Lisp Moduls sind die meisten Lisp Funktionen
+zun"achst weder als importierte noch als definierte Funktion bekannt.
+Bei der Makroexpansion m"ussen jedoch Lisp Funktionen, z.B. member,
+ausgef"uhrt werden. Deshalb enthalten die Zwischensprachdarstellungen
+von Makroexpansionsfunktionen den Typ function (des Wirts Lispsystems)
+zus"atzlich zu imported-fun und global-fun. 
+Dies gilt aus Effizienzgr"unden f"ur alle Vorkommen von Funktionen des Lisp
+Package in Makroexpansionsfunktionen, also nicht nur bei der
+"Ubersetzung des Lisp Moduls.
+
+System Modul
+------------
+Im System Modul sind die Symbole NIL und T definiert. Sie werden
+jedoch erst von der Initialisierungsfunktion des Lisp Moduls in das
+Lisp Package eingetragen.
+
+Initialisierung und Garbage Collection
+--------------------------------------
+Jedes Modul definiert eine Initialisierungsfunktion mit dem Namen
+"I<module-name>". Die Initialisierungsfunktion des Hauptmoduls hei"st
+"Imain". Das Hauptmodul definiert eine Funktion gc_main, die vom
+Garbage Collector aufgerufen wird und alle Symbole des Hauptmoduls und
+der importierten Module traversiert.

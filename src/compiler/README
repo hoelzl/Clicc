@@ -1,0 +1,53 @@
+-----------------------------------------------------------------------------
+ Copyright (C) 1993 Christian-Albrechts-Universitaet zu Kiel, Germany
+-----------------------------------------------------------------------------
+ Projekt  : APPLY - A Practicable And Portable Lisp Implementation
+            ------------------------------------------------------
+ Funktion : README for the directory src/compiler
+
+ $Revision: 1.4 $
+ $Id: README,v 1.4 1994/03/02 11:48:50 hk Exp $
+-----------------------------------------------------------------------------
+
+This directory contains the Common LIsp to C Compiler (CLiCC).
+--------------------------------------------------------------
+
+The file clcload.lisp is used to load CLiCC into an interactive lisp
+system.
+
+When you have loaded CLiCC into an interactive lisp system, you should
+type (compile-clicc) to get an compiled version of CLiCC for your lisp
+system.
+
+Compilation of lisp applications to C
+------------------------------------- 
+You must have installed the CLiCC runtime system, see ../../INSTALL.
+After loading the file clcload.lisp and compiling CLiCC, switch to the
+directory where you have placed your lisp application.  Type (clicc
+"<name>"), where <name> is the name of the file which loads and starts
+your application. If the compilation process is successful, you will
+get files <name>.c and <name>.h (*).  These files have to be compiled
+by a C compiler and linked with the CLiCC runtime system.  This will
+be done if you type cl <name>.c in a command shell. You will get a
+executable file named <name>. See ../../bin for details.
+
+CLiCC may be configured by global variables and / or keyword
+parameters in the call to the function clicc. Look at the definition
+of clicc in file clcload.lisp and at the variable descriptions in the
+files clcdef.lisp and config.lisp.
+
+
+Standalone version of CLiCC
+---------------------------
+The file clicc.lisp will be used to compile CLiCC by itself, which will
+generate an standalone version of CLiCC. This Program will be
+controlled by command line arguments. You should observe the note
+below, because the C code is quite large.
+
+(*) Note:
+---------
+The variable *C-max-line-count* controls the maximum length of the
+generated C files. Additional files <name1>.c, <name2.c>, ... are
+generated, if the line number exceeds the value of *C-max-line-count*.
+Type cl <name>.c <name1>.c <name2.c> to create an executable file
+<name> out of these C files.

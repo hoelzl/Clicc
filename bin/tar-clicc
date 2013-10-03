@@ -1,0 +1,57 @@
+#!/bin/sh
+#------------------------------------------------------------------------------
+# Projekt: APPLY - A Practicable And Portable Lisp Implementation
+#          ------------------------------------------------------
+# Function : tar CLiCC Release into archive ./clicc-xxx.tar
+#
+# $Source: /home3/apply/public/clicc-0.6.4/bin/RCS/tar-clicc,v $
+# $Author: hk $
+# $Revision: 1.2 $
+# $Date: 1994/01/04 08:48:24 $
+#------------------------------------------------------------------------------
+
+curdir=`pwd`
+
+# Determining the name of the release directory
+echo ";;; Changing working directory to $CLICCROOT"
+cd $CLICCROOT
+base=`/usr/bin/pwd`
+base=`basename $base`
+
+tarfile=$base.tar
+include=/tmp/tar-include$$
+exclude=/tmp/tar-exclude$$
+rm -f $include $exclude
+
+# Directories with extra files which are not RCS controled
+rtlc=$base/src/runtime/lisp2c
+lib=$base/lib
+doc=$base/doc
+
+# RCS controled files
+echo "Assembling list of RCS controled files"
+for dir in `tail +2 RCS-directories`; do
+ for file in `tail +2 $dir/RCS-files`; do
+  echo $base/$dir/$file >>$include
+ done
+done
+
+# Building the exlude list
+cd ..
+echo "Assembling list of files which will be excluded from the release"
+ls -d $base/bib $base/doc/*.tex $base/doc/*.fig >$exclude
+
+echo ";;; Assembling CLiCC source code release in directory `/usr/bin/pwd` ..."
+tar cvfX $curdir/$tarfile $exclude -I $include \
+ $lib/sys.h \
+ $doc/*.Z \
+ $rtlc/*.[ch] $rtlc/*.def $rtlc/*.syntax
+
+echo ";;; $curdir/$tarfile created."
+
+rm $include $exclude
+
+#-----------------------------------------------------------------
+echo ";;; Changing working directory back to $curdir"
+cd $curdir
+#-----------------------------------------------------------------
