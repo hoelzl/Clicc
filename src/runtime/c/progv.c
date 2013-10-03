@@ -9,10 +9,10 @@
  * $Revision: 1.7 $
  * $Log: progv.c,v $
  * Revision 1.7  1994/04/23  17:01:02  sma
- * STACK(base, x) -> ARG(x) sowie korrekte Prüfung auf konstante Symbole.
+ * STACK(base, x) -> ARG(x) sowie korrekte PrÃ¼fung auf konstante Symbole.
  *
  * Revision 1.6  1994/01/05  12:53:49  sma
- * Namensänderung: rt-progv-internal mit dem Präfix rt_ versehen und den
+ * NamensÃ¤nderung: rt-progv-internal mit dem PrÃ¤fix rt_ versehen und den
  * Postfix _internal entfernt. STACK(base,x) -> ARG(x)
  *
  * Revision 1.5  1993/06/16  14:43:22  hk

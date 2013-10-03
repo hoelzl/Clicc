@@ -8,16 +8,16 @@
  * $Revision: 1.26 $
  * $Log: system.c,v $
  * Revision 1.26  1994/05/18  15:22:45  sma
- * Anpassung für obrep2. INIT_FUN-Makro in memallot eingefügt, MALLOC und
- * HEAP_ALIGN entfernt. gc() geändert für Anpassung an neuen obrep2-gc.
+ * Anpassung fÃ¼r obrep2. INIT_FUN-Makro in memallot eingefÃ¼gt, MALLOC und
+ * HEAP_ALIGN entfernt. gc() geÃ¤ndert fÃ¼r Anpassung an neuen obrep2-gc.
  *
  * Revision 1.25  1994/01/26  10:13:27  sma
- * Verweis auf die Symbole NIL + T in Ssys gelöscht.
+ * Verweis auf die Symbole NIL + T in Ssys gelÃ¶scht.
  *
  * Revision 1.24  1994/01/06  13:48:41  hk
- * gc erhält nun eine Zeichen als zusätzliches Argument. Dieses Zeichen
+ * gc erhÃ¤lt nun eine Zeichen als zusÃ¤tzliches Argument. Dieses Zeichen
  * wird in der Garbage Colllection Meldung ausgegeben und zeigt an,
- * welche Speicheranforderung nicht erfüllt werden konnte:
+ * welche Speicheranforderung nicht erfÃ¼llt werden konnte:
  * o = form, x = fixnum, c = char, b = bit, l = float
  *
  * Revision 1.23  1993/12/16  16:40:44  pm
@@ -25,7 +25,7 @@
  * benotigt, und muss deswegen einen Wert zurueckgeben.
  *
  * Revision 1.22  1993/12/09  15:17:53  sma
- * swap_bits eingefügt zur garbage collection von bit-vectors.
+ * swap_bits eingefÃ¼gt zur garbage collection von bit-vectors.
  * STACK(base, xxx) -> ARG(xxx)
  *
  * Revision 1.21  1993/11/12  13:05:20  sma
@@ -38,10 +38,10 @@
  * Unbenutzte Funktion list_alloc gestrichen.
  *
  * Revision 1.18  1993/10/14  15:46:01  sma
- * Alles Objektrepäsentative nach obrepX.c ausgelagert.
+ * Alles ObjektrepÃ¤sentative nach obrepX.c ausgelagert.
  *
  * Revision 1.17  1993/09/07  17:14:33  sma
- * gc_symbols verändert.
+ * gc_symbols verÃ¤ndert.
  *
  * Revision 1.16  1993/07/28  15:05:28  hk
  * Bug in char_alloc behoben: das abschliessende 0 Character wurde nicht
@@ -317,7 +317,7 @@ long num;
 {
    char *new_location = (char *)fx_toh;
 
-   /* Auf nächstens Vielfaches von sizeof(long) runden */
+   /* Auf nÃ¤chstens Vielfaches von sizeof(long) runden */
    /* ANNAHME: sizeof(long) ist 2er Potenz! */
    num = ((num + sizeof(long)-1 + 1) & ~(sizeof(long)-1)) / sizeof(long);
 
@@ -335,8 +335,8 @@ long num;
 {
    double *new_location = fl_toh;
 
-   /* ACHTUNG: wenn mehrere Referenzen auf eine Fließkommazahl existieren, */
-   /* dann wird die Zahl mehrmals kopiert ! --> evtl. Überlauf während */
+   /* ACHTUNG: wenn mehrere Referenzen auf eine FlieÃŸkommazahl existieren, */
+   /* dann wird die Zahl mehrmals kopiert ! --> evtl. Ãœberlauf wÃ¤hrend */
    /* der GC */
    /*--------*/
    if(fl_toh + num >= fl_eoh)

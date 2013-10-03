@@ -23,23 +23,23 @@
 ;;; Annotation export-id fuer den Export von Funktionsruempfen eingefuehrt.
 ;;;
 ;;; Revision 1.139  1994/02/21  09:56:52  ft
-;;; Änderungen an Klassen und gen. Funktionen für die Modulübersetzung.
+;;; Ã„nderungen an Klassen und gen. Funktionen fÃ¼r die ModulÃ¼bersetzung.
 ;;;
 ;;; Revision 1.138  1994/02/08  13:16:14  sma
 ;;; init-form -> initform; Annotation my-last-arg-may-be-rest-var bei
-;;; funs, die angibt, daß das letzte Argument der hiermit annotierten
+;;; funs, die angibt, daÃŸ das letzte Argument der hiermit annotierten
 ;;; Funktion auch ein rest-listen Parameter sein kann. Die Annotation
-;;; enthält in diesem Falle den Namen (als Keyword) ihrer Funktion.
+;;; enthÃ¤lt in diesem Falle den Namen (als Keyword) ihrer Funktion.
 ;;;
 ;;; Revision 1.137  1994/02/03  07:57:42  hk
-;;; :raw t bei :has-funs-as-args hinzugefügt.
+;;; :raw t bei :has-funs-as-args hinzugefÃ¼gt.
 ;;;
 ;;; Revision 1.136  1994/02/02  09:15:56  hk
-;;; :raw Slot-Optionen eingefügt. Einige Slots in Subklassen von fun
+;;; :raw Slot-Optionen eingefÃ¼gt. Einige Slots in Subklassen von fun
 ;;; verschoben, z.B. used nach defined fun.
 ;;;
 ;;; Revision 1.135  1994/01/06  17:31:32  sma
-;;; Neuen Slot need-no-stack in imported-fun eingefügt. Dient dazu, in der
+;;; Neuen Slot need-no-stack in imported-fun eingefÃ¼gt. Dient dazu, in der
 ;;; Codegeneration mehr COPY-Befehle einzusparen. Siehe log message von
 ;;; 1.45 von cgfuns.
 ;;;
@@ -113,7 +113,7 @@
 ;;;
 ;;; Revision 1.115  1993/08/17  13:39:57  hk
 ;;; In slot-desc und class-def den Typ des Slots symbol auf
-;;; (or sym symbol) gesetzt, weil in Pass1 zunächst Symbole darin eingetragen
+;;; (or sym symbol) gesetzt, weil in Pass1 zunÃ¤chst Symbole darin eingetragen
 ;;; werden.
 ;;;
 ;;; Revision 1.114  1993/08/04  17:06:40  hk
@@ -169,8 +169,8 @@
 ;;; anders geloest ist.
 ;;;
 ;;; Revision 1.101  1993/06/09  12:13:47  ft
-;;; Änderung des Typs des Symbol-Slots in fun geändert, damit auch
-;;; extended function designators abgelegt werden können.
+;;; Ã„nderung des Typs des Symbol-Slots in fun geÃ¤ndert, damit auch
+;;; extended function designators abgelegt werden kÃ¶nnen.
 ;;;
 ;;; Revision 1.100  1993/06/08  08:22:16  kl
 ;;; Slot result-type-env fuer einen weiteren Typinferenzlevel eingefuehrt.
@@ -756,7 +756,7 @@
 ;;------------------------------------------------------------------------------
 (defzws null-form (simple-literal))
 
-;; Hier könnte defconstant stehen, dann müßte man jedoch eine Methode für
+;; Hier kÃ¶nnte defconstant stehen, dann mÃ¼ÃŸte man jedoch eine Methode fÃ¼r
 ;; make-load-form schreiben und das ist in vielen Lisps noch nicht (richtig)
 ;; definiert
 ;;----------
@@ -833,9 +833,9 @@
   (order  :initform 0 :type integer))   ; def. totale Ordnung auf Klassen
 
 ;;------------------------------------------------------------------------------
-;; Die Annotation export-goals enthält eine Liste von keywords, welche die
-;; Verwendungsmöglichkeiten von exportierten Klassen einschränken. Gültige
-;; Einträge in diese Liste sind:
+;; Die Annotation export-goals enthÃ¤lt eine Liste von keywords, welche die
+;; VerwendungsmÃ¶glichkeiten von exportierten Klassen einschrÃ¤nken. GÃ¼ltige
+;; EintrÃ¤ge in diese Liste sind:
 ;; :full-subclassable :full-instanceable :full-specializable
 ;; :shadow-specializable
 ;;------------------------------------------------------------------------------
@@ -1068,7 +1068,7 @@
   (weight-c-inline :initform nil :raw t)
   (c-inline        :initform nil :raw t)
   (special-caller  :initform nil :raw t)
-  (need-no-stack :raw t                 ; Codegeneration: Fkt verändert höchstns
+  (need-no-stack :raw t                 ; Codegeneration: Fkt verÃ¤ndert hÃ¶chstns
    :initform nil :type bool)            ; eigene Paramter auf Lisp-Stack
   (type-abstraction-function            ; Bildet Argumenttypen auf Resultattypen
    :initform nil :raw t                 ; ab.

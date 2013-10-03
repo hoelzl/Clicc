@@ -19,9 +19,9 @@
 ;;; $Log: cgconst.lisp,v $
 ;;; Revision 1.59  1994/05/22  15:03:31  sma
 ;;; Die neue globale Variable *OBREP* regelt die Art der
-;;; Datenrepräsentation. Sie ist auf 1 für die bisherige Datenrepräsenatation
-;;; gesetzt. Die Anpassungen beziehen sich auf die Größe von CONS-Zellen
-;;; und die Codeerzeugung für FIXNUMs und FLOATs.
+;;; DatenreprÃ¤sentation. Sie ist auf 1 fÃ¼r die bisherige DatenreprÃ¤senatation
+;;; gesetzt. Die Anpassungen beziehen sich auf die GrÃ¶ÃŸe von CONS-Zellen
+;;; und die Codeerzeugung fÃ¼r FIXNUMs und FLOATs.
 ;;;
 ;;; Revision 1.58  1994/04/29  10:59:32  hk
 ;;; Der exported Slot eines Symbols kann auch den Wert 'inline haben. Nur
@@ -32,27 +32,27 @@
 ;;; Sorry.
 ;;;
 ;;; Revision 1.56  1994/04/28  10:07:16  sma
-;;; Auskommentiere Programmteile gelöscht; falsche Kommentar-Bilder
-;;; gelöscht; C-const-t und CC-const-t gelöscht; C-integer, C-float und
-;;; C-character geändert, das 3. Argument stacktop generiert wird; statt
+;;; Auskommentiere Programmteile gelÃ¶scht; falsche Kommentar-Bilder
+;;; gelÃ¶scht; C-const-t und CC-const-t gelÃ¶scht; C-integer, C-float und
+;;; C-character geÃ¤ndert, das 3. Argument stacktop generiert wird; statt
 ;;; CL_INIT2(x) wird wieder `CL_INIT x =' erzeugt; Erzeugung von
 ;;; statischen konstanten String und Floats abstrahiert.
 ;;;
 ;;; Revision 1.55  1994/01/26  13:35:28  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.54  1994/01/21  16:49:38  ft
 ;;; Behelfskorrektur an *SECRET-UNBOUND-SLOT-VALUE*.
 ;;;
 ;;; Revision 1.53  1994/01/21  08:20:06  ft
-;;; Änderung der Zwischensprachrepr. des Werts unbound für Slots.
+;;; Ã„nderung der Zwischensprachrepr. des Werts unbound fÃ¼r Slots.
 ;;;
 ;;; Revision 1.52  1994/01/21  08:13:30  sma
-;;; Erneute Änderung der Symbolrepräsentation (letzte Änderung war keine
+;;; Erneute Ã„nderung der SymbolreprÃ¤sentation (letzte Ã„nderung war keine
 ;;; so gute Idee)
 ;;;
 ;;; Revision 1.51  1994/01/13  16:34:56  sma
-;;; Änderung der Symbol-Repräsentation.
+;;; Ã„nderung der Symbol-ReprÃ¤sentation.
 ;;;
 ;;; Revision 1.50  1993/12/09  14:05:35  sma
 ;;; Verwendet jetzt MAKE_CONSREF statt MAKE_LIST.
@@ -65,10 +65,10 @@
 ;;;
 ;;; Revision 1.47  1993/09/06  16:51:49  sma
 ;;; Statt direkt CL-INIT-Strukturen zu erzeugen werden MAKE_* Makros
-;;; generiert. Siehe für deren Implementierung obrep?.h.
+;;; generiert. Siehe fÃ¼r deren Implementierung obrep?.h.
 ;;;
 ;;; Revision 1.46  1993/08/26  09:32:42  hk
-;;; C-const-string verändert, daß keine Problem mehr mit
+;;; C-const-string verÃ¤ndert, daÃŸ keine Problem mehr mit
 ;;; CALL-ARGUMENTS-LIMIT auftreten. CCC-character kann jetzt auch \ooo
 ;;; Zeichen und Umlaute ausgeben.
 ;;;
@@ -113,13 +113,13 @@
 ;;; Keine Warnings ueber uninterned Symbols im Lisp Modul.
 ;;;
 ;;; Revision 1.34  1993/06/17  12:47:44  ft
-;;; Codeerzeugung für Klassen ohne Slots korrigiert.
+;;; Codeerzeugung fÃ¼r Klassen ohne Slots korrigiert.
 ;;;
 ;;; Revision 1.33  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt
 ;;;
 ;;; Revision 1.32  1993/05/22  10:35:20  ft
-;;; Erweiterung um Codeerzeugung für globale Funktionen in konstanten Daten.
+;;; Erweiterung um Codeerzeugung fÃ¼r globale Funktionen in konstanten Daten.
 ;;;
 ;;; Revision 1.31  1993/05/08  18:46:52  hk
 ;;; (cg-form structured-literal) korrigiert, Methoden fuer sym, class-def,
@@ -234,14 +234,14 @@
 (in-package "CLICC")     
 
 ;;------------------------------------------------------------------------------
-;; Datenrepräsentationsverfahren (Objekt-Repräsentation)
+;; DatenreprÃ¤sentationsverfahren (Objekt-ReprÃ¤sentation)
 ;;------------------------------------------------------------------------------
-(defvar *OBREP* 1)                      ; 1, 2 oder 3 möglich
+(defvar *OBREP* 1)                      ; 1, 2 oder 3 mÃ¶glich
 (defconstant min-smallfixnum -1000)     ; Bereich der vordefinierten 
 (defconstant max-smallfixnum  1000)     ; Konstanten bei Obrep = 2
 
 ;;------------------------------------------------------------------------------
-;; Code für den Zugriff auf `Literale' generieren
+;; Code fÃ¼r den Zugriff auf `Literale' generieren
 ;;------------------------------------------------------------------------------
 (defmethod cg-form ((form sym))
   (case *result-spec*
@@ -641,7 +641,7 @@
     (T (cond ((graphic-char-p c) (string c))
              (T (let ((code (char-code c))
                       (*print-base* 8))
-                  ;; Ausgabe in oktal, 3 Zeichen breit, mit führenden Nullen
+                  ;; Ausgabe in oktal, 3 Zeichen breit, mit fÃ¼hrenden Nullen
                   ;;--------------------------------------------------------
                   (concatenate 'string "\\" (format nil "~3,'0o" code))))))))
 
@@ -864,8 +864,8 @@
    (?named-const-base *module*)))
 
 ;;------------------------------------------------------------------------------
-;; Die folgenden Funktionen werden nur für OBREP = 2 benötigt und bauen
-;; Tabellen mit den zusätzlichen Datenstrukturen für Fixnums und Floats auf
+;; Die folgenden Funktionen werden nur fÃ¼r OBREP = 2 benÃ¶tigt und bauen
+;; Tabellen mit den zusÃ¤tzlichen Datenstrukturen fÃ¼r Fixnums und Floats auf
 ;;------------------------------------------------------------------------------
 (defvar extrafixnum-table)
 (defvar extrafixnum-name)

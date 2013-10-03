@@ -8,7 +8,7 @@
 ;;; $Revision: 1.95 $
 ;;; $Log: clcload.lisp,v $
 ;;; Revision 1.95  1994/05/22  15:05:45  sma
-;;; Neuer Key "obrep" mit dem die Datenrepräsenation eingestellt werden
+;;; Neuer Key "obrep" mit dem die DatenreprÃ¤senation eingestellt werden
 ;;; kann.
 ;;;
 ;;; Revision 1.94  1994/05/19  07:57:22  pm
@@ -24,7 +24,7 @@
 ;;;
 ;;; Revision 1.91  1994/02/02  09:36:39  hk
 ;;; printzs wird nicht geladen, da es sich (noch) nicht mit raw Slots
-;;; verträgt.
+;;; vertrÃ¤gt.
 ;;;
 ;;; Revision 1.90  1994/01/05  13:23:58  hk
 ;;; Vorkommen von *init-system* entfernt.
@@ -37,9 +37,9 @@
 ;;; pcl:class-direct-superclasses
 ;;;
 ;;; Revision 1.87  1993/12/16  15:21:53  hk
-;;; Rücksetzen des gensym-counter von clcload nach clcmain, damit es auch
-;;; bei dem standalone CLiCC wirkt und man möglichst gleiche Symbole
-;;; erhält.
+;;; RÃ¼cksetzen des gensym-counter von clcload nach clcmain, damit es auch
+;;; bei dem standalone CLiCC wirkt und man mÃ¶glichst gleiche Symbole
+;;; erhÃ¤lt.
 ;;;
 ;;; Revision 1.86  1993/12/15  15:38:00  hk
 ;;; Variablen *SPLIT-FILES* und *ONLY-PASS1* werden von ask-runtime
@@ -48,8 +48,8 @@
 ;;; durch *SPLIT-FILES* auftreten k"onnen.
 ;;;
 ;;; Revision 1.85  1993/12/15  12:55:06  hk
-;;; Änderungen von pm in r1.83 rückgängig gemacht, werden in der nächsten
-;;; Version wieder hinzugefügt.
+;;; Ã„nderungen von pm in r1.83 rÃ¼ckgÃ¤ngig gemacht, werden in der nÃ¤chsten
+;;; Version wieder hinzugefÃ¼gt.
 ;;;
 ;;; Revision 1.84  1993/12/14  14:05:21  hk
 ;;; setf und file-position werden nicht mehr von lisp nach clicc-lisp
@@ -60,21 +60,21 @@
 ;;;
 ;;; Revision 1.82  1993/12/06  16:37:21  hk
 ;;; Initialisierung der Variablen *C-max-line-count* und *SPLIT-FILES*
-;;; nach clcdef. Änderung der Paramterliste der Funktion clicc, so daß die
+;;; nach clcdef. Ã„nderung der Paramterliste der Funktion clicc, so daÃŸ die
 ;;; Parameter an globale Variablen zugewiesen werden und nicht mehr
 ;;; gebunden werden. Dadurch wird das manuelle Aufrufen einzelner
 ;;; Compilerphasen erleichtert. Die Werte gewisser Optionen werden dadurch
-;;; beim nächsten Aufruf als Defaultwert genommen.
+;;; beim nÃ¤chsten Aufruf als Defaultwert genommen.
 ;;;
 ;;; Revision 1.81  1993/11/29  10:03:32  uho
 ;;; Initialisierung der Pfadnamen wird nun in der Funktion
 ;;; 'setup-clcload-pathes' vorgenommen, diese auf top-level aufgerufen.
 ;;;
 ;;; Revision 1.80  1993/11/09  12:42:10  hk
-;;; Es wird nun (gensym 0) und (setq *gensym-counter* 1) ausgeführt.
+;;; Es wird nun (gensym 0) und (setq *gensym-counter* 1) ausgefÃ¼hrt.
 ;;;
 ;;; Revision 1.79  1993/11/08  11:26:47  hk
-;;; Fehlendes (require "config") eingefügt.
+;;; Fehlendes (require "config") eingefÃ¼gt.
 ;;;
 ;;; Revision 1.78  1993/11/08  11:16:05  hk
 ;;; Initialisierung von *CLICC-PATH-STRING* gestrichen, geschieht in
@@ -124,7 +124,7 @@
 ;;; Definition von require fuer CMU-CL V.16f geaendert.
 ;;;
 ;;; Revision 1.64  1993/07/22  09:05:02  pm
-;;; Weitere Typen fuer das FFI eingefügt
+;;; Weitere Typen fuer das FFI eingefÃ¼gt
 ;;;
 ;;; Revision 1.63  1993/06/22  12:49:28  uho
 ;;; Absolute Output-Pfade fuer do-inline-module und do-lisp-module
@@ -769,7 +769,7 @@
   (setq *INLINE-MODULE*    inline-module)
 
   ;; Durch die Zuweisung werden die aktuellen Einstellungen zum Defaultwert
-  ;; für den nächsten Aufruf
+  ;; fÃ¼r den nÃ¤chsten Aufruf
   ;;------------------------
   (setq *SHOW-VERSION*     verbose)
   (setq *CLICC-PRINT*      print)

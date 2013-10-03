@@ -9,19 +9,19 @@
 ;;; $Log: p1decls.lisp,v $
 ;;; Revision 1.17  1994/02/21  10:02:19  ft
 ;;; Proklamation von Klassen als INSTANCEABLE, SUBCLASSABLE und
-;;; SPECIALIZABLE ermˆglicht.
+;;; SPECIALIZABLE erm√∂glicht.
 ;;;
 ;;; Revision 1.16  1994/02/08  13:28:35  hk
 ;;; name2fun nach p1env
 ;;;
 ;;; Revision 1.15  1994/02/08  13:16:40  sma
-;;; Annotation my-last-arg-may-be-rest-var bei funs, die angibt, daﬂ das
+;;; Annotation my-last-arg-may-be-rest-var bei funs, die angibt, da√ü das
 ;;; letzte Argument der hiermit annotierten Funktion auch ein rest-listen
-;;; Parameter sein kann. Die Annotation enth‰lt in diesem Falle den Namen
+;;; Parameter sein kann. Die Annotation enth√§lt in diesem Falle den Namen
 ;;; (als Keyword) ihrer Funktion.
 ;;;
 ;;; Revision 1.14  1994/02/02  09:22:05  hk
-;;; Bearbeitung von CLiCC-spezifischen Deklarationen eingef¸gt, mit denen
+;;; Bearbeitung von CLiCC-spezifischen Deklarationen eingef√ºgt, mit denen
 ;;; angegeben werden kann, wie Funktionen des Laufzeitsystems optimiert
 ;;; werden sollen.
 ;;;

@@ -17,7 +17,7 @@
  * STACK(base, x) -> ARG(x) und "int mv_args" entfernt.
  *
  * Revision 1.6  1993/07/06  11:12:48  sma
- * OFFSET-Makro eingeführt
+ * OFFSET-Makro eingefÃ¼hrt
  *
  * Revision 1.5  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.

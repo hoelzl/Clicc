@@ -22,7 +22,7 @@
 ;;; die Namen keine uninterned Symbols sein.
 ;;;
 ;;; Revision 1.43  1994/06/10  12:31:15  jh
-;;; *max-inline-weight* wegen der Änderung in weight.lisp auf 30 gesetzt.
+;;; *max-inline-weight* wegen der Ã„nderung in weight.lisp auf 30 gesetzt.
 ;;;
 ;;; Revision 1.42  1994/06/10  10:45:00  hk
 ;;; Kein gentemp mehr verwendet, um bei verschiedenen Compiler-L"aufen
@@ -62,16 +62,16 @@
 ;;; Inlining importierter Funktionen eingebaut.
 ;;;
 ;;; Revision 1.32  1994/02/08  11:25:28  sma
-;;; Überflüssiges `"' gelöscht.
+;;; ÃœberflÃ¼ssiges `"' gelÃ¶scht.
 ;;;
 ;;; Revision 1.31  1994/02/08  11:09:22  sma
-;;; Neue Funktion clicc-message-line zeichnet die übliche Trennline.
+;;; Neue Funktion clicc-message-line zeichnet die Ã¼bliche Trennline.
 ;;;
 ;;; Revision 1.30  1994/02/01  15:20:21  hk
 ;;; make-instance 'xxx --> make-xxx
 ;;;
 ;;; Revision 1.29  1994/02/01  11:32:36  hk
-;;; zs-cp (fun): nur bei defined-fun den used Slot erhöhen.
+;;; zs-cp (fun): nur bei defined-fun den used Slot erhÃ¶hen.
 ;;;
 ;;; Revision 1.28  1994/01/31  13:53:23  hk
 ;;; inline-app-p ist nur dann wahr, wenn eine definierte Funktion
@@ -79,12 +79,12 @@
 ;;; :raw Slot stecken.
 ;;;
 ;;; Revision 1.27  1994/01/21  13:23:12  sma
-;;; max-inline-weight von 25 auf 35 erhöht.
+;;; max-inline-weight von 25 auf 35 erhÃ¶ht.
 ;;;
 ;;; Revision 1.26  1994/01/10  08:52:41  hk
 ;;; write-inline-statistics: (apply #'+ (mapcar #'cdr *inline-statistics*))
-;;; führt zu Problemen, wenn *inline-statistics* mehr als
-;;; lambda-paramerts-limit Elemente enthält.  Stattdessen reduce verwendet.
+;;; fÃ¼hrt zu Problemen, wenn *inline-statistics* mehr als
+;;; lambda-paramerts-limit Elemente enthÃ¤lt.  Stattdessen reduce verwendet.
 ;;;
 ;;; Revision 1.25  1993/09/29  08:09:57  jh
 ;;; Fehler in keywords-ok-p behoben.
@@ -102,7 +102,7 @@
 ;;;
 ;;; Revision 1.21  1993/08/04  17:10:00  hk
 ;;; Unbekannter Seiteneffekt in read- und write-list wird jetzt durch -1
-;;; und nicht mehr durch :UNKNOWN ausgedrückt.
+;;; und nicht mehr durch :UNKNOWN ausgedrÃ¼ckt.
 ;;;
 ;;; Revision 1.20  1993/07/26  14:35:39  wg
 ;;; Lokale Funktionen in Methoden fuer CMU global definiert.

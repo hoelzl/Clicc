@@ -9,20 +9,20 @@
  * $Revision: 1.13 $
  * $Log: hash.c,v $
  * Revision 1.13  1994/04/28  09:47:43  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergänzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergÃ¤nzt.
  *
  * Revision 1.12  1994/04/23  16:47:33  sma
- * hash() umgeschrieben, so daß keine Länge mehr übergeben werden muß.
+ * hash() umgeschrieben, so daÃŸ keine LÃ¤nge mehr Ã¼bergeben werden muÃŸ.
  *
  * Revision 1.11  1994/01/24  16:29:02  sma
  * combine-hash jetzt in LISP implementiert.
  *
  * Revision 1.10  1994/01/05  12:48:26  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen.
  *
  * Revision 1.9  1993/12/09  15:08:05  sma
- * string-hash und sxhash-simple-string gelöscht und in Lisp
+ * string-hash und sxhash-simple-string gelÃ¶scht und in Lisp
  * programmiert. sxhash-string funktioniert jetzt nur noch mit
  * simple-strings statt mit beliebigen strings. STACK(base, xxx) ->
  * ARG(xxx)

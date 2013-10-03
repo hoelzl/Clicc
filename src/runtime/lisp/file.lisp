@@ -19,7 +19,7 @@
 ;;; In read-char den Defaultwert von eof-error-p zu T korrigiert.
 ;;;
 ;;; Revision 1.11  1993/11/01  16:05:01  hk
-;;; Falschen Kommentar gelöscht.
+;;; Falschen Kommentar gelÃ¶scht.
 ;;;
 ;;; Revision 1.10  1993/08/17  10:25:22  hk
 ;;; Open benutzt nun namestring, um das Argument in einen String zu

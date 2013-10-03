@@ -7,7 +7,7 @@
 ;;; $Revision: 1.20 $
 ;;; $Log: testmain.lisp,v $
 ;;; Revision 1.20  1993/12/12  18:03:23  sma
-;;; Tests für Arrays eingebunden (neue Datei arrays.lisp).
+;;; Tests fÃ¼r Arrays eingebunden (neue Datei arrays.lisp).
 ;;;
 ;;; Revision 1.19  1993/05/11  14:20:43  kl
 ;;; Test fuer die Seiteneffektanalyse wieder eingebunden.

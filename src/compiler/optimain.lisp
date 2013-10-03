@@ -24,18 +24,18 @@
 ;;; erhalten.
 ;;;
 ;;; Revision 1.19  1994/02/02  09:33:36  hk
-;;; Statistik an die Änderungen in simplifier angepaßt.
+;;; Statistik an die Ã„nderungen in simplifier angepaÃŸt.
 ;;; Weigt wird nur bestimmt, wenn Inlining angeschaltet ist.
 ;;;
 ;;; Revision 1.18  1994/01/26  14:22:55  sma
-;;; Änderung (von jh) damit auf ohne Optimierungen die Funcalls von
-;;; inline-compilierten setf-funs aufgelöst werden.
+;;; Ã„nderung (von jh) damit auf ohne Optimierungen die Funcalls von
+;;; inline-compilierten setf-funs aufgelÃ¶st werden.
 ;;;
 ;;; Revision 1.17  1994/01/15  22:01:46  kl
 ;;; Liste der Statistikmeldungen erweitert.
 ;;;
 ;;; Revision 1.16  1994/01/14  14:32:43  sma
-;;; Neuer Text für Optimierung von mehr- in 2-stellige Funktionen ergänzt.
+;;; Neuer Text fÃ¼r Optimierung von mehr- in 2-stellige Funktionen ergÃ¤nzt.
 ;;;
 ;;; Revision 1.15  1993/11/26  12:24:38  jh
 ;;; Statistik erweitert (equal-to-eql).
@@ -47,7 +47,7 @@
 ;;; Statistik erweitert.
 ;;;
 ;;; Revision 1.12  1993/10/15  10:40:42  hk
-;;; optimize-parts (progn-form) geht nun davon aus, daß form-list nicht
+;;; optimize-parts (progn-form) geht nun davon aus, daÃŸ form-list nicht
 ;;; leer ist.
 ;;;
 ;;; Revision 1.11  1993/10/08  18:16:42  kl

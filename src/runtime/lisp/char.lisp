@@ -17,14 +17,14 @@
 ;;; Typtest auc character in rt::char= und rt::char/= eingef"ugt.
 ;;;
 ;;; Revision 1.10  1994/02/02  09:40:25  hk
-;;; Deklaration :simp-when-n-args bei char-... Funktionen eingefügt.
+;;; Deklaration :simp-when-n-args bei char-... Funktionen eingefÃ¼gt.
 ;;;
 ;;; Revision 1.9  1994/01/14  09:19:32  sma
 ;;; Character-Funktionen neu geschrieben. Mehr Lisp, weniger C. Im C-Teil
-;;; befinden sich nur noch die zeichensatzabhängigen Funktionen.
+;;; befinden sich nur noch die zeichensatzabhÃ¤ngigen Funktionen.
 ;;;
 ;;; Revision 1.8  1994/01/05  12:44:12  sma
-;;; Namensänderung: rt::*-internal -> rt::*
+;;; NamensÃ¤nderung: rt::*-internal -> rt::*
 ;;; name-char ist jetzt Lisp-Funktion.
 ;;;
 ;;; Revision 1.7  1993/06/16  15:20:38  hk
@@ -210,7 +210,7 @@
     (setq char c)))
 
 ;;------------------------------------------------------------------------------
-;; dito für case-insensitive Vergleiche
+;; dito fÃ¼r case-insensitive Vergleiche
 ;;------------------------------------------------------------------------------
 (defun rt::char-equal (a b)
   (= (char-code (char-upcase a)) (char-code (char-upcase b))))

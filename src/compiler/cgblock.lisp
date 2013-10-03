@@ -8,7 +8,7 @@
 ;;; $Revision: 1.18 $
 ;;; $Log: cgblock.lisp,v $
 ;;; Revision 1.18  1994/01/07  11:36:41  hk
-;;; In cg-app(cont) für das Zwischenergebnis bei einem nichtlokalen Sprung
+;;; In cg-app(cont) fÃ¼r das Zwischenergebnis bei einem nichtlokalen Sprung
 ;;; (stacktop-result-location) statt (stacktop-location) verwendet.
 ;;;
 ;;; Revision 1.17  1993/09/09  09:59:50  uho

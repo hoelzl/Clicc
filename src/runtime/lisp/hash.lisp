@@ -8,7 +8,7 @@
 ;;; $Revision: 1.13 $
 ;;; $Log: hash.lisp,v $
 ;;; Revision 1.13  1994/01/24  16:25:13  sma
-;;; combine-hash jetzt in LISP implementiert. (Kommentare verschönert)
+;;; combine-hash jetzt in LISP implementiert. (Kommentare verschÃ¶nert)
 ;;;
 ;;; Revision 1.12  1993/12/09  17:04:02  sma
 ;;; default-hashtable-size ist jetzt 53. hash-string ist jetzt eine neue
@@ -25,7 +25,7 @@
 ;;; Fehler in (setf gethash) behoben.
 ;;;
 ;;; Revision 1.8  1993/06/09  15:13:01  hk
-;;; ceiling bei der Berechnung der neuen Größe eingefügt.
+;;; ceiling bei der Berechnung der neuen GrÃ¶ÃŸe eingefÃ¼gt.
 ;;;
 ;;; Revision 1.7  1993/06/09  14:02:00  hk
 ;;; :rehash-threshold hat immer Wert vom Typ (float 0.0 1.0).

@@ -24,7 +24,7 @@
 ;;; Ausnahmetest in sfc-class auf nil erweitert.
 ;;;
 ;;; Revision 1.17  1994/01/26  13:52:23  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.16  1993/11/18  14:49:28  pm
 ;;; Methode fuer sfc-form ueber foreign-funs
@@ -34,11 +34,11 @@
 ;;;
 ;;; Revision 1.14  1993/10/18  10:36:35  hk
 ;;; Fehler bei der Brechnung des Slots called-by von Funktionen behoben.
-;;; Code umgestellt und übersichtlicher gestaltet.
+;;; Code umgestellt und Ã¼bersichtlicher gestaltet.
 ;;;
 ;;; Revision 1.13  1993/10/15  13:03:52  hk
-;;; Die Analyse lieferte zu unpräzise Resultate und analysierte einige
-;;; Knoten unvollständig. Diese Unzulänglichkeiten bzw. Fehler wurden behoben.
+;;; Die Analyse lieferte zu unprÃ¤zise Resultate und analysierte einige
+;;; Knoten unvollstÃ¤ndig. Diese UnzulÃ¤nglichkeiten bzw. Fehler wurden behoben.
 ;;; Den Code besser strukturiert und kommentiert.
 ;;;
 ;;; Revision 1.12  1993/08/31  09:28:28  uho
@@ -89,7 +89,7 @@
   (mapc #'sfc-class (?class-def-list *module*)))
 
 ;;------------------------------------------------------------------------------
-;; Die Variable enthält
+;; Die Variable enthÃ¤lt
 ;; - die Applikation, deren Slot form gerade analysiert wird, oder
 ;; - das Symbol 'no-caller, wenn das Resultat des Ausdrucks nicht als
 ;;   Funktion aufgerufen wird oder

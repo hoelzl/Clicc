@@ -25,14 +25,14 @@
 ;;; simp-when-no-result, simp-when-arg-n=cons,
 ;;; simp-when-some-arg-not-cons/pathn/string/bitv,
 ;;; simp-when-some-arg-not-num/char, simp-when-only-test=value und
-;;; simp-test-fun-when-not-testnot eingefügt.
-;;; Spezialbehandlung für car, aref, assoc etc. entfernt.
+;;; simp-test-fun-when-not-testnot eingefÃ¼gt.
+;;; Spezialbehandlung fÃ¼r car, aref, assoc etc. entfernt.
 ;;;
 ;;; Revision 1.17  1994/01/15  22:03:41  kl
-;;; Substitutionen für car -> %car, usw. eingebaut.
+;;; Substitutionen fÃ¼r car -> %car, usw. eingebaut.
 ;;;
 ;;; Revision 1.16  1994/01/14  14:32:10  sma
-;;; Optimierung für char=, char<, etc eingebaut. Ein 2-stelliger Aufruf
+;;; Optimierung fÃ¼r char=, char<, etc eingebaut. Ein 2-stelliger Aufruf
 ;;; wird in eine spezielle rt-Variante konvertiert.
 ;;;
 ;;; Revision 1.15  1993/12/03  12:48:20  jh
@@ -330,7 +330,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; (f ...) --> (f-opt ...),
-;; wenn das Resultat des Anwendung nicht benötigt wird.
+;; wenn das Resultat des Anwendung nicht benÃ¶tigt wird.
 ;; z.B. (progn (mapcar ..) ..) --> (progn (mapc ..) ..)
 ;;------------------------------------------------------------------------------
 (defun simp-when-no-result (app f-opt)

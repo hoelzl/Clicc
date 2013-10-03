@@ -18,14 +18,14 @@
  * $Revision: 1.11 $
  * $Log: file.c,v $
  * Revision 1.11  1994/04/28  09:45:38  sma
- * LOAD_CFILE, LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument erg‰nzt.
+ * LOAD_CFILE, LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument erg√§nzt.
  *
  * Revision 1.10  1994/01/13  16:41:13  sma
- * STACK(base, x) -> ARG(x). Eine Typcasts eingef¸gt, damit chars mit
- * code > 128 korrekt verarbeit werden. Quelltext verschˆnert.
+ * STACK(base, x) -> ARG(x). Eine Typcasts eingef√ºgt, damit chars mit
+ * code > 128 korrekt verarbeit werden. Quelltext versch√∂nert.
  *
  * Revision 1.9  1993/10/13  16:54:29  sma
- * Da LOAD_CFILE zu einem Block expandieren kann, muﬂ es bei if/then/else
+ * Da LOAD_CFILE zu einem Block expandieren kann, mu√ü es bei if/then/else
  * in { } stehen.
  *
  * Revision 1.8  1993/06/16  14:43:22  hk

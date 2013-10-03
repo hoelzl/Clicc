@@ -15,19 +15,19 @@
  * Alle anderen funktionen werden jetzt inline-compiliert.
  *
  * Revision 1.11  1994/01/13  16:42:48  sma
- * Quelltext verschönert, Funktionen vereinfacht. (Funktionen sind jetzt
+ * Quelltext verschÃ¶nert, Funktionen vereinfacht. (Funktionen sind jetzt
  * bereit, nach gcinline verschoben zu werden.)
  *
  * Revision 1.10  1994/01/05  12:55:16  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen und den Postfix _internal entfernt. STACK(base,x) -> ARG(x)
  *
  * Revision 1.9  1993/10/14  12:56:46  sma
- * new-struct-internal gestrichen, dafür new-struct von lisp nach C
+ * new-struct-internal gestrichen, dafÃ¼r new-struct von lisp nach C
  * verschoben und 2x TYPE_OF durch CL_STRUCTP ersetzt.
  *
  * Revision 1.8  1993/07/06  13:21:02  sma
- * OFFSET-Makro eingeführt.
+ * OFFSET-Makro eingefÃ¼hrt.
  *
  * Revision 1.7  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.

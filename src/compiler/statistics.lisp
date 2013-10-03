@@ -10,7 +10,7 @@
 ;;; $Revision: 1.36 $
 ;;; $Log: statistics.lisp,v $
 ;;; Revision 1.36  1994/02/08  11:13:21  sma
-;;; Neue Funktion clicc-message-line zeichnet die übliche Trennline.
+;;; Neue Funktion clicc-message-line zeichnet die Ã¼bliche Trennline.
 ;;;
 ;;; Revision 1.35  1993/10/08  21:28:01  kl
 ;;; Debugmeldung entfernt.

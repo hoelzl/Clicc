@@ -11,12 +11,12 @@
  * Kosmetik.
  *
  * Revision 1.15  1994/01/05  12:47:42  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen und den Postfix _internal entfernt. STACK(base,x) -> ARG(x)
  *
  * Revision 1.14  1993/09/13  11:51:20  sma
- * Fehler in Längenangaben von Arrays, Vectoren und Instanzen beseitigt
- * durch Einführen des SET_AR_SIZE-Makros.
+ * Fehler in LÃ¤ngenangaben von Arrays, Vectoren und Instanzen beseitigt
+ * durch EinfÃ¼hren des SET_AR_SIZE-Makros.
  *
  * Revision 1.13  1993/08/30  15:45:41  sma
  * Syntaxfehler korrigiert
@@ -36,10 +36,10 @@
  * instancep benutzt jetzt ein C-Makro.
  *
  * Revision 1.8  1993/07/14  08:53:40  ft
- * Änderung der Parameterreihenfolge in instance-ref/set.
+ * Ã„nderung der Parameterreihenfolge in instance-ref/set.
  *
  * Revision 1.7  1993/07/06  16:16:38  sma
- * OFFSET-Makro eingeführt.
+ * OFFSET-Makro eingefÃ¼hrt.
  *
  * Revision 1.6  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.

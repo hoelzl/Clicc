@@ -17,8 +17,8 @@
 ;;; defined- und imported-named-consts werden jetzt unterschieden.
 ;;;
 ;;; Revision 1.29  1993/11/30  08:15:49  hk
-;;; Fehlermeldung für undefinierte Funktionen bei Makroexpansion
-;;; verschönert
+;;; Fehlermeldung fÃ¼r undefinierte Funktionen bei Makroexpansion
+;;; verschÃ¶nert
 ;;;
 ;;; Revision 1.28  1993/07/02  11:31:59  ft
 ;;; Anpassung an die geaenderte Definition von p1-named-lambda.

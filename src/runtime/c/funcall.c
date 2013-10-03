@@ -9,10 +9,10 @@
  * $Revision: 1.13 $
  * $Log: funcall.c,v $
  * Revision 1.13  1994/05/18  15:19:04  sma
- * Makros für Zugriff auf funktionale Objekte nach obrepX verlagert.
+ * Makros fÃ¼r Zugriff auf funktionale Objekte nach obrepX verlagert.
  *
  * Revision 1.12  1994/02/03  17:34:08  sma
- * Änderungen für Optimierung von &rest-Paramtern.
+ * Ã„nderungen fÃ¼r Optimierung von &rest-Paramtern.
  *
  * Revision 1.11  1994/01/25  15:15:21  sma
  * STACK(base, x) -> ARG(x)

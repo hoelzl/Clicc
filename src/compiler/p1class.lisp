@@ -8,12 +8,12 @@
 ;;; $Revision: 1.63 $
 ;;; $Log: p1class.lisp,v $
 ;;; Revision 1.63  1994/02/21  10:04:42  ft
-;;; Parameterprüfung in p1-defclass erweitert; Neue Funktion
+;;; ParameterprÃ¼fung in p1-defclass erweitert; Neue Funktion
 ;;; export-classes zur Vorbereitung von Klassen auf das Exportieren hin
-;;; zugefügt.
+;;; zugefÃ¼gt.
 ;;;
 ;;; Revision 1.62  1994/01/26  13:36:53  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.61  1994/01/21  16:51:15  ft
 ;;; Zweite Behelfskorrektur an *SECRET-UNBOUND-SLOT-VALUE*.
@@ -22,7 +22,7 @@
 ;;; Behelfskorrektur an *SECRET-UNBOUND-SLOT-VALUE*.
 ;;;
 ;;; Revision 1.59  1994/01/21  08:25:00  ft
-;;; Änderung der Zwischensprachrepr. des Werts unbound für Slots von einem
+;;; Ã„nderung der Zwischensprachrepr. des Werts unbound fÃ¼r Slots von einem
 ;;; String zu einem Symbol (unintern).
 ;;;
 ;;; Revision 1.58  1993/12/14  12:27:25  hk
@@ -67,13 +67,13 @@
 ;;; Das Compiler-Flag *OPTIMIZE* wird jetzt beachtet.
 ;;;
 ;;; Revision 1.47  1993/07/14  08:52:50  ft
-;;; Anpassung an die geänderten Parameter von instance-ref/set.
+;;; Anpassung an die geÃ¤nderten Parameter von instance-ref/set.
 ;;;
 ;;; Revision 1.46  1993/06/29  11:40:48  ft
 ;;; Ungenutzte Variable in compute-class-precedence-list entfernt.
 ;;;
 ;;; Revision 1.45  1993/06/26  14:22:55  ft
-;;; Kommentare und Fehlermeldungen verschönt.
+;;; Kommentare und Fehlermeldungen verschÃ¶nt.
 ;;;
 ;;; Revision 1.44  1993/06/26  14:18:00  ft
 ;;; Meldung beim Finalisieren von built-in's,
@@ -88,10 +88,10 @@
 ;;; Copright Notiz eingefuegt
 ;;;
 ;;; Revision 1.41  1993/06/16  15:04:53  ft
-;;; an diversen Stellen L:: eingefügt.
+;;; an diversen Stellen L:: eingefÃ¼gt.
 ;;;
 ;;; Revision 1.40  1993/06/16  11:31:45  ft
-;;; parser-function für defclass-parameter überarbeitet.
+;;; parser-function fÃ¼r defclass-parameter Ã¼berarbeitet.
 ;;;
 ;;; Revision 1.39  1993/05/22  11:59:55  ft
 ;;; Neue bessere und viel richtigere Verarbeitung von Slot-Initforms.
@@ -730,9 +730,9 @@
 
          ;;---------------------------------------------------------------------
          ;; generate-accessor-methods: Erzeuge die Slot-Zugriffs-Methoden
-         ;;                            Diese müssen auch Typtests enthalten
+         ;;                            Diese mÃ¼ssen auch Typtests enthalten
          ;;                            (mittels THE) damit die primitiven
-         ;;                            Zugriffsf. darauf verzichten können.
+         ;;                            Zugriffsf. darauf verzichten kÃ¶nnen.
          ;;---------------------------------------------------------------------
          (generate-accessor-methods ()
            (when (queue2list (?class-def-list *module*))

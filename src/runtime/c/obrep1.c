@@ -3,7 +3,7 @@
  *------------------------------------------------------------------------------
  * Projekt  : APPLY - A Practicable And Portable Lisp Implementation
  *            ------------------------------------------------------
- * Funktion : obrep1.c - datenrepräsentationsspezifisch
+ * Funktion : obrep1.c - datenreprÃ¤sentationsspezifisch
  *
  * $Revision: 1.10 $
  * $Log: obrep1.c,v $
@@ -11,7 +11,7 @@
  * forwaertsreferenz auf save_form eingefuegt.
  *
  * Revision 1.9  1994/05/18  15:20:18  sma
- * Anpassung für obrep2.
+ * Anpassung fÃ¼r obrep2.
  *
  * Revision 1.8  1994/05/05  14:40:34  uho
  * In 'goto begin; break;'-Folgen das break geloescht, da es Warnungen
@@ -27,19 +27,19 @@
  * new-struct und struct-size.
  *
  * Revision 1.5  1994/01/21  13:31:45  sma
- * Erneute Änderung der Symbolrepräsentation und somit auch des
- * entsprechenden Codes zur Garbage-Collection. Änderug für neue
- * Repräsentation von #<unbound>.
+ * Erneute Ã„nderung der SymbolreprÃ¤sentation und somit auch des
+ * entsprechenden Codes zur Garbage-Collection. Ã„nderug fÃ¼r neue
+ * ReprÃ¤sentation von #<unbound>.
  *
  * Revision 1.4  1994/01/13  16:41:33  sma
- * Änderung der Symbol-Repräsentation.
+ * Ã„nderung der Symbol-ReprÃ¤sentation.
  *
  * Revision 1.3  1993/12/09  15:12:25  sma
- * Neuer Garbage-collector für neue Repräsentation der arrays. Ist besser
+ * Neuer Garbage-collector fÃ¼r neue ReprÃ¤sentation der arrays. Ist besser
  * kommentiert, optimiert und vermeidet konsequent tail-end-Rekursionen.
  *
  * Revision 1.2  1993/10/29  15:19:41  sma
- * Änderung wegen neuer Verwaltung von Array-Dimensionen.
+ * Ã„nderung wegen neuer Verwaltung von Array-Dimensionen.
  *
  * Revision 1.1  1993/10/14  15:42:33  sma
  * Initial revision
@@ -115,7 +115,7 @@ CL_FORM *form;
  begin:
    switch (TYPE_OF(form))
    {
-      /* keine Garbage-Collection nötig */
+      /* keine Garbage-Collection nÃ¶tig */
       /*--------------------------------*/
    case CL_FIXNUM:
    case CL_CHAR:
@@ -157,7 +157,7 @@ CL_FORM *form;
       
       /* Annahmen:
        * o Der initialisierte Konstantenbereich wird bereits zur
-       *   Übersetzungszeit alloziert.
+       *   Ãœbersetzungszeit alloziert.
        * o Nicht initialisierte Arrays werden erst zur Laufzeit alloziert.
        * o Zur Laufzeit allozierte Speicherbereiche liegen adressenmaessig
        *   oberhalb des Programms.
@@ -172,7 +172,7 @@ CL_FORM *form;
       if (FO_WRONG_HEAPq(fptr))
          Labort ("Unexpected pointer in wrong heap.");
 
-      /* Wenn Vorwärtsreferenz, dann Datum schon kopiert. */
+      /* Wenn VorwÃ¤rtsreferenz, dann Datum schon kopiert. */
       if (TYPE_OF(fptr) == GC_FORWARD)
       {
          GET_FORM(form) = GET_FORM(fptr); /* Neue Adresse eintragen */
@@ -198,7 +198,7 @@ CL_FORM *form;
          save_form(CAR(fptr));
 
          /* Dann den CDR weiterverfolgen.
-          * Durch das goto wird eine unnötige Rekursion vermieden. */
+          * Durch das goto wird eine unnÃ¶tige Rekursion vermieden. */
          form = CDR(fptr);
          goto begin;
 
@@ -232,7 +232,7 @@ CL_FORM *form;
          form = fptr + OFF_SYM_VALUE;
          goto begin;
 
-         /* Garbage-Collection von Simple-Vector und ähnlichem */
+         /* Garbage-Collection von Simple-Vector und Ã¤hnlichem */
          /*----------------------------------------------------*/
       case CL_STRUCT:
          size = AR_SIZE(fptr) + 1;
@@ -259,7 +259,7 @@ CL_FORM *form;
          LOAD_FORWARD(form_toh, fptr);
          fptr = form_toh;       /* Zeiger auf neuen Header */
          form_toh += 2;
-         /* Vektor mit FIXNUM-Repräsentation kopieren. */
+         /* Vektor mit FIXNUM-ReprÃ¤sentation kopieren. */
          FIXNUM_AR(fptr) = fx_swap(FIXNUM_AR(fptr), AR_SIZE(fptr));
          break;
       case CL_SMVEC_FLOAT:
@@ -293,7 +293,7 @@ CL_FORM *form;
          LOAD_FORWARD(form_toh, fptr);
          fptr = form_toh;       /* Zeiger auf neuen Header */
          form_toh += 2;
-         /* Vektor mit Bitvektor-Repräsentation kopieren. */
+         /* Vektor mit Bitvektor-ReprÃ¤sentation kopieren. */
          BIT_AR(fptr) = bits_swap(BIT_AR(fptr), AR_SIZE(fptr));
          break;
          

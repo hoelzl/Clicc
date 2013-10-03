@@ -11,10 +11,10 @@
 ;;; Erzeugung eines GLOB_FUNARGs durch Makroaufruf abstrahiert.
 ;;;
 ;;; Revision 1.33  1994/02/08  13:54:21  sma
-;;; Änderungen für Optimierung von &rest-Paramtern.
+;;; Ã„nderungen fÃ¼r Optimierung von &rest-Paramtern.
 ;;;
 ;;; Revision 1.32  1994/02/03  17:30:27  sma
-;;; Änderungen für Optimierung von &rest-Paramtern.
+;;; Ã„nderungen fÃ¼r Optimierung von &rest-Paramtern.
 ;;;
 ;;; Revision 1.31  1993/12/09  14:04:42  sma
 ;;; CC-Stack erzeugt jetzt ARG(xxx) statt STACK(base, xxx).
@@ -447,8 +447,8 @@
 (defun C-MVToStack (N Offset)
   (C-MacroCall "MV_TO_STACK" N Offset))
 ;;------------------------------------------------------------------------------
-;; Eine Anweisung, die bei der ersten Ausführung keinen Effekt hat und bei
-;; allen nachfolgenden Ausführungen die Ausgeführung der aktuellen Funktion
+;; Eine Anweisung, die bei der ersten AusfÃ¼hrung keinen Effekt hat und bei
+;; allen nachfolgenden AusfÃ¼hrungen die AusgefÃ¼hrung der aktuellen Funktion
 ;; abbricht.
 ;;------------------------------------------------------------------------------
 (defun C-only-once ()

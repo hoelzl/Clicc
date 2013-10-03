@@ -22,7 +22,7 @@
 ;;; rt:struct-type in LISP implementiert.
 ;;;
 ;;; Revision 1.10  1994/01/13  16:46:31  sma
-;;; setf-Methoden statt set-*. Sourcecode verschönert/einfacher
+;;; setf-Methoden statt set-*. Sourcecode verschÃ¶nert/einfacher
 ;;; programmiert.
 ;;;
 ;;; Revision 1.9  1993/10/14  13:09:36  sma
@@ -66,7 +66,7 @@
    rt::included-struct) "RT")
 
 ;;------------------------------------------------------------------------------
-;; Für Fehlermeldungen
+;; FÃ¼r Fehlermeldungen
 ;;------------------------------------------------------------------------------
 (defconstant NO_STRUCT "~S is not a structure of type ~S")
 

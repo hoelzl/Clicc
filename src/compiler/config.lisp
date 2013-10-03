@@ -15,7 +15,7 @@
 ;;; 'setup-clicc-pathenames' vorgenommen, diese auf top-level aufgerufen.
 ;;;
 ;;; Revision 1.17  1993/11/08  11:10:54  hk
-;;; Sonderbehandlung für *CLICC-PATH-STRING* in CLISP entfernt.
+;;; Sonderbehandlung fÃ¼r *CLICC-PATH-STRING* in CLISP entfernt.
 ;;;
 ;;; Revision 1.16  1993/08/31  09:32:43  uho
 ;;; Aenderungen fuer die 22Aug93 Version von CLISP eingefuegt.

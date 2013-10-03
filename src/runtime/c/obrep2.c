@@ -3,7 +3,7 @@
  *------------------------------------------------------------------------------
  * Projekt  : APPLY - A Practicable And Portable Lisp Implementation
  *            ------------------------------------------------------
- * Funktion : obrep2.c - datenrepr‰sentationsspezifisch
+ * Funktion : obrep2.c - datenrepr√§sentationsspezifisch
  *
  * $Revision: 1.8 $
  * $Log: obrep2.c,v $
@@ -18,7 +18,7 @@
  * Fehler in gc_relocate bezeitigt. Ausserdem Wrong-Heap test eingebaut.
  *
  * Revision 1.5  1994/05/18  15:20:57  sma
- * Komplett neu geschrieben. Funktionsf‰hig bis auf
+ * Komplett neu geschrieben. Funktionsf√§hig bis auf
  * foreign-function-Datentypen.
  *
  * Revision 1.4  1994/02/18  12:11:00  uho
@@ -272,7 +272,7 @@ void gc_scan_newheap()
 /*============================================================================*/
 
 /*------------------------------------------------------------------------------
- * Konstruktor-Funktionen f¸r einfache Daten
+ * Konstruktor-Funktionen f√ºr einfache Daten
  *----------------------------------------------------------------------------*/
 CL_FORM nil_ob, unbound_ob;
 CL_FORM char_ob[256];

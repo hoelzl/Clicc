@@ -12,7 +12,7 @@
 ;;; defined- und imported-named-consts werden jetzt unterschieden.
 ;;;
 ;;; Revision 1.25  1994/02/21  09:55:07  ft
-;;; Anpassung von PO-STANDARD an die Änderungen an Klassen und ge.
+;;; Anpassung von PO-STANDARD an die Ã„nderungen an Klassen und ge.
 ;;; Funktionen.
 ;;;
 ;;; Revision 1.24  1994/01/05  10:13:02  kl

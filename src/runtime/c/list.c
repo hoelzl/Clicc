@@ -9,16 +9,16 @@
  * $Log: list.c,v $
  * Revision 1.11  1994/04/28  09:49:49  sma
  * Umgeschrieben, damit der Aufbau einer CONS-Zelle mehr abstrahiert
- * wird. Auﬂerdem Fappend optimiert.
+ * wird. Au√üerdem Fappend optimiert.
  *
  * Revision 1.10  1994/01/05  12:51:03  sma
- * STACK(base, x) -> ARG(x). raw-list-length und simple-assoc gelˆscht.
- * raw-list-length wird nicht mehr benˆtigt, simple-assoc ist (endg¸ltig)
+ * STACK(base, x) -> ARG(x). raw-list-length und simple-assoc gel√∂scht.
+ * raw-list-length wird nicht mehr ben√∂tigt, simple-assoc ist (endg√ºltig)
  * in Lisp implementiert.
  *
  * Revision 1.9  1993/09/19  18:13:22  sma
  * raw-list-length ist jetzt eine C-Funktion, und so deutlich schneller.
- * simple-assoc ist jetzt eine C-Funktion f¸r (assoc item alist :test #'eq)
+ * simple-assoc ist jetzt eine C-Funktion f√ºr (assoc item alist :test #'eq)
  * und deutlich schneller als die (allgemeine) Lisp-Variante. Wenn assoc
  * nur auf Symbolen arbeitet und so ein eq-Vergleich ausreicht, bitte
  * diesen explizit angeben. Dann wird diese Funktion aufgerufen.
@@ -123,7 +123,7 @@ LISP_FUN_NARGS(Fappend)
    case 1:                      /* (APPEND arg) = arg */
       return;
    default:
-      /* Gesamtlistenl‰nge der ersten  N - 1 Argumente bestimmen */
+      /* Gesamtlistenl√§nge der ersten  N - 1 Argumente bestimmen */
       /*---------------------------------------------------------*/
       nargs--;
       for(i = 0; i < nargs; i++) 
@@ -135,7 +135,7 @@ LISP_FUN_NARGS(Fappend)
             Lerror(ARG(i), No_list);
       }
       
-      /* Liste leer, letztes Argument zur¸ckgeben */
+      /* Liste leer, letztes Argument zur√ºckgeben */
       /*------------------------------------------*/
       if(list_len == 0)
       {
@@ -149,7 +149,7 @@ LISP_FUN_NARGS(Fappend)
 
       for (lp1 = lptr, i = 0; i < nargs; i++)
       {
-         if (CL_CONSP(ARG(i))) /* nur CONS oder NIL mˆglich */
+         if (CL_CONSP(ARG(i))) /* nur CONS oder NIL m√∂glich */
          {
             for (lp2 = ARG(i); CL_CONSP(lp2); lp2 = GET_CDR(lp2))
             {
@@ -160,7 +160,7 @@ LISP_FUN_NARGS(Fappend)
             }
          }
       }
-      /* Anh‰ngen der Restliste */
+      /* Anh√§ngen der Restliste */
       /*------------------------*/
       COPY(ARG(i), CDR(lp1 - CONS_SIZE));
       LOAD_CONS(lptr, ARG(0));

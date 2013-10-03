@@ -42,7 +42,7 @@
 ;;; inkonsistenzen in den Symbolnamen behoben.
 ;;;
 ;;; Revision 1.21  1993/12/09  10:23:09  hk
-;;; Fehler in write2 für Vectoren behoben.
+;;; Fehler in write2 fÃ¼r Vectoren behoben.
 ;;;
 ;;; Revision 1.20  1993/12/06  16:13:06  hk
 ;;; Fehler in write2 behoben, Test auf structp nach pathnamep etc.
@@ -67,7 +67,7 @@
 ;;; Erweiterung um die Ausgabe fuer C-Strukturen
 ;;;
 ;;; Revision 1.13  1993/07/14  08:52:33  ft
-;;; Anpassung an die geänderten Parameter von instance-ref/set.
+;;; Anpassung an die geÃ¤nderten Parameter von instance-ref/set.
 ;;;
 ;;; Revision 1.12  1993/06/16  15:20:38  hk
 ;;;  Copyright Notiz eingefuegt.

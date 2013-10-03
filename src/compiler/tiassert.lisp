@@ -15,7 +15,7 @@
 ;;; Anpassungen an den erweiterten Typverband vorgenommen.
 ;;;
 ;;; Revision 1.16  1994/01/26  19:16:29  kl
-;;; Typisierung der Typprädikate erweitert.
+;;; Typisierung der TypprÃ¤dikate erweitert.
 ;;;
 ;;; Revision 1.15  1993/12/09  10:34:05  hk
 ;;; provide wieder an das Dateiende
@@ -184,7 +184,7 @@
   (dec-typepred-assertion L::pathname-p       pathname-t     not-pathname-t)
 
   ;;----------------------------------------------------------------------------
-  ;; Typdeklaration für car- und cdr-Zugriffe auf Listen
+  ;; Typdeklaration fÃ¼r car- und cdr-Zugriffe auf Listen
   ;;----------------------------------------------------------------------------
   (dec-type-assertion L::car    #'car-type-assertion)
   (dec-type-assertion L::caar   #'car-type-assertion)

@@ -15,10 +15,10 @@
 ;;; - Finalisieren der FFtypes eingebaut.
 ;;;
 ;;; Revision 1.82  1994/02/21  09:59:37  ft
-;;; Aufruf von export-classes in p1-end hinzugefügt.
+;;; Aufruf von export-classes in p1-end hinzugefÃ¼gt.
 ;;;
 ;;; Revision 1.81  1994/02/09  14:01:49  hk
-;;; Zusätzliche Packages RT und FFI für das *lisp-moduke* werden erst in
+;;; ZusÃ¤tzliche Packages RT und FFI fÃ¼r das *lisp-moduke* werden erst in
 ;;; p1-end und nicht schon in init-pass1 in den Slot package-list des
 ;;; Moduls eingetragen, damit die Initialisierungsfunktion des Lisp Moduls
 ;;; *package* auf das Lisp-Package setzt.
@@ -27,14 +27,14 @@
 ;;; Fehler im Formatstring der Fehlermeldung in pass_1-of-file behoben.
 ;;;
 ;;; Revision 1.79  1994/02/02  12:37:48  hk
-;;; (require "p1compmac") entfernt, da nicht mehr benötigt.
+;;; (require "p1compmac") entfernt, da nicht mehr benÃ¶tigt.
 ;;;
 ;;; Revision 1.78  1994/02/01  11:26:30  hk
-;;; Fehlermeldung in pass_1-of-file verschönert.
+;;; Fehlermeldung in pass_1-of-file verschÃ¶nert.
 ;;; make-instance 'global-fun -> make-global-fun, wg. raw slots
 ;;;
 ;;; Revision 1.77  1993/12/22  12:04:12  hk
-;;; Packages müssen auch initailiert werden, wenn das Modul keine Symbole
+;;; Packages mÃ¼ssen auch initailiert werden, wenn das Modul keine Symbole
 ;;; definiert.
 ;;;
 ;;; Revision 1.76  1993/11/30  16:51:25  sma

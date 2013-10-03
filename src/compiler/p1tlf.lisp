@@ -37,7 +37,7 @@
 ;;; Inkonsistenzen in den Symbolnamen behoben.
 ;;;
 ;;; Revision 1.97  1993/10/06  11:15:23  hk
-;;; Bei Applikationen lokaler Funktionen wird nun geprüft, ob die
+;;; Bei Applikationen lokaler Funktionen wird nun geprÃ¼ft, ob die
 ;;; aktuellen zu den formalen Parametern passen.
 ;;;
 ;;; Revision 1.96  1993/08/26  12:18:24  hk

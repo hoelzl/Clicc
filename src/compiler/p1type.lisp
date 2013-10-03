@@ -8,14 +8,14 @@
 ;;; $Revision: 1.30 $
 ;;; $Log: p1type.lisp,v $
 ;;; Revision 1.30  1993/12/14  13:01:29  sma
-;;; Vorhandensein des neuen Typtests rt::plain-vector-p ausgenutzt für
+;;; Vorhandensein des neuen Typtests rt::plain-vector-p ausgenutzt fÃ¼r
 ;;; Test auf (simple-array * (*)).
 ;;;
 ;;; Revision 1.29  1993/12/09  14:22:17  sma
 ;;; simple-vectorp und simple-stringp in simple-vector-p (dito string)
 ;;; korrigiert, desweiteren wird jetzt auf simple-vector-p auch bei
 ;;; (simple-array T (*)) statt (simple-array * (*)) optimiert (dito
-;;; string). Außerdem einige Leerzeilen am Ende gelöscht.
+;;; string). AuÃŸerdem einige Leerzeilen am Ende gelÃ¶scht.
 ;;;
 ;;; Revision 1.28  1993/11/09  11:52:05  hk
 ;;; Fehler in p1-type-expand behoben: (eq 1 ...) --> (eql 1 ...)

@@ -26,7 +26,7 @@
 ;;;
 ;;; Revision 1.20  1994/01/05  13:15:30  hk
 ;;; In cg-call-in-interface #+CMU17(declare (notinline C-blockend))
-;;; eingefügt, um einen Fehler in CMU-CL 17.c zu umgehen
+;;; eingefÃ¼gt, um einen Fehler in CMU-CL 17.c zu umgehen
 ;;;
 ;;; Revision 1.19  1993/12/17  11:16:41  pm
 ;;; Fehler behoben: get_c_string statt GET_C_STRING aufrufen

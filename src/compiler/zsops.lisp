@@ -14,7 +14,7 @@
 ;;; Neue Funktion mapc-tagged-form-list.
 ;;;
 ;;; Revision 1.4  1993/10/14  11:50:59  hk
-;;; Kommentar zu mapc-tagged-form-list erg‰nzt
+;;; Kommentar zu mapc-tagged-form-list erg√§nzt
 ;;;
 ;;; Revision 1.3  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt

@@ -28,7 +28,7 @@
  * lisp.h mit eingelesen, um Prototypen von Lisp-Funktionen bekanntzumachen.
  *
  * Revision 1.17  1994/01/24  16:41:52  sma
- * Definitiond der Symbole T und NIL gelöscht. Passiert jetzt `erst' im
+ * Definitiond der Symbole T und NIL gelÃ¶scht. Passiert jetzt `erst' im
  * LISP-Modul.
  *
  * Revision 1.16  1994/01/21  13:30:38  sma
@@ -36,22 +36,22 @@
  * ist der bescheidene Rest.
  *
  * Revision 1.15  1994/01/13  16:43:26  sma
- * Änderungen an Funktionen für symbols. Mehr Lisp, weniger C.
- * rt::(set)-struct-ref-internal heißt jetzt rt::structure-ref. Die
+ * Ã„nderungen an Funktionen fÃ¼r symbols. Mehr Lisp, weniger C.
+ * rt::(set)-struct-ref-internal heiÃŸt jetzt rt::structure-ref. Die
  * set-Variante wird jetzt mit setf definiert.
  *
  * Revision 1.14  1994/01/05  12:55:50  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen und den Postfix _internal entfernt.
  *
  * Revision 1.13  1993/12/09  17:26:03  sma
- * CL_INIT2-Makros. STACK(base, xxx) -> ARG(xxx). Neu eingerückt.
+ * CL_INIT2-Makros. STACK(base, xxx) -> ARG(xxx). Neu eingerÃ¼ckt.
  *
  * Revision 1.12  1993/09/07  17:19:04  sma
- * MAKE_-Makros eingeführt und setup_symbols_iterator verändert.
+ * MAKE_-Makros eingefÃ¼hrt und setup_symbols_iterator verÃ¤ndert.
  *
  * Revision 1.11  1993/07/06  12:32:50  sma
- * OFFSET-Makro eingeführt.
+ * OFFSET-Makro eingefÃ¼hrt.
  *
  * Revision 1.10  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.
@@ -102,13 +102,13 @@ LISP_FUN(rt_make_symbol)
 {
    CL_FORM *sym = form_alloc(ARG(1), SYM_SIZE);
 
-   INIT_SYMBOL(sym, ARG(0));  /* benötigt name in ARG(1) */
+   INIT_SYMBOL(sym, ARG(0));  /* benÃ¶tigt name in ARG(1) */
    LOAD_SYMBOL(sym, ARG(0));
 }
 
 /*------------------------------------------------------------------------------
  * RT::SETUP-SYMBOLS-ITERATOR first-sym package-vector
- * Wendet setup-symbol auf alle zur Übersetzungszeit definierten
+ * Wendet setup-symbol auf alle zur Ãœbersetzungszeit definierten
  * Symbole eines Moduls an.
  *----------------------------------------------------------------------------*/
 LISP_FUN(rt_setup_symbols_iterator)

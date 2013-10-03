@@ -12,7 +12,7 @@
  * Konstanten.
  *
  * Revision 1.2  1994/04/28  09:46:23  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument erg‰nzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument erg√§nzt.
  *
  * Revision 1.1  1994/01/21  15:10:38  ft
  * Initial revision

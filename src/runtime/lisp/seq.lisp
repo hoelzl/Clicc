@@ -10,7 +10,7 @@
 ;;; Revision 1.36  1994/02/09  14:16:27  hk
 ;;; Keyword Parameter in {remove|delete}-if-[not] gestrichen, da die
 ;;; Rest-Liste an eine Funktion weitergereicht wird, die die Keyword
-;;; Parameter Zuordnung und Prüfung vornimmt.
+;;; Parameter Zuordnung und PrÃ¼fung vornimmt.
 ;;;
 ;;; Revision 1.35  1994/02/08  13:19:25  sma
 ;;; :my-last-arg-may-be-rest-var bei length.
@@ -20,7 +20,7 @@
 ;;; internen Funktionen nach vector-length aus array.lisp verlagert.
 ;;;
 ;;; Revision 1.33  1993/12/09  16:53:41  sma
-;;; length verändert, C-funktion raw-list-length wird nicht mehr benutzt.
+;;; length verÃ¤ndert, C-funktion raw-list-length wird nicht mehr benutzt.
 ;;;
 ;;; Revision 1.32  1993/12/07  15:36:53  ft
 ;;; fehlende lokale Variable result in list-find hinzugefuegt
@@ -36,8 +36,8 @@
 ;;; Ueberfluessige Klammer-Zu in subseq geloescht.
 ;;;
 ;;; Revision 1.28  1993/09/28  16:25:23  hk
-;;; subseq für Listen optimiert: verwendet nicht mehr length, prüft die
-;;; Argumente nicht mehr so genau auf Zulässigkeit.
+;;; subseq fÃ¼r Listen optimiert: verwendet nicht mehr length, prÃ¼ft die
+;;; Argumente nicht mehr so genau auf ZulÃ¤ssigkeit.
 ;;;
 ;;; Revision 1.27  1993/09/16  14:24:48  sma
 ;;; raw-list-length ist jetzt eine C-Funktion ist list.c
@@ -73,7 +73,7 @@
 ;;; NREVERSE optimiert.
 ;;;
 ;;; Revision 1.16  1993/07/06  13:17:37  ft
-;;; Rückwärts-find auf Listen optimiert, die Optimierungen arbeiten
+;;; RÃ¼ckwÃ¤rts-find auf Listen optimiert, die Optimierungen arbeiten
 ;;; jetzt auch auf NIL.
 ;;;
 ;;; Revision 1.15  1993/07/06  08:03:59  ft
@@ -83,7 +83,7 @@
 ;;; REVERSE optimiert.
 ;;;
 ;;; Revision 1.13  1993/07/06  07:45:19  ft
-;;; Abstrakten Datentyp Queue lokal in list-subseq eingefügt.
+;;; Abstrakten Datentyp Queue lokal in list-subseq eingefÃ¼gt.
 ;;;
 ;;; Revision 1.12  1993/07/06  07:25:52  ft
 ;;; SUBSEQ optimiert.

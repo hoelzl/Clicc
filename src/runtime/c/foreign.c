@@ -17,7 +17,7 @@
  * Stefans Fehler korrigiert.
  *
  * Revision 1.18  1994/04/28  09:46:06  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergänzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergÃ¤nzt.
  *
  * Revision 1.17  1994/04/22  14:15:16  pm
  * Foreign Function Interface voellig ueberarbeitet.
@@ -30,11 +30,11 @@
  *
  * Revision 1.15  1994/01/13  09:02:01  sma
  * Die bis jetzt unimplementierten Typtests c_struct_p, FFI_c_float_p,
- * FFI_c_double_p und FF_c_long_double_p geben jetzt NIL zurück.  (Damit
+ * FFI_c_double_p und FF_c_long_double_p geben jetzt NIL zurÃ¼ck.  (Damit
  * print bei (print #<unbound>) nicht versucht, ein c-float auszugeben)
  *
  * Revision 1.14  1994/01/05  12:48:02  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen und den Postfix _internal entfernt. STACK(base,x) -> ARG(x)
  *
  * Revision 1.13  1993/12/16  16:39:19  pm

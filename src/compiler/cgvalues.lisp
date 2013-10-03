@@ -15,7 +15,7 @@
 ;;; erst.
 ;;;
 ;;; Revision 1.19  1994/02/08  15:40:47  sma
-;;; Zusätzlichen Block um cg-params-Aufruf herum eingefügt.
+;;; ZusÃ¤tzlichen Block um cg-params-Aufruf herum eingefÃ¼gt.
 ;;;
 ;;; Revision 1.18  1994/01/07  11:56:33  hk
 ;;; opt-args wird nun auch in cg-values verwendet.

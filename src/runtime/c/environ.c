@@ -10,10 +10,10 @@
  * $Revision: 1.13 $
  * $Log: environ.c,v $
  * Revision 1.13  1994/04/28  09:44:34  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument erg‰nzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument erg√§nzt.
  *
  * Revision 1.12  1993/12/09  15:05:01  sma
- * Aufgrund der neuen Array- (und String-)Repr‰sentation m¸ssen c-system
+ * Aufgrund der neuen Array- (und String-)Repr√§sentation m√ºssen c-system
  * und c-environ in Lisp kodiert werden, die ggf. Strings in
  * simple-strings konvertieren und dann die neuen Funktionen
  * c-system-internal bzw c-environ-internal aufgrufen.  STACK(base, xxx)

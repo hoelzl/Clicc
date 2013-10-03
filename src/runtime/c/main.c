@@ -16,7 +16,7 @@
  * lisp.h mit eingelesen, um Prototypen von Lisp-Funktionen bekanntzumachen.
  *
  * Revision 1.12  1994/01/05  12:51:46  sma
- * Namens‰nderung: startup mit dem Pr‰fix rt_ versehen.
+ * Namens√§nderung: startup mit dem Pr√§fix rt_ versehen.
  *
  * Revision 1.11  1993/07/09  13:43:28  hk
  * In initialize: Variable noargs static deklariert.

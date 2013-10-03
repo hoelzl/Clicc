@@ -16,7 +16,7 @@
 ;;; dort explizit kodierte Optimierung ebenfalls erzielt.
 ;;;
 ;;; Revision 1.19  1994/02/02  09:39:17  hk
-;;; Deklaration :simp-when-n-args bei aref und (setf aref) eingefügt,
+;;; Deklaration :simp-when-n-args bei aref und (setf aref) eingefÃ¼gt,
 ;;; Definition von vref und (setf vref) nach vorn gezogen, da sie in den
 ;;; Deklarationen vorkommen.
 ;;;
@@ -24,24 +24,24 @@
 ;;; Neue Version von ADJUST-ARRAY, die auf row-major-aref basiert.
 ;;;
 ;;; Revision 1.17  1994/01/05  12:36:08  sma
-;;; rt::make-plain-vector gelöscht. Dafür gibt es jetzt eine
-;;; rt::make-vector-Funktion für -t, -fixnum, -float und -bit. -internal
-;;; bei rt::(set-)pvref gelöscht. Neue lokale Lisp-Funktion
+;;; rt::make-plain-vector gelÃ¶scht. DafÃ¼r gibt es jetzt eine
+;;; rt::make-vector-Funktion fÃ¼r -t, -fixnum, -float und -bit. -internal
+;;; bei rt::(set-)pvref gelÃ¶scht. Neue lokale Lisp-Funktion
 ;;; make-plain-vector.
 ;;;
 ;;; Revision 1.16  1993/12/14  12:37:32  sma
-;;; * Einführung des plain-vector-Typs. Dies ist der (neue) Name für die
+;;; * EinfÃ¼hrung des plain-vector-Typs. Dies ist der (neue) Name fÃ¼r die
 ;;; einfachen Vektoren des Laufzeitsystems. Ein simple-vector ist ein
 ;;; plain-vector mit element-code 0, d.h. er kann daten des Typs T
-;;; aufnehmen. Deswegen Namensänderung und Umstellung einiger Typtests.
+;;; aufnehmen. Deswegen NamensÃ¤nderung und Umstellung einiger Typtests.
 ;;; * svref optimiert, wird jetzt teilweise inline-compiliert.
 ;;; * row-major-aref optimiert.
 ;;; * Funktion vector-length (Aufruf einzig aus length aus seq.lisp)
-;;; optimiert. seq.lisp enthält jetzt keine Aufrufe von (besser) internen
+;;; optimiert. seq.lisp enthÃ¤lt jetzt keine Aufrufe von (besser) internen
 ;;; Funktionen aus array.lisp mehr.
 ;;;
 ;;; Revision 1.15  1993/12/09  16:55:15  sma
-;;; Neue array-Repräsentation. Mehr Lisp, weniger C.
+;;; Neue array-ReprÃ¤sentation. Mehr Lisp, weniger C.
 ;;;
 ;;; Revision 1.14  1993/09/03  14:15:12  hk
 ;;; Fehler in array-in-bounds-p behoben.
@@ -50,7 +50,7 @@
 ;;; Fehler in array-in-bounds-p behoben.
 ;;;
 ;;; Revision 1.12  1993/08/20  10:13:21  hk
-;;; array-element-type prüft auf array Typ
+;;; array-element-type prÃ¼ft auf array Typ
 ;;;
 ;;; Revision 1.11  1993/08/19  13:38:19  hk
 ;;; array-in-bounds-p optimiert, array-rmi-internal optimiert und einige
@@ -948,7 +948,7 @@
     (T (error WRONG_TYPE string 'string))))
 
 ;;------------------------------------------------------------------------------
-;; VECTOR-LENGTH vector (für length aus seq.lisp)
+;; VECTOR-LENGTH vector (fÃ¼r length aus seq.lisp)
 ;;------------------------------------------------------------------------------
 (defun vector-length (vector)
   (cond

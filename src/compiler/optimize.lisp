@@ -19,15 +19,15 @@
 ;;; Meldung "~s wird nicht eliminiert" in delete-unref-var eliminiert.
 ;;;
 ;;; Revision 1.49  1994/03/02  15:22:27  atr
-;;; Die Funktion optimize-1 geändert. Die Sonderbehandlung für simple-app
+;;; Die Funktion optimize-1 geÃ¤ndert. Die Sonderbehandlung fÃ¼r simple-app
 ;;; weggestrichen. Anstatt dessen gib es jetzt eine allegmeine Behandlung.
 ;;; Die Optimierung der is-a-single-assignment korrigiert.
 ;;;
 ;;; Revision 1.48  1994/02/08  11:10:06  sma
-;;; Neue Funktion clicc-message-line zeichnet die übliche Trennline.
+;;; Neue Funktion clicc-message-line zeichnet die Ã¼bliche Trennline.
 ;;;
 ;;; Revision 1.47  1994/01/26  14:41:13  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.46  1994/01/24  15:23:28  atr
 ;;; Die methode (effect-of-form let*form) geaendert. Bei dieser Methode
@@ -40,9 +40,9 @@
 ;;; destruktive --> destructive
 ;;;
 ;;; Revision 1.44  1994/01/12  18:21:19  atr
-;;; Die Funktion is-side-effect-free so geändert, daß destruktive
+;;; Die Funktion is-side-effect-free so geÃ¤ndert, daÃŸ destruktive
 ;;; Operation auf konstante Strukturen nicht side-effect-free sind, und
-;;; infolgedessen nicht eliminiert werden dürfen.
+;;; infolgedessen nicht eliminiert werden dÃ¼rfen.
 ;;;
 ;;; Revision 1.43  1993/11/25  17:10:42  atr
 ;;; Bei delete-unref-vars werden dynamische Variablen nicht eliminiert.
@@ -438,8 +438,8 @@
                   (update-let var init-form let-form)))
            
            ;; Sonst wird der Seiteneffekt der Init-form berechnet, und dann
-           ;; werden viele Bedingungen überprüft um die Substitution 
-           ;; vornehmen zu können.
+           ;; werden viele Bedingungen Ã¼berprÃ¼ft um die Substitution 
+           ;; vornehmen zu kÃ¶nnen.
            ;;--------------------------------------------------------------
            (let ((init-form-effect (empty-effect))
                  (init-form-local-effect (make-instance 'local-effect)))
@@ -452,7 +452,7 @@
                                      init-form-local-effect)
                   
                   ;; Weder die Init-form noch der Rumpf der Let-Konstruktes
-                  ;; verursachen Sprünge oder destruktive Seiteneffekte.
+                  ;; verursachen SprÃ¼nge oder destruktive Seiteneffekte.
                   ;;-------------------------------------------------------
                   (member (?data-effects init-form-effect) '(nil :alloc))
                   (member (?data-effects *let-effect-until-var*) 
@@ -467,7 +467,7 @@
                                    *local-effect-until-var*)
                   
                   ;; Die lokale Variable wird im Rumpf 
-                  ;; nicht mehr verändert.  
+                  ;; nicht mehr verÃ¤ndert.  
                   ;;----------------------------------
                   (not (member-of-region var 
                                          (?write-list 
@@ -486,7 +486,7 @@
        (listp (?write-list local-effect))))
 
 ;;;----------------------------------------------------------------------------
-;;; Diese Funktion überprüft ob der Seiteneffekt einer Init-form 
+;;; Diese Funktion Ã¼berprÃ¼ft ob der Seiteneffekt einer Init-form 
 ;;; (effect local-effect) Read-Write Konflikte mit dem Seieneffekt des 
 ;;; Let-Konstrktes (*let-effect-until-var* *local-effect-until-var*) hat. 
 ;;; Also ob die Read-region und die Write-region einen Schnitt haben. 
@@ -506,8 +506,8 @@
                                 (?read-list   local-effect2)))))
 
 ;;;-------------------------------------------------------------------------
-;;; Der Rumpf einer Let-Form besteht nur aus einer Zuweisung. Außerdem
-;;; wird nur eine loale Variable gebunden. Solche Let-Froms können in eine 
+;;; Der Rumpf einer Let-Form besteht nur aus einer Zuweisung. AuÃŸerdem
+;;; wird nur eine loale Variable gebunden. Solche Let-Froms kÃ¶nnen in eine 
 ;;; Zuweisung umgewandelt werden, wenn einige Bedingungen gelten.
 ;;;-------------------------------------------------------------------------
 (defun is-a-single-assignment (let-form)
@@ -516,7 +516,7 @@
        (setq-form-p (?body let-form))))
 
 ;;;-----------------------------------------------------------------------
-;;; Let-to-assign-possible überprüft ob eine a-single-assignment zu einer 
+;;; Let-to-assign-possible Ã¼berprÃ¼ft ob eine a-single-assignment zu einer 
 ;;; Zuweisung umgewandelt werden kann.
 ;;;-----------------------------------------------------------------------
 (defun let-to-assign-possible (let-form)
@@ -627,7 +627,7 @@
 
 ;;;-------------------------------------------------------------------------
 ;;; entscheidet ob eine Form keine Seiteneffekte hat, also auch entfernt
-;;; werden kann, wenn ihr Resultat nicht mehr benötigt wird. 
+;;; werden kann, wenn ihr Resultat nicht mehr benÃ¶tigt wird. 
 ;;;-------------------------------------------------------------------------
 (defun is-side-effect-free (form)
   (let ((global-effect (empty-effect))
@@ -635,7 +635,7 @@
     (effect-of-form form global-effect local-effect)
 
     ;; Eine Form kann entfernt werden wenn sie nur den Alloc-effect hat.
-    ;; Also wenn sie keine Variablen liest, keine Variablen verändert, und 
+    ;; Also wenn sie keine Variablen liest, keine Variablen verÃ¤ndert, und 
     ;; weder einen Sprung noch einen destruktiven Seiteneffekt verursacht.
     ;;-----------------------------------------------------------------
     (and (only-alloc global-effect)

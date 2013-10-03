@@ -22,14 +22,14 @@
 ;;; apply #'max (mapcar  --> reduce
 ;;;
 ;;; Revision 1.69  1994/01/05  12:32:10  sma
-;;; Namensänderung im Laufzeitsystem: -INTERNAL bei rt::CATCH-INTERNAL,
+;;; NamensÃ¤nderung im Laufzeitsystem: -INTERNAL bei rt::CATCH-INTERNAL,
 ;;; rt::UNWIND-PROTECT-INTERNAL, rt::THROW-INTERNAL und rt::PROGV-INTERNAL
 ;;; gestrichen.
 ;;;
 ;;; Revision 1.68  1993/12/09  08:52:07  hk
 ;;; Fehler behoben: Auswertung einer Klasse liefert EINEN Wert.
-;;; p3-form spezialisiert nun über literal statt über simple literal,
-;;; dadurch kann die Methode für sym entfallen und die Methode für
+;;; p3-form spezialisiert nun Ã¼ber literal statt Ã¼ber simple literal,
+;;; dadurch kann die Methode fÃ¼r sym entfallen und die Methode fÃ¼r
 ;;; structured-literal verwendet call-next-method.
 ;;;
 ;;; Revision 1.67  1993/11/02  14:01:03  hk
@@ -37,7 +37,7 @@
 ;;; lokale Funktionen wurden vergessen zu analysieren.
 ;;;
 ;;; Revision 1.66  1993/10/15  12:57:41  hk
-;;; Initialisierung der Slots zum großen Teil in die Bearbeitung von
+;;; Initialisierung der Slots zum groÃŸen Teil in die Bearbeitung von
 ;;; labels-form oder p3-fun-def verschoben, um die Benutzung des Slots
 ;;; all-funs zu vermeiden.
 ;;;
@@ -51,7 +51,7 @@
 ;;; pass_3 fuer wiederholte Anwendung geaendert.
 ;;;
 ;;; Revision 1.62  1993/09/13  14:18:14  hk
-;;; Aufrufe von (setf ?used) für Symbole, p3-syms-in-const und
+;;; Aufrufe von (setf ?used) fÃ¼r Symbole, p3-syms-in-const und
 ;;; traverse-const entfernt, weil used Slot von syms im weiteren Verlauf
 ;;; nicht benutzt wird.
 ;;;

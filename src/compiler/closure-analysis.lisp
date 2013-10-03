@@ -34,22 +34,22 @@
 ;;; automatisch auf den Status seiner Aliase.
 ;;;
 ;;; Revision 1.38  1994/02/03  12:30:37  hk
-;;; Bei der Analyse für has-funs-as-args ist eine Zuweisung einer Funktion
-;;; an einen Parameter nur dann unschädlich, wenn die Funktion
+;;; Bei der Analyse fÃ¼r has-funs-as-args ist eine Zuweisung einer Funktion
+;;; an einen Parameter nur dann unschÃ¤dlich, wenn die Funktion
 ;;; seiteneffektfrei ist.
 ;;;
 ;;; Revision 1.37  1994/02/03  10:52:00  hk
-;;; Fehlendes get-fun-vars-of-params in der Methode get-fun-vars für
-;;; mv-lambda eingefügt.
+;;; Fehlendes get-fun-vars-of-params in der Methode get-fun-vars fÃ¼r
+;;; mv-lambda eingefÃ¼gt.
 ;;;
 ;;; Revision 1.36  1994/02/03  10:21:47  ft
-;;; Default-Methode zu find-closures spezialisiert jezt über form.
+;;; Default-Methode zu find-closures spezialisiert jezt Ã¼ber form.
 ;;;
 ;;; Revision 1.35  1994/01/28  12:56:10  ft
 ;;; Ausnahmetest in get-fun-vars(class) auf nil erweitert.
 ;;;
 ;;; Revision 1.34  1994/01/26  13:36:17  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.33  1994/01/21  16:28:53  ft
 ;;; Default-Methode von find-closures zu einer Default-Methode gemacht.
@@ -60,10 +60,10 @@
 ;;;
 ;;; Revision 1.31  1994/01/03  11:55:24  atr
 ;;; Die Local-funs-Slots werden jetzt vor der tail-rekursion gesetzt, und
-;;; nicht mehr während der Voranalyse.
+;;; nicht mehr wÃ¤hrend der Voranalyse.
 ;;;
 ;;; Revision 1.30  1993/12/17  10:12:46  hk
-;;; Für CMU: Lokale Funktion all-vars-or-funs aus der Methode
+;;; FÃ¼r CMU: Lokale Funktion all-vars-or-funs aus der Methode
 ;;; (get-fun-vars setq-form) herausgezogen.
 ;;;
 ;;; Revision 1.29  1993/11/09  16:39:55  atr
@@ -94,17 +94,17 @@
 ;;; Revision 1.22  1993/10/08  10:11:14  hk
 ;;; Fehler behoben: 'get-fun-vars' wird nun auch auf die 1. Komponente
 ;;; einer Applikation angewendet, wenn dieses eine Variable ist.
-;;; Aus der Methode für params eine eigene Funktion gemacht.
+;;; Aus der Methode fÃ¼r params eine eigene Funktion gemacht.
 ;;;
 ;;; Revision 1.21  1993/10/08  09:16:34  hk
-;;; Fehler in der letzten Änderung behoben
+;;; Fehler in der letzten Ã„nderung behoben
 ;;;
 ;;; Revision 1.20  1993/10/07  15:33:16  hk
-;;; Die Komponente ?free-lex-vars von lokalen Funktionen wird während der
-;;;  Ausführung von 'get-fun-vars' für die Typinferenz gesetzt.
+;;; Die Komponente ?free-lex-vars von lokalen Funktionen wird wÃ¤hrend der
+;;;  AusfÃ¼hrung von 'get-fun-vars' fÃ¼r die Typinferenz gesetzt.
 ;;;
 ;;; Revision 1.19  1993/10/07  13:59:35  hk
-;;; special Variablen aufgeräumt.
+;;; special Variablen aufgerÃ¤umt.
 ;;;
 ;;; Revision 1.18  1993/09/06  15:10:32  atr
 ;;; Die Deklaration der Variablen *current-function* steht jetzt in
@@ -187,7 +187,7 @@
 
 ;;----------------------------------------------------------------------------
 ;; Bei einer If-Konstrukt sind die THEN und ELSE_Zweige auf Resultatsposition.
-;; Das Prädikat steht zwar nicht auf resultatsposition, kann aber eine 
+;; Das PrÃ¤dikat steht zwar nicht auf resultatsposition, kann aber eine 
 ;; Applikation einer Continuation enthalten. Diese Applikation kann dann zum
 ;; Verlassen des If-Konstruktes mit einem Resultat.
 ;;----------------------------------------------------------------------------
@@ -203,8 +203,8 @@
 ;;----------------------------------------------------------------------------
 ;; Der Resultatswert eines Progn-Konstruktes ist der Wert der letzten 
 ;; Form. Die anderen Formen werden nach Appliaktionen von Continuations,
-;; die das Verlassen des Progn-Konstruktes verursachen können mit einem 
-;; Rückgabewert.
+;; die das Verlassen des Progn-Konstruktes verursachen kÃ¶nnen mit einem 
+;; RÃ¼ckgabewert.
 ;;----------------------------------------------------------------------------
 (defmethod get-result-position-forms ((form progn-form))
   (let ((returned-forms nil))
@@ -218,7 +218,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; Das Tagbody-Konstrukt liefert als Resultat den Wert der letzten 
-;; Tagged-form. Andere Resultatswerte können explizit durch eine Applikation 
+;; Tagged-form. Andere Resultatswerte kÃ¶nnen explizit durch eine Applikation 
 ;; einer Continuation.
 ;;------------------------------------------------------------------------------
 (defmethod get-result-position-forms ((form tagbody-form))
@@ -237,7 +237,7 @@
 ;;-----------------------------------------------------------------------------
 ;; Die Init-formen eines Let*-Konstruktes stehen nicht auf Resultatsposition.
 ;; Diese werden nach Applikationen von Continuations, die das Verlassen 
-;; des Let*-Konstruktes mit einem Rückgabewert verursachen.
+;; des Let*-Konstruktes mit einem RÃ¼ckgabewert verursachen.
 ;;----------------------------------------------------------------------------
 (defmethod get-result-position-forms ((form let*-form))
   (let ((returned-forms nil))
@@ -262,7 +262,7 @@
 
 ;;-------------------------------------------------------------------------- 
 ;; Wenn ein Let/cc-Konstrukt nicht auf Resultatsposition steht, wird die Cont
-;; zu der Liste *not-on-result-position-cont-list* hinzugefügt. 
+;; zu der Liste *not-on-result-position-cont-list* hinzugefÃ¼gt. 
 ;; Das Resultat einer Applikation dieser Continuation ist kein Resultatswert 
 ;; des analysierten Ausdrucks.
 ;;--------------------------------------------------------------------------
@@ -492,20 +492,20 @@
 ;; Parameter einer funktion die Eigenschaft E haben. Ein Parameter p der
 ;; Funktion f hat die Eigenschaft E genau dann wenn:
 ;; p mindestens einmal als Funktion angewendet wird oder einer Funktion als
-;; Argument übergeben wird, wo der zugehörige Parameter die Eigenschaft E hat
+;; Argument Ã¼bergeben wird, wo der zugehÃ¶rige Parameter die Eigenschaft E hat
 ;; und wenn p nur Werte zugewiesen werden, die Literale oder seiteneffektfreie
 ;; Funktionen oder Werte anderer Parameter mit der Eigenschaft E sind.
 ;;
 ;; Die Eigenschaft E eines Parameters p der Funktion f wird in der
 ;; nachfolgenden Seiteneffektanalyse verwendet: Aufrufe von p als Funktion
-;; werden zunächst als seiteffektfrei klassifiziert und als Ausgleich werden
+;; werden zunÃ¤chst als seiteffektfrei klassifiziert und als Ausgleich werden
 ;; an den Aufrufstellen von f die Seiteneffekte der an p gebundenen Funktionen
-;; verwendet. Ohne diese Analyse würde für alle Aufrufe von p der größte
+;; verwendet. Ohne diese Analyse wÃ¼rde fÃ¼r alle Aufrufe von p der grÃ¶ÃŸte
 ;; Seiteneffekt angenommen werden.
 ;;------------------------------------------------------------------------------
 
 ;;------------------------------------------------------------------------------
-;; Eine A-Liste, die für die Variablen der Paramterliste der aktuellen und der
+;; Eine A-Liste, die fÃ¼r die Variablen der Paramterliste der aktuellen und der
 ;; umfassenden Funktionen angibt, welchen Status sie hat (nil, :FUN-ARG-CALL,
 ;; :UNKNOWN-CALL) oder mit welcher anderen Variablen sie in Alias-Relation
 ;; steht.
@@ -513,7 +513,7 @@
 (defvar *fun-vars-info*)
 
 ;;------------------------------------------------------------------------------
-;; Info für die Typinferenz bereitstellen:
+;; Info fÃ¼r die Typinferenz bereitstellen:
 ;; Wenn 'var' frei in der momentan uebersetzten Funktion vorkommt, wird 'var'
 ;; unter 'free-lex-vars' vermerkt.
 ;;------------------------------------------------------------------------------
@@ -573,7 +573,7 @@
       (let* ((*current-function* fun))
         (get-fun-vars-of-fun fun)
         
-        ;; Propagieren der FREIEN lokalen lexikalischen Var. für Typinferenz
+        ;; Propagieren der FREIEN lokalen lexikalischen Var. fÃ¼r Typinferenz
         ;;------------------------------------------------------------------
         (dolist (local-fun (?local-funs fun))
           (mapc #'se-check-if-free-lex-var (?free-lex-vars local-fun))))))
@@ -606,8 +606,8 @@
          (arg-list (?arg-list an-app)))
     (labels (
              ;;----------------------------------------------------------------
-             ;; Prüft, ob eine Variable ein Parameter ist und damit potentiell
-             ;; eine Funktion enthält und trägt für die Variable und ihre
+             ;; PrÃ¼ft, ob eine Variable ein Parameter ist und damit potentiell
+             ;; eine Funktion enthÃ¤lt und trÃ¤gt fÃ¼r die Variable und ihre
              ;; Aliase den Wert :FUN-AS-ARG-CALL ein, wenn noch kein anderer
              ;; Wert eingetragen worden ist.
              ;;----------------------------------------------------------------
@@ -638,14 +638,14 @@
         (get-fun-vars one-arg)))))
 
 ;;------------------------------------------------------------------------------
-;; Bei einer Zuweisung an einen Parameter können folgende Situationen auftreten:
+;; Bei einer Zuweisung an einen Parameter kÃ¶nnen folgende Situationen auftreten:
 ;; - Der neue Wert ist ein Literal, eine seiteneffektfreie Funktion oder ein
 ;;   Aufruf der Funktion ERROR. Dann bleibt der Status des Parameters
-;;   unverändert.
+;;   unverÃ¤ndert.
 ;; - Der neue Wert ist der Wert eines anderen Parameters. Dann werden die beiden
-;;   Parameter als Aliase betrachtet und jede Änderung im Status des einen
-;;   Parameters verändert den Staus des anderen Parameters auf gleiche Weise.
-;; - Sonst wird der Staus zu :UNKNOWN-CALL, d.h. für den Parameter erfolgt keine
+;;   Parameter als Aliase betrachtet und jede Ã„nderung im Status des einen
+;;   Parameters verÃ¤ndert den Staus des anderen Parameters auf gleiche Weise.
+;; - Sonst wird der Staus zu :UNKNOWN-CALL, d.h. fÃ¼r den Parameter erfolgt keine
 ;;   Sonderbehandlung.
 ;;------------------------------------------------------------------------------
 (defmethod get-fun-vars ((a-setq setq-form))
@@ -667,18 +667,18 @@
         (unless (eq (cdr pair) :UNKNOWN-CALL)
 
           ;; Zuweisung an einen Parameter, der entweder als Funktion aufgerufen
-          ;; wird oder für den noch nichts bekannt ist.
+          ;; wird oder fÃ¼r den noch nichts bekannt ist.
           ;;-------------------------------------------
           (dolist (one-form (get-result-position-forms (?form a-setq)))
             (cond
               ((var-ref-p one-form)
 
-               ;; Bei Zuweisungen von Variablen (setq v1 v2) müssen die
+               ;; Bei Zuweisungen von Variablen (setq v1 v2) mÃ¼ssen die
                ;; statischen Niveaus betrachtet werden.
                ;; Falls level(v1) <= level(v2), dann kann Aliasing erfolgen,
                ;; sonst bekommt v1 den Status :UNKNOWN-CALL, da bis zum Ende
                ;; der Analyse der aktuellen lokalen Funktion der Status von v2
-               ;; noch nicht endgültig feststeht.
+               ;; noch nicht endgÃ¼ltig feststeht.
                ;;--------------------------------
                (let ((pair2 (get-var-alias (?var one-form))))
                  (cond                   

@@ -13,7 +13,7 @@
 ;;; Typverband erweitert.
 ;;;
 ;;; Revision 1.50  1994/01/26  19:15:07  kl
-;;; Typbenennungen für non-null-symbol eingeführt.
+;;; Typbenennungen fÃ¼r non-null-symbol eingefÃ¼hrt.
 ;;;
 ;;; Revision 1.49  1993/12/18  06:16:43  hk
 ;;; In dem Makro declare-zs-type: defparameter statt defconstant, um
@@ -26,7 +26,7 @@
 ;;; Funktion types-are-disjoined eingefuegt.
 ;;;
 ;;; Revision 1.46  1993/11/12  14:24:44  kl
-;;; Neue Typbenennungen für package-t, stream-t, u. a. eingeführt.
+;;; Neue Typbenennungen fÃ¼r package-t, stream-t, u. a. eingefÃ¼hrt.
 ;;;
 ;;; Revision 1.45  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt
@@ -248,7 +248,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; Makro zum Deklarieren eines im Typverband der Typinferenz verwendeten Typs.
-;; Hier könnte defconstant stehen, dann müßte man jedoch eine Methode für
+;; Hier kÃ¶nnte defconstant stehen, dann mÃ¼ÃŸte man jedoch eine Methode fÃ¼r
 ;; make-load-form schreiben und das ist in vielen Lisps noch nicht (richtig)
 ;; definiert
 ;;------------------------------------------------------------------------------

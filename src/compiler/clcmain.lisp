@@ -24,10 +24,10 @@
 ;;; werden kann.
 ;;;
 ;;; Revision 1.47  1994/02/08  11:05:37  sma
-;;; Neue Funktion clicc-message-line zeichnet die übliche Trennline.
+;;; Neue Funktion clicc-message-line zeichnet die Ã¼bliche Trennline.
 ;;;
 ;;; Revision 1.46  1994/01/24  16:30:11  sma
-;;; Während der Kompilation des inline-modules wird nicht versucht, dem
+;;; WÃ¤hrend der Kompilation des inline-modules wird nicht versucht, dem
 ;;; Symbol den Typ T_SYMBOL_T zuzuweisen.
 ;;;
 ;;; Revision 1.45  1993/12/30  09:27:32  hk
@@ -38,12 +38,12 @@
 ;;; den Aufruf von pass_3 vor die Seiteneffektanalyse verschoben.
 ;;;
 ;;; Revision 1.43  1993/12/22  11:20:24  atr
-;;; Der Aufruf der Tail-Rekursion vor Pass_3 eingefügt.
+;;; Der Aufruf der Tail-Rekursion vor Pass_3 eingefÃ¼gt.
 ;;;
 ;;; Revision 1.42  1993/12/16  15:21:21  hk
-;;; Rücksetzen des gensym-counter von clcload nach clcmain, damit es auch
-;;; bei dem standalone CLiCC wirkt und man möglichst gleiche Symbole
-;;; erhält.
+;;; RÃ¼cksetzen des gensym-counter von clcload nach clcmain, damit es auch
+;;; bei dem standalone CLiCC wirkt und man mÃ¶glichst gleiche Symbole
+;;; erhÃ¤lt.
 ;;;
 ;;; Revision 1.41  1993/11/05  14:20:50  hk
 ;;; require an den Dateianfang verschoben, um Probleme mit akcl zu vermeiden.
@@ -212,8 +212,8 @@
   
   ;; Damit die Zahlen klein bleiben.
   ;;--------------------------------
-  (gensym 0)                            ; für CltL1
-  (setq *gensym-counter* 1)             ; für CLtL2
+  (gensym 0)                            ; fÃ¼r CltL1
+  (setq *gensym-counter* 1)             ; fÃ¼r CLtL2
 
   (multiple-value-setq (*FILENAME* *EXTENSION*)
     (split-name-ext *FILENAME*))
@@ -254,7 +254,7 @@
           ;; Die Tail-Rekursion. 
           ;; ACHTUNG Die Tail-Rekursion soll vor PASS_3 laufen,
           ;; da hier continuations erzeugt werden, die noch in 
-          ;; PASS_3 attributiert werden müssen.
+          ;; PASS_3 attributiert werden mÃ¼ssen.
           (when (= *NERRORS* 0)
             (unless *no-tail-recursion*
               (tail-rec-module)))

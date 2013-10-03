@@ -20,11 +20,11 @@
 ;;; clc-check-nparams erweitert und neue Unterfunktionen dazu geschrieben.
 ;;;
 ;;; Revision 1.31  1994/02/08  11:06:00  sma
-;;; Neue Funktion clicc-message-line zeichnet die übliche Trennline.
+;;; Neue Funktion clicc-message-line zeichnet die Ã¼bliche Trennline.
 ;;;
 ;;; Revision 1.30  1993/11/17  23:00:31  hk
 ;;; In clc-probe-file wurde (open .. :probe) durch (probe-file ..)
-;;; ersetzt, weil akcl sonst das limit für 'open files' überschritten
+;;; ersetzt, weil akcl sonst das limit fÃ¼r 'open files' Ã¼berschritten
 ;;; hatte.
 ;;;
 ;;; Revision 1.29  1993/08/20  10:41:17  hk
@@ -295,7 +295,7 @@
       (at-least-params par-spec)))
 
 ;;------------------------------------------------------------------------------
-;; Prüft, ob die Anzahl der aktuellen Parameter passend ist. Rückgabewerte sind:
+;; PrÃ¼ft, ob die Anzahl der aktuellen Parameter passend ist. RÃ¼ckgabewerte sind:
 ;;  'not-enough-argsX, wenn zu wenig aktuelle Parameter vorliegen,
 ;;  'too-much-args, wenn zu viele Parameter vorliegen,
 ;;  nil sonst.

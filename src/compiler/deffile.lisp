@@ -39,33 +39,33 @@
 ;;; Aufrufe von get-global-fun durch name2fun ersetzt.
 ;;;
 ;;; Revision 1.35  1994/02/08  13:15:06  sma
-;;; Annotation my-last-arg-may-be-rest-var bei funs, die angibt, daﬂ das
+;;; Annotation my-last-arg-may-be-rest-var bei funs, die angibt, da√ü das
 ;;; letzte Argument der hiermit annotierten Funktion auch ein rest-listen
-;;; Parameter sein kann. Die Annotation enth‰lt in diesem Falle den Namen
+;;; Parameter sein kann. Die Annotation enth√§lt in diesem Falle den Namen
 ;;; (als Keyword) ihrer Funktion.
 ;;;
 ;;; Revision 1.34  1994/02/03  07:53:55  hk
 ;;; Fehler beim Einlesen von :has-funs-as-args behoben.
 ;;;
 ;;; Revision 1.33  1994/02/02  09:17:35  hk
-;;; import- und export-fun lesen und schreiben zus‰tzliche Annotationen.
+;;; import- und export-fun lesen und schreiben zus√§tzliche Annotationen.
 ;;;
 ;;; Revision 1.32  1993/12/22  09:22:14  hk
-;;; F¸r CMU17 m¸ssen bei make-instance Symbole statt Klassen verwendet
+;;; F√ºr CMU17 m√ºssen bei make-instance Symbole statt Klassen verwendet
 ;;; werden.
 ;;;
 ;;; Revision 1.31  1993/12/19  14:08:46  hk
-;;; In import-fun stellt nun sicher, daﬂ wirklich alle :mv-spec :t zu
+;;; In import-fun stellt nun sicher, da√ü wirklich alle :mv-spec :t zu
 ;;; :mv-spec T werden.
 ;;;
 ;;; Revision 1.30  1993/12/16  09:36:53  hk
 ;;; In das .def File wird nicht das Symbol T sondern das Keyword :T
 ;;; geschrieben, um Probleme mit packages zu vermeiden. Beim Einlesen wird
-;;; wieder zu T ¸bergegangen.
+;;; wieder zu T √ºbergegangen.
 ;;;
 ;;; Revision 1.29  1993/12/09  14:36:42  hk
 ;;; Beim Lesen eines .def Files mittels import-read wird sichergestellt,
-;;; daﬂ das verwendete Package bei Bedarf mit make-package generiert wird.
+;;; da√ü das verwendete Package bei Bedarf mit make-package generiert wird.
 ;;;
 ;;; Revision 1.28  1993/12/03  09:59:37  ft
 ;;; Aufrufe von make-instance in import-fun und import-sym optimiert.
@@ -75,7 +75,7 @@
 ;;; verwendet.
 ;;;
 ;;; Revision 1.26  1993/08/19  10:34:16  hk
-;;; Auch Funktionen mit Namen (setf xxx) kˆnne special-sys-fun sein.
+;;; Auch Funktionen mit Namen (setf xxx) k√∂nne special-sys-fun sein.
 ;;;
 ;;; Revision 1.25  1993/07/27  14:12:14  atr
 ;;; Import-fun leicht geaendert.
@@ -118,7 +118,7 @@
 ;;; Tippfehler korrigiert data-effect --> data-effects.
 ;;;
 ;;; Revision 1.16  1993/06/09  12:16:56  ft
-;;; Fehlende find-class bei make-instance eingef¸gt.
+;;; Fehlende find-class bei make-instance eingef√ºgt.
 ;;;
 ;;; Revision 1.15  1993/06/07  07:24:25  hk
 ;;; Schreibfehler.
@@ -232,7 +232,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; Beschreibung einer exportierten Funktion in die .def Datei schreiben
-;; Keine Symbole auﬂer Keywords schreiben, um Probleme mit Packages zu vermeiden
+;; Keine Symbole au√üer Keywords schreiben, um Probleme mit Packages zu vermeiden
 ;;------------------------------------------------------------------------------
 (defun export-fun (fun)
   (when (?exported fun)

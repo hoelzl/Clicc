@@ -25,7 +25,7 @@
 ;;; Probleme, wenn aref in Macroexpansionsfunktionen vorkam.
 ;;;
 ;;; Revision 1.64  1993/12/22  09:22:29  hk
-;;; Für CMU17 müssen bei make-instance Symbole statt Klassen verwendet
+;;; FÃ¼r CMU17 mÃ¼ssen bei make-instance Symbole statt Klassen verwendet
 ;;; werden.
 ;;;
 ;;; Revision 1.63  1993/12/16  16:37:17  pm
@@ -38,7 +38,7 @@
 ;;; Revision 1.61  1993/12/06  16:31:32  hk
 ;;; Definition der Variablen *special-sys-funs* gestrichen, da unbenutzt.
 ;;; Angwandte Vorkommen von *init-system* gestrichen, da z.Z. wirkungslos.
-;;; p0-init aufgeräumt.
+;;; p0-init aufgerÃ¤umt.
 ;;;
 ;;; Revision 1.60  1993/11/03  11:43:01  pm
 ;;; Inkonsistenzen in den Symbolnamen behoben.
@@ -56,10 +56,10 @@
 ;;; p2 in opti umbenannt.
 ;;;
 ;;; Revision 1.55  1993/08/19  10:36:11  hk
-;;; Auch Funktionen mit Namen (setf xxx) können special-sys-fun sein.
+;;; Auch Funktionen mit Namen (setf xxx) kÃ¶nnen special-sys-fun sein.
 ;;;
 ;;; Revision 1.54  1993/07/26  16:40:42  pm
-;;; initialisierung hinzugefügt
+;;; initialisierung hinzugefÃ¼gt
 ;;;
 ;;; Revision 1.53  1993/07/07  15:31:47  uho
 ;;; Initialisierung von *C-NAME-PREFIX* aus der Codegenerierung nach

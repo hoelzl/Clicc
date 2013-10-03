@@ -36,7 +36,7 @@
 ;;; Inkonsistenzen in den Symbolnamen behoben.
 ;;;
 ;;; Revision 1.17  1993/07/26  16:43:50  pm
-;;; Anlegen der Interface-datei eingefügt
+;;; Anlegen der Interface-datei eingefÃ¼gt
 ;;;
 ;;; Revision 1.16  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt

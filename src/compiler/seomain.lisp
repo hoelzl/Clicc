@@ -15,7 +15,7 @@
 ;;; Es wird jetzt die Funktion is-side-effect-free verwendet.
 ;;;
 ;;; Revision 1.14  1993/10/15  10:48:16  hk
-;;; seo-1form (progn-form) stellt nun sicher, daﬂ keine progn-form mit
+;;; seo-1form (progn-form) stellt nun sicher, da√ü keine progn-form mit
 ;;; leerer form-list entsteht.
 ;;;
 ;;; Revision 1.13  1993/09/21  15:03:56  jh

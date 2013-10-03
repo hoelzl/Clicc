@@ -16,7 +16,7 @@
 ;;; Definition der Klasse trip-problem korrigiert.
 ;;;
 ;;; Revision 1.2  1993/05/04  12:12:13  ft
-;;; Bösen Fehler beseitigt: Los Angeles falsch geschrieben.
+;;; BÃ¶sen Fehler beseitigt: Los Angeles falsch geschrieben.
 ;;;
 ;;; Revision 1.1  1993/03/25  10:05:36  ft
 ;;; Initial revision

@@ -20,7 +20,7 @@
  * LOAD_FIXNUM -> LOAD_SMALLFIXNUM um Compiler-Warnung abzuschaffen.
  *
  * Revision 1.9  1994/04/28  09:52:02  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergänzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergÃ¤nzt.
  *
  * Revision 1.8  1994/01/22  18:33:39  sma
  * STACK(base, x) --> ARG(x) sowie kosmetische Korrekturen.
@@ -33,7 +33,7 @@
  * angemessene Ergebnisse.
  *
  * Revision 1.5  1993/07/06  11:37:17  sma
- * OFFSET-Makro eingeführt
+ * OFFSET-Makro eingefÃ¼hrt
  *
  * Revision 1.4  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.

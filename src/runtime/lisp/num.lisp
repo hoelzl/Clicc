@@ -12,7 +12,7 @@
 ;;; float-precision und integer-decode-float.
 ;;;
 ;;; Revision 1.11  1994/01/05  12:41:20  sma
-;;; Namensänderung: rt::*-internal -> rt::*
+;;; NamensÃ¤nderung: rt::*-internal -> rt::*
 ;;;
 ;;; Revision 1.10  1993/09/02  15:56:37  uho
 ;;; LOGTEST und LOGBITP definiert. Einige andere logische Funktionen
@@ -233,8 +233,8 @@
 ;;------------------------------------------------------------------------------
 ;; float-digits float
 ;;------------------------------------------------------------------------------
-;; Kann nicht implementiert werden, da man nur raten könnte, wieviele
-;; hidden-bits ein C-Compiler für float-Mantissen benutzt.
+;; Kann nicht implementiert werden, da man nur raten kÃ¶nnte, wieviele
+;; hidden-bits ein C-Compiler fÃ¼r float-Mantissen benutzt.
 
 ;;------------------------------------------------------------------------------
 ;; float-precision float

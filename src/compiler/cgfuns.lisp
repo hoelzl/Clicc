@@ -40,20 +40,20 @@
 ;;; cdr-rest-funcall-p -> rlo-rest-form.
 ;;;
 ;;; Revision 1.50  1994/02/08  13:56:53  sma
-;;; Diverse Änderungen für rest-Parameter-Optimierungen.
+;;; Diverse Ã„nderungen fÃ¼r rest-Parameter-Optimierungen.
 ;;;
 ;;; Revision 1.49  1994/02/03  17:31:23  sma
-;;; Änderungen für Optimierung von &rest-Paramtern.
+;;; Ã„nderungen fÃ¼r Optimierung von &rest-Paramtern.
 ;;;
 ;;; Revision 1.48  1994/01/07  15:17:42  hk
-;;; Nach der letzten Änderung wird opt-args in mehr Fällen aufgerufen, so
-;;; daß ein Fehler bei der Ausnutzung von ?need-no-stack auftreten kann:
+;;; Nach der letzten Ã„nderung wird opt-args in mehr FÃ¤llen aufgerufen, so
+;;; daÃŸ ein Fehler bei der Ausnutzung von ?need-no-stack auftreten kann:
 ;;; man darf eine Funktion nur direkt auf die Variablenposition anwenden,
 ;;; wenn diese stackalloziert ist und im aktuellen Activation Record
 ;;; liegt.
 ;;;
 ;;; Revision 1.47  1994/01/07  13:40:06  hk
-;;; In opt-args die Abschätzung für den Fall verbessert, daß die aktuelle
+;;; In opt-args die AbschÃ¤tzung fÃ¼r den Fall verbessert, daÃŸ die aktuelle
 ;;; Funktion lokale Funktionen hat.
 ;;;
 ;;; Revision 1.46  1994/01/07  10:18:52  hk
@@ -63,10 +63,10 @@
 ;;; Revision 1.45  1994/01/06  17:28:34  sma
 ;;; opt-args verbessert, um mehr COPY-Befehle einzusparen. Die
 ;;; imported-funs aus sys.def haben eine neue Annotation need-no-stack
-;;; bekommen, die den Wert T enthält, wenn die Funktion einstellig ist und
-;;; keinen weiteren LISP-Stack benötigt. So kann die optimierung, daß das
+;;; bekommen, die den Wert T enthÃ¤lt, wenn die Funktion einstellig ist und
+;;; keinen weiteren LISP-Stack benÃ¶tigt. So kann die optimierung, daÃŸ das
 ;;; Funktionsergebnis eines Funktionsaufrufs an der Stelle erzeugt wird,
-;;; wo es benötigt wird, öfter greifen.
+;;; wo es benÃ¶tigt wird, Ã¶fter greifen.
 ;;; Wurde bei
 ;;; 	(let (a b)
 ;;; 	  (setq a (1+ a)))
@@ -78,15 +78,15 @@
 ;;; 	F1plus(ARG(0));
 ;;;
 ;;; Revision 1.44  1994/01/05  12:28:24  sma
-;;; cg-set-C-name so geändert, daß bei Funktionen aus dem rt-package ein
-;;; Präfix "rt_" generiert wird, wenn die Funktionsnamen weder mit "c_"
+;;; cg-set-C-name so geÃ¤ndert, daÃŸ bei Funktionen aus dem rt-package ein
+;;; PrÃ¤fix "rt_" generiert wird, wenn die Funktionsnamen weder mit "c_"
 ;;; noch mit "unix_" beginnen.
 ;;;
 ;;; Revision 1.43  1993/12/23  12:02:25  hk
 ;;; Fehler in opt-args behoben.
 ;;;
 ;;; Revision 1.42  1993/12/18  09:11:12  hk
-;;; In cg-downfuns #+CMU17(declare (notinline CC-NameConc)) eingefügt, um
+;;; In cg-downfuns #+CMU17(declare (notinline CC-NameConc)) eingefÃ¼gt, um
 ;;; einen Fehler in CMU-CL 17.c zu umgehen
 ;;;
 ;;; Revision 1.41  1993/11/22  09:24:02  hk
@@ -94,7 +94,7 @@
 ;;; da_ diese Funktionen hvchstens 1x ausgef|hrt werden.
 ;;;
 ;;; Revision 1.40  1993/10/14  16:09:32  sma
-;;; Code für die Erstellung einer Closure in das Makro GEN_CLOSURE
+;;; Code fÃ¼r die Erstellung einer Closure in das Makro GEN_CLOSURE
 ;;; verschoben.
 ;;;
 ;;; Revision 1.39  1993/07/13  11:14:14  uho
@@ -314,7 +314,7 @@
                       (rest-optimization-p (?params fun) (?body fun)
                                            (?local-funs fun)))
 
-           ;; Initialisiserungsfunktionen dürfen nur einmal aufgerufen werden.
+           ;; Initialisiserungsfunktionen dÃ¼rfen nur einmal aufgerufen werden.
            ;;-----------------------------------------------------------------
            (when only-once
              (C-only-once))
@@ -578,8 +578,8 @@
 
     (C-blockstart)
 
-    ;; Erzeugt Code für den Kopf einer Closure-Struktur. Entspricht im Prinzip
-    ;; einem Simple-Vektor, dessen zwei erste Einträge ein Zeiger auf den CODE
+    ;; Erzeugt Code fÃ¼r den Kopf einer Closure-Struktur. Entspricht im Prinzip
+    ;; einem Simple-Vektor, dessen zwei erste EintrÃ¤ge ein Zeiger auf den CODE
     ;; der Funktion und deren Parameter-Spezifikation ist
     ;;---------------------------------------------------
     (C-MacroCall "GEN_CLOSURE" C-array (CC-StackTop) heap-size 
@@ -733,18 +733,18 @@
            ;;---------------------------------
            (or (not *rest-optimization*) (>= new-stack-top *rest-optimization*))
 
-           ;; Prüfen, ob die aktuelle Funktion lokale Funktionsdefinitionen
-           ;; enthält. Wenn diese Funktionen freie Variablen der aktuellen
+           ;; PrÃ¼fen, ob die aktuelle Funktion lokale Funktionsdefinitionen
+           ;; enthÃ¤lt. Wenn diese Funktionen freie Variablen der aktuellen
            ;; Funktion enthalten und diese im Stack liegen, was nur der Fall
            ;; ist, wenn es Downward Functions sind, und wenn sie eine
-           ;; Continuation der aktuellen Funktion frei enthalten, dann können
+           ;; Continuation der aktuellen Funktion frei enthalten, dann kÃ¶nnen
            ;; sie evtl. noch auf Variablen im zu optimierenden Stackabschnitt
-           ;; zugreifen. Die Optimierung muß dann unterbleiben.
+           ;; zugreifen. Die Optimierung muÃŸ dann unterbleiben.
            ;;-----------------------------------------------------
            (not (find-if #'(lambda (local-fun)
                              (and (eq :DOWNFUN (?closure local-fun))
                                   
-                                  ;; Abschätzung: Continuation ODER Variable
+                                  ;; AbschÃ¤tzung: Continuation ODER Variable
                                   ;;----------------------------------------
                                   (find *level* (?free-lex-vars local-fun)
                                         :key #'?level)))
@@ -764,7 +764,7 @@
                          ((static-p arg)
                           ;; Wenn Variablen-Referenz eine Rest-Variable in
                           ;; einer Funktion mit Restlisten-Optimierung ist
-                          ;; oder wenn Variable in dem überschriebenen 
+                          ;; oder wenn Variable in dem Ã¼berschriebenen 
                           ;; Bereich liegt...
                           (when (or (minusp (?offset arg))
                                     (and (eql *level* (?level arg))
@@ -1134,7 +1134,7 @@
     save-base ))
 
 ;;------------------------------------------------------------------------------
-;; Erzeugt C-Code für `rest', `(L:CDR rest)' oder `(L::CDR (L:CDR .. rest)..)'
+;; Erzeugt C-Code fÃ¼r `rest', `(L:CDR rest)' oder `(L::CDR (L:CDR .. rest)..)'
 ;;------------------------------------------------------------------------------
 (defun cg-rest-cdr (form)
   #+CMU17(declare (notinline C-PtrDecl)) ; by-pass a bug
@@ -1153,7 +1153,7 @@
     (rest-cdr form)))
 
 ;;------------------------------------------------------------------------------
-;; Generiert Code für speziell zu behandelnde Funktionen bei rest-optimierung
+;; Generiert Code fÃ¼r speziell zu behandelnde Funktionen bei rest-optimierung
 ;;------------------------------------------------------------------------------
 (defun rlo-dispatch (fun args app)
   (let ((rest (cg-rest-cdr (car (last args)))))

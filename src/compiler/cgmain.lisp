@@ -16,11 +16,11 @@
 ;;; CodeGen gibt Meldungen "uber die generierten Dateien aus.
 ;;;
 ;;; Revision 1.76  1994/05/24  11:07:16  sma
-;;; Automatische Definition der Obrep-Nummer eingefügt.
+;;; Automatische Definition der Obrep-Nummer eingefÃ¼gt.
 ;;;
 ;;; Revision 1.75  1994/05/22  15:04:32  sma
-;;; Jedes C-Files erhält jetzt eine Kennung aus der Compiler-Version und
-;;; Datenrepräsenataion hervorgehen als Kommentar in der 1. Zeile.
+;;; Jedes C-Files erhÃ¤lt jetzt eine Kennung aus der Compiler-Version und
+;;; DatenreprÃ¤senataion hervorgehen als Kommentar in der 1. Zeile.
 ;;;
 ;;; Revision 1.74  1994/04/22  14:09:07  pm
 ;;; Foreign Function Interface voellig ueberarbeitet.
@@ -35,11 +35,11 @@
 ;;; jetzt in cgfuns.
 ;;;
 ;;; Revision 1.71  1994/02/08  13:57:54  sma
-;;; Statistik für Rest-Paramter-Optimierung.
+;;; Statistik fÃ¼r Rest-Paramter-Optimierung.
 ;;;
 ;;; Revision 1.70  1994/01/10  08:33:20  hk
 ;;; write-C-file: with-open-file darf nicht mit return-from verlassen
-;;; werden, weil dann die Datei wieder gelöscht werden würde.
+;;; werden, weil dann die Datei wieder gelÃ¶scht werden wÃ¼rde.
 ;;;
 ;;; Revision 1.69  1993/12/09  09:58:55  ft
 ;;; Slot-Initforms die strukturierte Literale sind werden jezt durch ihren
@@ -64,10 +64,10 @@
 ;;;
 ;;; Revision 1.63  1993/09/10  14:42:49  hk
 ;;; *C-bool* mit "0" initialisiert. Dieser Wert wird verwendet, wenn ein
-;;; Prädikat abbricht und somit keinen Wert als Resultat generiert.
+;;; PrÃ¤dikat abbricht und somit keinen Wert als Resultat generiert.
 ;;;
 ;;; Revision 1.62  1993/07/26  16:48:52  pm
-;;; weitere #include's für das FFI eintragen lassen.
+;;; weitere #include's fÃ¼r das FFI eintragen lassen.
 ;;;
 ;;; Revision 1.61  1993/07/23  10:46:13  hk
 ;;; Fehler in letzter Aenderung behoben.
@@ -105,7 +105,7 @@
 ;;; erhoeht.
 ;;;
 ;;; Revision 1.53  1993/06/17  12:48:13  ft
-;;; Codeerzeugung für Klassen ohne Slots korrigiert.
+;;; Codeerzeugung fÃ¼r Klassen ohne Slots korrigiert.
 ;;;
 ;;; Revision 1.52  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt
@@ -307,7 +307,7 @@
   (setq *block-open* nil)
   (setq *special-count* 0)
   (setq *do-not-restore* ())
-  (setq *C-bool* "0")                   ; notwendig, für Prädikat ohne Resultat
+  (setq *C-bool* "0")                   ; notwendig, fÃ¼r PrÃ¤dikat ohne Resultat
   (setq *cl-level* 0)
   (setq *closure* nil)
   (setq *C-line-count* 0)
@@ -500,7 +500,7 @@
              (when (eq :ready fun-list) (return))
              (incf count))))))
 
-  ;; Statistik für Rest-Optimierung
+  ;; Statistik fÃ¼r Rest-Optimierung
   ;;-------------------------------
   (when (and *optimize* (plusp *rlo-statistics-rest-funs*))
     (clicc-message "~A rest-list optimizations in ~A of ~A functions."

@@ -21,7 +21,7 @@
 ;;; Beim Start der Typinferenz wird nun die Typinfernzstufe ausgegeben.
 ;;;
 ;;; Revision 1.40  1993/11/12  14:14:16  kl
-;;; Reihenfolge der require-Aufrufe ge‰ndert.
+;;; Reihenfolge der require-Aufrufe ge√§ndert.
 ;;;
 ;;; Revision 1.39  1993/09/12  12:08:49  kl
 ;;; Startreihenfolge der Funktionen in der Typinferenz-Workset verbessert.

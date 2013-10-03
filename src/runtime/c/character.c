@@ -11,21 +11,21 @@
  * LOAD_FIXNUM -> LOAD_SMALLFIXNUM um Compiler-Warnung abzuschaffen.
  *
  * Revision 1.16  1994/04/28  09:43:25  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergänzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergÃ¤nzt.
  *
  * Revision 1.15  1994/04/23  16:30:42  sma
- * RET_BOOL_OPT eingeführt. Dieses Makro lädt nicht explizit einen "true
- * value", wenn das Prädikat erfüllt ist.
+ * RET_BOOL_OPT eingefÃ¼hrt. Dieses Makro lÃ¤dt nicht explizit einen "true
+ * value", wenn das PrÃ¤dikat erfÃ¼llt ist.
  *
  * Revision 1.14  1994/02/01  14:13:36  uho
- * In rt_digit_char das fehlende 'X' in digitchars ergänzt.
+ * In rt_digit_char das fehlende 'X' in digitchars ergÃ¤nzt.
  *
  * Revision 1.13  1994/01/14  09:20:41  sma
  * Character-Funktionen neu geschrieben. Mehr Lisp, weniger C. Alle
- * zeichensatzunabhängigen Funktionen befinden sich jetzt im LISP-Teil.
+ * zeichensatzunabhÃ¤ngigen Funktionen befinden sich jetzt im LISP-Teil.
  *
  * Revision 1.12  1994/01/05  12:47:15  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen und den Postfix _internal entfernt. STACK(base,x) -> ARG(x)
  *
  * Revision 1.11  1993/08/27  11:48:44  sma
@@ -35,7 +35,7 @@
  * include <string.h> eingefuegt und char_table wieder entfernt.
  *
  * Revision 1.9  1993/08/24  16:20:43  sma
- * Variable char_table eingefügt und etwas aufgeräumt.
+ * Variable char_table eingefÃ¼gt und etwas aufgerÃ¤umt.
  *
  * Revision 1.8  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.
@@ -106,7 +106,7 @@ LISP_FUN(rt_lower_case_p)
 LISP_FUN(rt_both_case_p)
 {
    int ch = GET_CHAR(ARG(0));
-   /* Buchstabe, für den ein äquivalenter GROSS/kleinbuchstabe existiert */
+   /* Buchstabe, fÃ¼r den ein Ã¤quivalenter GROSS/kleinbuchstabe existiert */
    RET_BOOL_OPT(isalnum(ch) && (islower(ch) && toupper(ch) != ch
                                 || isupper(ch) && tolower(ch) != ch));
 }

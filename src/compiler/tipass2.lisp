@@ -23,10 +23,10 @@
 ;;; zum Abbruch der Typinferenz kommen.
 ;;;
 ;;; Revision 1.45  1994/01/26  14:44:30  ft
-;;; Letzter Feinschliff an der eben gemachten Änderung.
+;;; Letzter Feinschliff an der eben gemachten Ã„nderung.
 ;;;
 ;;; Revision 1.44  1994/01/26  13:37:43  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.43  1994/01/15  20:28:42  kl
 ;;; Destruktives Bearbeiten der Variablen *ti-workset* korrigiert.
@@ -753,8 +753,8 @@
               
          (dolist (tagged-form tagged-form-list)
 
-           ;; die letzte tagged-form bzw. die first-form ist Vorgänger
-           ;; der nächsten tagged-form.
+           ;; die letzte tagged-form bzw. die first-form ist VorgÃ¤nger
+           ;; der nÃ¤chsten tagged-form.
            ;;--------------------------
            (add-predecessor-type-env tagged-form *type-environment*)
            (setq *type-environment* 

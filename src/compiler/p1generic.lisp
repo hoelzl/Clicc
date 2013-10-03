@@ -9,7 +9,7 @@
 ;;; $Revision: 1.91 $
 ;;; $Log: p1generic.lisp,v $
 ;;; Revision 1.91  1994/01/14  08:53:47  sma
-;;; extract-specializer hoffentlich endgültig korrigiert. (then und else
+;;; extract-specializer hoffentlich endgÃ¼ltig korrigiert. (then und else
 ;;; Fall im if vertauscht)
 ;;;
 ;;; Revision 1.90  1994/01/13  07:49:05  ft
@@ -90,17 +90,17 @@
 ;;; Methoden besitzen wird jetzt ein Methoden-Cache angelegt.
 ;;;
 ;;; Revision 1.68  1993/07/30  11:14:00  ft
-;;; Prädikate für die Sortierung von Methodenlisten in finalize-generic-fun
-;;; geändert.
+;;; PrÃ¤dikate fÃ¼r die Sortierung von Methodenlisten in finalize-generic-fun
+;;; geÃ¤ndert.
 ;;;
 ;;; Revision 1.67  1993/07/24  08:18:04  ft
 ;;; Verarbeitung von generischen Funktionen mit nur einer, unspezialisierten Methode implementiert.
 ;;;
 ;;; Revision 1.66  1993/07/23  11:50:48  ft
-;;; Fehlermeldungen verschönert.
+;;; Fehlermeldungen verschÃ¶nert.
 ;;;
 ;;; Revision 1.65  1993/07/22  13:28:37  ft
-;;; Erweiterung um Kongruenzprüfung der Lambda Listen von Methoden
+;;; Erweiterung um KongruenzprÃ¼fung der Lambda Listen von Methoden
 ;;; und generischen Funktionen.
 ;;;
 ;;; Revision 1.64  1993/07/21  12:33:04  ft
@@ -137,7 +137,7 @@
 ;;;
 ;;; Revision 1.54  1993/06/17  12:44:59  ft
 ;;; Fehler in den lokalen Funktionen einer Methode, sowie
-;;; in den Prädikaten über Beziehungen im Klassenbaum behoben.
+;;; in den PrÃ¤dikaten Ã¼ber Beziehungen im Klassenbaum behoben.
 ;;;
 ;;; Revision 1.53  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt
@@ -146,26 +146,26 @@
 ;;; noch zwei L:: vergessen.
 ;;;
 ;;; Revision 1.51  1993/06/16  15:04:33  ft
-;;; an diversen Stellen L:: eingefügt.
+;;; an diversen Stellen L:: eingefÃ¼gt.
 ;;;
 ;;; Revision 1.50  1993/06/16  11:32:52  ft
-;;; Fehlermeldungen geändert.
+;;; Fehlermeldungen geÃ¤ndert.
 ;;;
 ;;; Revision 1.49  1993/06/15  14:25:28  ft
-;;; defgeneric-parser ignoriert nichts mehr; es können jetzt auch
+;;; defgeneric-parser ignoriert nichts mehr; es kÃ¶nnen jetzt auch
 ;;; Methoden mittels defgeneric definiert werden.
 ;;;
 ;;; Revision 1.48  1993/05/11  08:24:52  ft
 ;;; parse-defmethod-args geht jetzt korrekt mit doc-strings, declarations
-;;; und Methodenrümpfen um.
+;;; und MethodenrÃ¼mpfen um.
 ;;;
 ;;; Revision 1.47  1993/05/11  07:35:19  ft
 ;;; Unterklassen die mehrfach erben, aber keine eigenen Methoden definieren,
-;;; werden jetzt, falls nötig, auch in die Dispatch-Funktion aufgenommen.
+;;; werden jetzt, falls nÃ¶tig, auch in die Dispatch-Funktion aufgenommen.
 ;;;
 ;;; Revision 1.46  1993/05/05  08:49:18  ft
 ;;; Benennung von Methoden-Funtionen, Dispatch-Funktionen und deren
-;;; Unterfunktionen verschönert.
+;;; Unterfunktionen verschÃ¶nert.
 ;;;
 ;;; Revision 1.45  1993/05/04  06:10:33  ft
 ;;; Definition von Methoden mit komplexen Lambda Listen korrigiert.
@@ -688,7 +688,7 @@
                   (cons class
                         (extract-specializers (rest specialized-lambda-list))))
 
-                ;; doted-pairs sind keine gültigen Spezialisierer
+                ;; doted-pairs sind keine gÃ¼ltigen Spezialisierer
                 ;;-----------------------------------------------
                 (clicc-error "~S is not a valid specialized-lambda-list."
                              specialized-lambda-list))
@@ -775,7 +775,7 @@
     (queue2list gf-ll)))
 
 ;;------------------------------------------------------------------------------
-;; check-ll-congruence: Prüfe die Kongruenz von Methoden-Lambda-Listen
+;; check-ll-congruence: PrÃ¼fe die Kongruenz von Methoden-Lambda-Listen
 ;;                      (vgl. CLtL p.791f)
 ;;------------------------------------------------------------------------------
 (defun check-ll-congruence (gf-ll method-ll)
@@ -811,8 +811,8 @@
                         for the generic function."))))))
          
 ;;------------------------------------------------------------------------------
-;; scan-gf-ll: Prüfung der Lambda-Liste einer generischen Funktion und
-;;             Ermittlung der Werte zur Kongruenzprüfung der
+;; scan-gf-ll: PrÃ¼fung der Lambda-Liste einer generischen Funktion und
+;;             Ermittlung der Werte zur KongruenzprÃ¼fung der
 ;;             Methoden-Lambda-Listen
 ;;------------------------------------------------------------------------------
 (defun scan-gf-ll (gf-ll)
@@ -855,8 +855,8 @@
      allow-other-keys)))
 
 ;;------------------------------------------------------------------------------
-;; scan-method-ll: Prüfung der Lambda-Liste einer Methode und Ermittlung der
-;;                 Werte zur Kongruenzprüfung der Methoden-Lambda-Liste
+;; scan-method-ll: PrÃ¼fung der Lambda-Liste einer Methode und Ermittlung der
+;;                 Werte zur KongruenzprÃ¼fung der Methoden-Lambda-Liste
 ;;------------------------------------------------------------------------------
 (defun scan-method-ll (method-ll)
   (let ((state 'REQUIRED)

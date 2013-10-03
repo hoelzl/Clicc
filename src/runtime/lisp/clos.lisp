@@ -8,14 +8,14 @@
 ;;; $Revision: 1.34 $
 ;;; $Log: clos.lisp,v $
 ;;; Revision 1.34  1994/01/21  13:25:26  sma
-;;; rt::set-slot-unbound gelöscht und Lisp-Code ersetzt.
+;;; rt::set-slot-unbound gelÃ¶scht und Lisp-Code ersetzt.
 ;;;
 ;;; Revision 1.33  1994/01/13  12:20:04  ft
 ;;; rt:typep-class optimiert, indem statt T der erste Parameter
 ;;; zurueckgeliefert wird.
 ;;;
 ;;; Revision 1.32  1994/01/05  12:37:36  sma
-;;; Namensänderung: rt::make-instance-internal -> rt::make-instance
+;;; NamensÃ¤nderung: rt::make-instance-internal -> rt::make-instance
 ;;;
 ;;; Revision 1.31  1993/09/27  12:14:54  hk
 ;;; Argumentreihenfolge beim Aufruf von rt::set-slot-unbound korrigiert.
@@ -31,7 +31,7 @@
 ;;; veraenderte rt::make-instance-internal angepasst.
 ;;;
 ;;; Revision 1.27  1993/07/14  08:51:54  ft
-;;; Anpassung an die geänderten Parameter von instance-ref/set.
+;;; Anpassung an die geÃ¤nderten Parameter von instance-ref/set.
 ;;;
 ;;; Revision 1.26  1993/06/16  15:20:38  hk
 ;;;  Copyright Notiz eingefuegt.
@@ -40,7 +40,7 @@
 ;;; Mal wieder 'ne Klammer vergessen.
 ;;;
 ;;; Revision 1.24  1993/06/10  14:15:05  ft
-;;; Fehlermeldung verfeinert und Erläuterungen eingefügt.
+;;; Fehlermeldung verfeinert und ErlÃ¤uterungen eingefÃ¼gt.
 ;;;
 ;;; Revision 1.23  1993/06/09  16:26:21  hk
 ;;; Fehler in make-instance provisorisch behoben.

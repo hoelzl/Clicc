@@ -20,10 +20,10 @@
 ;;; Inlining der Foreign-Function-typtests herausgenommen.
 ;;;
 ;;; Revision 1.6  1993/12/12  16:18:18  sma
-;;; symbolp war irrtümlich gelöscht. Wieder eingefügt.
+;;; symbolp war irrtÃ¼mlich gelÃ¶scht. Wieder eingefÃ¼gt.
 ;;;
 ;;; Revision 1.5  1993/12/09  17:05:41  sma
-;;; Änderungen entsprechend compiler/cginline.lisp. stringp, arrayp,
+;;; Ã„nderungen entsprechend compiler/cginline.lisp. stringp, arrayp,
 ;;; vectorp raus, simple-bit-vector-p rein.
 ;;;
 ;;; Revision 1.4  1993/09/28  15:20:04  pm

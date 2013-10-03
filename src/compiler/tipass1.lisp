@@ -24,7 +24,7 @@
 ;;; Referenzen auf den Typinferenzlevel entfernt.
 ;;;
 ;;; Revision 1.63  1993/11/07  14:21:00  kl
-;;; Setzen der Read- und Write-Listen aufger‰umt.
+;;; Setzen der Read- und Write-Listen aufger√§umt.
 ;;;
 ;;; Revision 1.62  1993/10/08  20:43:37  kl
 ;;; Nicht verwendeten Code entfernt.

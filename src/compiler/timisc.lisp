@@ -25,7 +25,7 @@
 ;;; Handhabung von Typumgebungen arbeiten nun destruktiv.
 ;;;
 ;;; Revision 1.40  1993/10/05  15:42:09  hk
-;;; Fehler in join-pred-type-env-with-type-env (vorl‰ufig ?) behoben.
+;;; Fehler in join-pred-type-env-with-type-env (vorl√§ufig ?) behoben.
 ;;;
 ;;; Revision 1.39  1993/09/17  11:45:57  kl
 ;;; Aufruf von assoc geschieht jetzt mit einem eq-Test.

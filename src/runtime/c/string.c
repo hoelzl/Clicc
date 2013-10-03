@@ -8,11 +8,11 @@
  * $Revision: 1.10 $
  * $Log: string.c,v $
  * Revision 1.10  1994/01/05  12:54:56  sma
- * make-string geändert. INIT_VEC_CHAR und LOAD_VEC_CHAR Makros
- * eingefügt.
+ * make-string geÃ¤ndert. INIT_VEC_CHAR und LOAD_VEC_CHAR Makros
+ * eingefÃ¼gt.
  *
  * Revision 1.9  1993/12/09  15:16:25  sma
- * Aufgrund der neuen array-Repräsentation konnten alle string accessor
+ * Aufgrund der neuen array-ReprÃ¤sentation konnten alle string accessor
  * Funktionen in Lisp programmiert werden und hier rausfliegen.
  * get_c_string kann jetzt nur noch den C-String eines uebergebenen Lisp
  * simple-strings ermitteln. STACK(base, xxx) -> ARG(xxx)

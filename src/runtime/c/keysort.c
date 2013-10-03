@@ -11,7 +11,7 @@
  * $Revision: 1.8 $
  * $Log: keysort.c,v $
  * Revision 1.8  1994/01/05  12:49:17  sma
- * Namensänderung: init_keysort mit dem Präfix rt_ versehen.
+ * NamensÃ¤nderung: init_keysort mit dem PrÃ¤fix rt_ versehen.
  * STACK(base, x) -> ARG(x).
  *
  * Revision 1.7  1993/06/16  14:43:22  hk

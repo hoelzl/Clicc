@@ -8,11 +8,11 @@
  * $Revision: 1.20 $
  * $Log: number.c,v $
  * Revision 1.20  1994/04/28  09:50:35  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergänzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergÃ¤nzt.
  *
  * Revision 1.19  1994/01/26  19:19:55  kl
  * Fltfix und F1minusfix als feststellige auf Fixnums spezialisierte
- * Versionen von Flt und F1minus eingeführt.
+ * Versionen von Flt und F1minus eingefÃ¼hrt.
  *
  * Revision 1.18  1994/01/22  18:47:40  sma
  * Hoffentlich ist decode-float _jetzt_ endlich in ordnung.
@@ -24,18 +24,18 @@
  * Erweiterung um die Funktion decode-float.
  *
  * Revision 1.15  1994/01/05  12:52:28  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen und den Postfix _internal entfernt. STACK(base,x) -> ARG(x)
  *
  * Revision 1.14  1993/10/13  17:05:02  sma
  * Da GET_FIXNUM nicht immer als lvalue einsetzbar ist, ist
- * GE_TFIXNUM(STACK(base, 0))++ nicht allgemein möglich.
+ * GE_TFIXNUM(STACK(base, 0))++ nicht allgemein mÃ¶glich.
  *
  * Revision 1.13  1993/08/27  12:05:11  sma
  * "return 0" eingefuegt, um lint zufrieden zu stellen.
  *
  * Revision 1.12  1993/08/26  15:56:25  hk
- * Kommentare verschönert.
+ * Kommentare verschÃ¶nert.
  *
  * Revision 1.11  1993/07/09  13:37:24  hk
  * In Finteger_length: (signed long) -> (long), wg. K&R-C.

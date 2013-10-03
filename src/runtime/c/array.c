@@ -8,41 +8,41 @@
  * $Revision: 1.18 $
  * $Log: array.c,v $
  * Revision 1.18  1994/04/28  09:42:57  sma
- * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergänzt.
+ * LOAD_FIXNUM, LOAD_CHAR und LOAD_FLOAT um 3. Argument ergÃ¤nzt.
  *
  * Revision 1.17  1994/01/05  12:45:38  sma
- * Alle Laufzeitfunktionen mit dem Präfix rt_ versehen. make-plain-vector
- * in fünf Funktionen make-vector-t, make-vector-fixnum,
+ * Alle Laufzeitfunktionen mit dem PrÃ¤fix rt_ versehen. make-plain-vector
+ * in fÃ¼nf Funktionen make-vector-t, make-vector-fixnum,
  * make-vector-float und make-vector-bit zerteilt.
  *
  * Revision 1.16  1993/12/14  12:30:37  sma
- * Namensänderungen durch Einführung von plain-vector-Typ.
- * simple-vector-element-code und make-simple-vector heißen jetzt
+ * NamensÃ¤nderungen durch EinfÃ¼hrung von plain-vector-Typ.
+ * simple-vector-element-code und make-simple-vector heiÃŸen jetzt
  * plain-vector-element-code und make-plain-vector. (set-)svref wurde in
  * (set-)pvref-internal umbenannt.
  *
  * Revision 1.15  1993/12/10  11:31:19  sma
- * Neue array-Repräsentation. Weniger C, mehr Lisp. Neue Version, die
- * meisten C-Funktionen wurden ersetzt/gelöscht. Neue Funktion shrink_smstr.
+ * Neue array-ReprÃ¤sentation. Weniger C, mehr Lisp. Neue Version, die
+ * meisten C-Funktionen wurden ersetzt/gelÃ¶scht. Neue Funktion shrink_smstr.
  *
  * Revision 1.13  1993/10/29  15:16:57  sma
  * Methode, den Array-Typ (inkorrekterweise) nochmals im TAG-Feld der
- * Arraygröße zu speichern entfernt. Aus diesem Grund
- * (set_)row_major_aref_internal geändert.
+ * ArraygrÃ¶ÃŸe zu speichern entfernt. Aus diesem Grund
+ * (set_)row_major_aref_internal geÃ¤ndert.
  *
  * Revision 1.12  1993/09/13  11:52:05  sma
- * Fehler in Längenangaben von Arrays, Vectoren und Instanzen beseitigt
- * durch Einführen des SET_AR_SIZE-Makros.
+ * Fehler in LÃ¤ngenangaben von Arrays, Vectoren und Instanzen beseitigt
+ * durch EinfÃ¼hren des SET_AR_SIZE-Makros.
  *
  * Revision 1.11  1993/08/26  15:20:57  hk
  * Typ von set_array_header von (CL_FORM *) nach void.
  * Unbenutzte Variable entfernt.
  *
  * Revision 1.10  1993/08/20  10:13:41  hk
- * array_element_type_internal prüft nicht mehr auf array Typ.
+ * array_element_type_internal prÃ¼ft nicht mehr auf array Typ.
  *
  * Revision 1.9  1993/07/08  13:12:05  sma
- * OFFSET-Marko eingeführt.
+ * OFFSET-Marko eingefÃ¼hrt.
  *
  * Revision 1.8  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.
@@ -175,7 +175,7 @@ CL_FORM *base;
    CL_FORM *vector;
 
    vector = form_alloc(ARG(0), 1 + HEADER_SIZE);
-   /* bits müssen nicht initialisiert werden,0/1 sind alle möglichen Werte */
+   /* bits mÃ¼ssen nicht initialisiert werden,0/1 sind alle mÃ¶glichen Werte */
    LOAD_BITS_PTR(bits_alloc(ARG(0), size), AR_BASE(vector));
    INIT_VEC_BIT(vector, size);
    LOAD_VEC_BIT(vector, ARG(0));
@@ -346,7 +346,7 @@ void rt_shrink_smstr(base)
 CL_FORM *base;
 {
    long new_size = GET_FIXNUM(ARG(1));
-   /* Neue Endnull, falls String später in C-String verwandelt werden soll */
+   /* Neue Endnull, falls String spÃ¤ter in C-String verwandelt werden soll */
    CHAR_AR(AR_BASE(GET_FORM(ARG(0))))[new_size] = '\0';
    SET_AR_SIZE(new_size, GET_FORM(ARG(0)));
 }

@@ -15,21 +15,21 @@
 ;;; $Revision: 1.8 $
 ;;; $Log: sym.lisp,v $
 ;;; Revision 1.8  1994/01/21  13:29:17  sma
-;;; make-symbol aufgrund erneuter Änderung der Symbolrepäsentation
-;;; verändert. Neuen Typ "rt::sym" eingeführt, der ein not-nil-symbol
-;;; repräsentiert. Für diesen kann effizient in cginline ein Typtest
+;;; make-symbol aufgrund erneuter Ã„nderung der SymbolrepÃ¤sentation
+;;; verÃ¤ndert. Neuen Typ "rt::sym" eingefÃ¼hrt, der ein not-nil-symbol
+;;; reprÃ¤sentiert. FÃ¼r diesen kann effizient in cginline ein Typtest
 ;;; generiert werden. Entsprechende Funktionen umgeschrieben.
 ;;;
 ;;; Revision 1.7  1994/01/13  16:46:55  sma
-;;; Änderungen an Funktionen für symbols. Mehr Lisp, weniger C.
-;;; rt::(set)-struct-ref-internal heißt jetzt rt::structure-ref. Die
+;;; Ã„nderungen an Funktionen fÃ¼r symbols. Mehr Lisp, weniger C.
+;;; rt::(set)-struct-ref-internal heiÃŸt jetzt rt::structure-ref. Die
 ;;; set-Variante wird jetzt mit setf definiert.
 ;;;
 ;;; Revision 1.6  1994/01/05  12:43:04  sma
-;;; Namensänderung: rt::make-symbol-internal -> rt::make-symbol
+;;; NamensÃ¤nderung: rt::make-symbol-internal -> rt::make-symbol
 ;;;
 ;;; Revision 1.5  1993/12/09  17:18:59  sma
-;;; rt::make-symbol-internal eingefügt, welches nur simple-strings
+;;; rt::make-symbol-internal eingefÃ¼gt, welches nur simple-strings
 ;;; akzeptiert. make-symbol ist jetzt eine Lisp-Funktion.
 ;;;
 ;;; Revision 1.4  1993/06/16  15:20:38  hk
@@ -152,7 +152,7 @@
   (let ((sym (rt::make-symbol (string-to-simple-string print-name))))
     (setf (rt::symbol-plist sym) nil)
     (setf (rt::symbol-package sym) nil)
-    (makunbound sym)))              ;liefert sym zurück
+    (makunbound sym)))              ;liefert sym zurÃ¼ck
 
 ;;--------------------------------------------------------------------------
 ;; copy-symbol sym &optional copy-props

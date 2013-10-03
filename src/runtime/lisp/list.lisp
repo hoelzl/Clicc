@@ -20,15 +20,15 @@
 ;;; Die Faelle CONS und NULL im TYPECASE von CAR und CDR vertauscht.
 ;;;
 ;;; Revision 1.21  1994/01/05  12:40:37  sma
-;;; rt::simple-assoc jetzt (endgültig) in Lisp implementiert. assoc auf
+;;; rt::simple-assoc jetzt (endgÃ¼ltig) in Lisp implementiert. assoc auf
 ;;; allgemeinen Fall reduziert. assoc wird von clicc zur compile-Zeit durch
-;;; rt::simple-assoc ersetzt wenn möglich.
+;;; rt::simple-assoc ersetzt wenn mÃ¶glich.
 ;;;
 ;;; Revision 1.20  1993/12/13  13:15:55  sma
-;;; Auskommentierte Funktion raw-list-length gelöscht
+;;; Auskommentierte Funktion raw-list-length gelÃ¶scht
 ;;;
 ;;; Revision 1.19  1993/09/20  08:07:36  sma
-;;; unnötigen Test in assoc entfernt.
+;;; unnÃ¶tigen Test in assoc entfernt.
 ;;;
 ;;; Revision 1.18  1993/09/16  14:34:41  sma
 ;;; raw-list-length ist jetzt eine C-Funktion in list.c

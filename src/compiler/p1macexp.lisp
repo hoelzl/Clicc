@@ -8,7 +8,7 @@
 ;;; $Revision: 1.14 $
 ;;; $Log: p1macexp.lisp,v $
 ;;; Revision 1.14  1994/02/16  10:56:54  hk
-;;; COND wird geschickter expandiert, so daﬂ aus die abschlieﬂende T
+;;; COND wird geschickter expandiert, so da√ü aus die abschlie√üende T
 ;;; Klausel nicht in ein (if T ..) expandiert.
 ;;;
 ;;; Revision 1.13  1994/02/09  14:54:31  hk

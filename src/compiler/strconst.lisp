@@ -8,7 +8,7 @@
 ;;; $Revision: 1.7 $
 ;;; $Log: strconst.lisp,v $
 ;;; Revision 1.7  1994/02/21  09:26:02  kl
-;;; Neue Konstante TOO_MUCH_ARGS eingeführt.
+;;; Neue Konstante TOO_MUCH_ARGS eingefÃ¼hrt.
 ;;;
 ;;; Revision 1.6  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt

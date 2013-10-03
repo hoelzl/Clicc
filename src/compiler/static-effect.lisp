@@ -14,13 +14,13 @@
 ;;; $Revision: 1.75 $
 ;;; $Log: static-effect.lisp,v $
 ;;; Revision 1.75  1994/02/08  11:12:13  sma
-;;; Neue Funktion clicc-message-line zeichnet die übliche Trennline.
+;;; Neue Funktion clicc-message-line zeichnet die Ã¼bliche Trennline.
 ;;;
 ;;; Revision 1.74  1994/01/28  13:19:35  ft
 ;;; Ausnahmetest in analyse-form auf nil erweitert.
 ;;;
 ;;; Revision 1.73  1994/01/26  13:37:17  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.72  1994/01/17  14:10:21  hk
 ;;; Fehler in combine-level-list behoben.
@@ -87,7 +87,7 @@
 ;;; Tippfehler korrigiert (data-effect ---> data-effects ).
 ;;;
 ;;; Revision 1.56  1993/10/11  09:59:59  atr
-;;; (defvar *map-functions* ) eingefügt.
+;;; (defvar *map-functions* ) eingefÃ¼gt.
 ;;;
 ;;; Revision 1.55  1993/10/11  09:52:51  atr
 ;;; Die Variable *map-functions* wieder eingef"ugt, weil sie noch bei der
@@ -123,7 +123,7 @@
 ;;; der Voranalyse, let-optimierung und Tail-rekursion benutzt wird.
 ;;;
 ;;; Revision 1.47  1993/09/06  12:03:36  atr
-;;; Eine ignore Deklaration bei (analyse-form ((function fun))) eingefügt.
+;;; Eine ignore Deklaration bei (analyse-form ((function fun))) eingefÃ¼gt.
 ;;;
 ;;; Revision 1.46  1993/09/06  11:38:33  atr
 ;;; Angewandte Vorkommen von Funktionen, die nicht auf Funktionsposition

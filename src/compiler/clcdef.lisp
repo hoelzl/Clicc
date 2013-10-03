@@ -8,7 +8,7 @@
 ;;; $Revision: 1.48 $
 ;;; $Log: clcdef.lisp,v $
 ;;; Revision 1.48  1994/06/07  16:09:16  hk
-;;; Erneut: Für CMU17 müssen bei make-instance Symbole statt Klassen
+;;; Erneut: FÃ¼r CMU17 mÃ¼ssen bei make-instance Symbole statt Klassen
 ;;; verwendet werden.
 ;;;
 ;;; Revision 1.47  1994/06/03  14:18:32  hk
@@ -22,24 +22,24 @@
 ;;; kann.
 ;;;
 ;;; Revision 1.44  1994/02/02  09:12:27  hk
-;;; defzws geändert. Nun können Slots mit der Option :raw {t | nil}
+;;; defzws geÃ¤ndert. Nun kÃ¶nnen Slots mit der Option :raw {t | nil}
 ;;; versehen werden. Raw Slots belegen nur dann Speicherplatz, wenn ihnen
-;;; ein Wert ungleich der initform zugewiesen wird. Als initform dürfen
+;;; ein Wert ungleich der initform zugewiesen wird. Als initform dÃ¼rfen
 ;;; nur Symbole und Zahlen angegeben werden. Der Defaultwert der initform
 ;;; ist nil (nicht unbound). Instanzen mit Raw Slots haben einen
-;;; zusätzlichen Slot, der in einer A-Liste die Werte der Raw Slots
-;;; enthält. Man spart also nur dann Speicherplatz, wenn mindestens 2 Raw
+;;; zusÃ¤tzlichen Slot, der in einer A-Liste die Werte der Raw Slots
+;;; enthÃ¤lt. Man spart also nur dann Speicherplatz, wenn mindestens 2 Raw
 ;;; Slots vorhanden sind.
-;;; (defvar *CURRENT-FORM*) eingefügt.
+;;; (defvar *CURRENT-FORM*) eingefÃ¼gt.
 ;;;
 ;;; Revision 1.43  1993/12/22  09:22:50  hk
-;;; Für CMU17 müssen bei make-instance Symbole statt Klassen verwendet
+;;; FÃ¼r CMU17 mÃ¼ssen bei make-instance Symbole statt Klassen verwendet
 ;;; werden.
 ;;;
 ;;; Revision 1.42  1993/12/06  16:44:52  hk
 ;;; Definition und Initialisierung einiger globaler Variablen nach hier
-;;; verlagert. Englische Kommentare für Variablen, die der Benutzer
-;;; verändern darf.
+;;; verlagert. Englische Kommentare fÃ¼r Variablen, die der Benutzer
+;;; verÃ¤ndern darf.
 ;;;
 ;;; Revision 1.41  1993/11/05  14:20:50  hk
 ;;; require an den Dateianfang verschoben, um Probleme mit akcl zu vermeiden.

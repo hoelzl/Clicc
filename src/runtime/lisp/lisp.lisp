@@ -13,7 +13,7 @@
 ;;; nach Obrep zur Laufzeit berechnet.
 ;;;
 ;;; Revision 1.19  1994/01/27  16:22:07  kl
-;;; rt::fixnump eingeführt.
+;;; rt::fixnump eingefÃ¼hrt.
 ;;;
 ;;; Revision 1.18  1994/01/24  16:22:10  sma
 ;;; Symbol T wird jetzt hier definiert.
@@ -21,11 +21,11 @@
 ;;; Revision 1.17  1993/12/09  17:35:28  sma
 ;;; Typ-Definitionen von simple-array, simple-vector, simple-string
 ;;; korrigiert. Ladereihenfolge der Lisp-Dateien des Laufzeitsystems
-;;; geändert.
+;;; geÃ¤ndert.
 ;;;
 ;;; Revision 1.16  1993/11/25  17:19:59  hk
 ;;; error.lisp wird nach print.lisp geladen, damit die special
-;;; Deklarationen für *print-level* etc. bekannt sind.
+;;; Deklarationen fÃ¼r *print-level* etc. bekannt sind.
 ;;;
 ;;; Revision 1.15  1993/08/20  08:47:36  hk
 ;;; list wird nach seq geladen, da check-seq-test nun ein Macro ist

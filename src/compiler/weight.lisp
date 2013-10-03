@@ -16,11 +16,11 @@
 ;;; mit value = NIL entstand.
 ;;;
 ;;; Revision 1.11  1994/06/10  12:34:43  jh
-;;; Für einfache Literale und Symbole wird jetzt auch auf die
+;;; FÃ¼r einfache Literale und Symbole wird jetzt auch auf die
 ;;; let-Optimierung vertraut.
 ;;;
 ;;; Revision 1.10  1994/06/09  16:02:09  jh
-;;; Abschätzung, die auf die let-Optimierung hofft, eingebaut.
+;;; AbschÃ¤tzung, die auf die let-Optimierung hofft, eingebaut.
 ;;;
 ;;; Revision 1.9  1994/06/09  10:36:20  hk
 ;;; Anpassungen an cginline vorgenommen
@@ -32,10 +32,10 @@
 ;;; defined- und imported-named-consts werden jetzt unterschieden.
 ;;;
 ;;; Revision 1.6  1994/01/06  17:29:35  sma
-;;; Aufruf von opt-args um den Paramter fun ergänzt.
+;;; Aufruf von opt-args um den Paramter fun ergÃ¤nzt.
 ;;;
 ;;; Revision 1.5  1993/12/23  12:03:03  hk
-;;; Variable *current-fun* wird gebunden wegen einer Änderung in opt-args.
+;;; Variable *current-fun* wird gebunden wegen einer Ã„nderung in opt-args.
 ;;;
 ;;; Revision 1.4  1993/12/16  18:14:22  pm
 ;;; Eigenen Fehler in weight-fun-def in weight-fun-def behoben
@@ -101,7 +101,7 @@
          0)
      (- (* 4 (- nparams (if rest 1 0))) ; Parameter im neuen let binden
         (* 4 nargs)                     ; Argumente auf den Stack vorm Aufruf
-        (* 4 (min simple-args (+ nopt nvars)))) ; Statische Variablen können
+        (* 4 (min simple-args (+ nopt nvars)))) ; Statische Variablen kÃ¶nnen
                                         ; meist aus dem let entfernt werden.
      (* 28 nspecial)                    ; Specialvars binden und restaurieren
      -3                                 ; Aufruf
@@ -853,7 +853,7 @@
    (weight-fun-def fun)))
 
 (defun weight-fun-def (fun)
-  (let* ((*current-fun* fun)            ; für opt-args
+  (let* ((*current-fun* fun)            ; fÃ¼r opt-args
          (global (or (global-fun-p fun)
                      (?as-global-fun fun)))
          (closure (and (not global)

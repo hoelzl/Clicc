@@ -12,7 +12,7 @@
 ;;;
 ;;; Revision 1.10  1994/02/17  10:13:11  hk
 ;;; Wenn das Pr"aikat eines if-Ausdrucks wiederum einen oder mehrere
-;;; if-Ausdr"ucke enthält, dann wird in den "Asten der inneren
+;;; if-Ausdr"ucke enthÃ¤lt, dann wird in den "Asten der inneren
 ;;; if-Ausdr"ucke gleich zu dem entsprechenden then- oder else-Teil
 ;;; gesprungen, wenn bekannt ist, da"s der Wert True oder False ist.
 ;;;
@@ -61,7 +61,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; if test then [else]
-;; Wenn pred wiederum einen oder mehrere if-Ausdr"ucke enthält, dann wird in
+;; Wenn pred wiederum einen oder mehrere if-Ausdr"ucke enthÃ¤lt, dann wird in
 ;; den "Asten der inneren if-Ausdr"ucke gleich zu dem entsprechenden then-
 ;; oder else-Teil gesprungen, wenn bekannt ist, da"s der Wert True oder False
 ;; ist.
@@ -96,9 +96,9 @@
       (setq then-label *then-label*
             else-label *else-label*)
 
-      ;; Wenn *C-bool* nach der Übersetzung des Prädikats immer noch den
-      ;; Wert 'none hat, dann wird kein Wert zuückgegeben und somit kein if
-      ;; benötigt
+      ;; Wenn *C-bool* nach der Ãœbersetzung des PrÃ¤dikats immer noch den
+      ;; Wert 'none hat, dann wird kein Wert zuÃ¼ckgegeben und somit kein if
+      ;; benÃ¶tigt
       ;;--------------------------------------------------------------------
       (when (eq *C-bool* 'none)
         (setq need-if nil))

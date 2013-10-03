@@ -11,8 +11,8 @@
 ;;; provide wieder an das Dateiende
 ;;;
 ;;; Revision 1.39  1993/11/21  22:07:54  kl
-;;; Die Typinferenzfeatures werden nun nicht mehr über den Typinferenzlevel,
-;;; sondern über neu angelegte Prädikate abgefragt.
+;;; Die Typinferenzfeatures werden nun nicht mehr Ã¼ber den Typinferenzlevel,
+;;; sondern Ã¼ber neu angelegte PrÃ¤dikate abgefragt.
 ;;;
 ;;; Revision 1.38  1993/09/13  12:31:52  hk
 ;;; *ti-level* auf 2 gesetzt, weil schnell und gut.
@@ -168,29 +168,29 @@
 
 
 ;;------------------------------------------------------------------------------
-;; Prädikate für einzelne Typinferenzfeatures:
+;; PrÃ¤dikate fÃ¼r einzelne Typinferenzfeatures:
 ;;------------------------------------------------------------------------------
 
 
-;; Soll eine Typinferenz auch auf den Nichtliteralen durchgeführt werden?
+;; Soll eine Typinferenz auch auf den Nichtliteralen durchgefÃ¼hrt werden?
 ;;------------------------------------------------------------------------------
 (defun do-type-inference-on-non-literals ()
   (> *ti-level* 0))
 
 
-;; Soll eine interprozedurale Analyse durchgeführt werden? 
+;; Soll eine interprozedurale Analyse durchgefÃ¼hrt werden? 
 ;;------------------------------------------------------------------------------
 (defun do-interprocedural-type-inference ()
   (> *ti-level* 1))
 
 
-;; Sollen für dynamisch gebundene Variablen präzise Typen ermittelt werden?
+;; Sollen fÃ¼r dynamisch gebundene Variablen prÃ¤zise Typen ermittelt werden?
 ;;------------------------------------------------------------------------------
 (defun use-bindings-of-dynamic-variables ()
   (> *ti-level* 2))
 
 
-;; Soll die (aufwendigere) Typsemantik für Funktionen verwendet werden?
+;; Soll die (aufwendigere) Typsemantik fÃ¼r Funktionen verwendet werden?
 ;;------------------------------------------------------------------------------
 (defun use-precise-function-type-semantics ()
   (> *ti-level* 2))

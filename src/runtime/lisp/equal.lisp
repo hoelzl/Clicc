@@ -8,7 +8,7 @@
 ;;; $Revision: 1.8 $
 ;;; $Log: equal.lisp,v $
 ;;; Revision 1.8  1994/02/02  09:41:32  hk
-;;; Deklaration simp-when-some-arg-not-cons/pathn/string/bitv für equal eingefügt.
+;;; Deklaration simp-when-some-arg-not-cons/pathn/string/bitv fÃ¼r equal eingefÃ¼gt.
 ;;;
 ;;; Revision 1.7  1993/06/16  15:20:38  hk
 ;;;  Copyright Notiz eingefuegt.

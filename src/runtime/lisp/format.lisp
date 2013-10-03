@@ -17,7 +17,7 @@
 ;;; Schreibfehler behoben.
 ;;;
 ;;; Revision 1.12  1994/01/06  08:59:08  hk
-;;; ~A und ~S für den Fall, daß keine Parameter für die Direktive
+;;; ~A und ~S fÃ¼r den Fall, daÃŸ keine Parameter fÃ¼r die Direktive
 ;;; angegeben sind, verbessert
 ;;;
 ;;; Revision 1.11  1993/09/17  14:51:33  jh
@@ -62,7 +62,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; Einschraenkungen: Bisher sind nur wenige Format-Direktiven, zum Teil
-;; unvollständig, implementiert.
+;; unvollstÃ¤ndig, implementiert.
 ;;------------------------------------------------------------------------------
 (defun format (dest ctrl &rest args &aux stream)
   (cond
@@ -84,7 +84,7 @@
 ;;         2: Die Position hinter einem Terminator bzw. Separator,
 ;;         wenn die Bearbeitung hierdurch beendet wurde.
 ;;         3: Der Terminator bzw. Separator, der zur Beendigung der
-;;         Bearbeitung führte.
+;;         Bearbeitung fÃ¼hrte.
 ;;------------------------------------------------------------------------------
 (defun format2 (stream ctrl orig-args &optional
                        (ctrl-index 0) (terminator nil) (separator nil))

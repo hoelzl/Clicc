@@ -18,15 +18,15 @@
 ;;;
 ;;; Revision 1.15  1994/01/13  16:44:57  sma
 ;;; rt::set-symbol-package -> setf rt::set-symbol-package. Sourcecode
-;;; verschönert.
+;;; verschÃ¶nert.
 ;;;
 ;;; Revision 1.14  1993/12/09  17:12:38  sma
 ;;; *package-array* und *keyword-package* jetzt statt in startup.lisp hier
 ;;; als toplevel-Form definiert. rt::string-hash -> string-hash. Teilweise
-;;; neu eingerückt.
+;;; neu eingerÃ¼ckt.
 ;;;
 ;;; Revision 1.13  1993/12/08  00:01:00  hk
-;;; in-package nimmt nur dann den Defaultwert '("LISP") für die Use-List,
+;;; in-package nimmt nur dann den Defaultwert '("LISP") fÃ¼r die Use-List,
 ;;; wenn das Package neu generiert wird und kein anderer Wert angegeben
 ;;; ist.
 ;;;
@@ -35,7 +35,7 @@
 ;;;
 ;;; Revision 1.11  1993/10/12  14:48:43  hk
 ;;; Fehler in unexport behoben: find-package wurde nur mit 1 Argument
-;;; aufgerufen, so daß der Wert von *package* statt von package gelesen
+;;; aufgerufen, so daÃŸ der Wert von *package* statt von package gelesen
 ;;; wurde.
 ;;;
 ;;; Revision 1.10  1993/07/06  15:23:35  hk
@@ -631,11 +631,11 @@
 
 
 ;;------------------------------------------------------------------------------
-;; zur Übersetzungszeit bekanntes Symbol in Packages eintragen
+;; zur Ãœbersetzungszeit bekanntes Symbol in Packages eintragen
 ;;------------------------------------------------------------------------------
 (defun rt:setup-symbol (sym package-vector)
   
-  ;; Package-Cell enthält:
+  ;; Package-Cell enthÃ¤lt:
   ;;  NIL = uninterned Symbol, nichts zu tun.
   ;;  0   = Keyword package
   ;;  -n  = external Symbol in Package n

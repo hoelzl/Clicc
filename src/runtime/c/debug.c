@@ -11,7 +11,7 @@
  * UNBOUND wieder als eigenen Tzp eingefuehrt.
  *
  * Revision 1.23  1994/05/18  15:18:12  sma
- * Anpassung für obrep2. Abstraktionen verbessert. (Außerdem Quelltext
+ * Anpassung fÃ¼r obrep2. Abstraktionen verbessert. (AuÃŸerdem Quelltext
  * teilweise neu formatiert)
  *
  * Revision 1.22  1994/05/06  08:26:24  hk
@@ -19,30 +19,30 @@
  * size+1
  *
  * Revision 1.21  1994/01/21  13:34:49  sma
- * Erneute Änderung der Symbolrepräsentation. Änderug für neue
- * Repräsentation von #<unbound>.
+ * Erneute Ã„nderung der SymbolreprÃ¤sentation. Ã„nderug fÃ¼r neue
+ * ReprÃ¤sentation von #<unbound>.
  *
  * Revision 1.20  1994/01/14  09:18:18  sma
- * Änderung der Symbol-Repräsentation auch für dc_pure_symbol.
+ * Ã„nderung der Symbol-ReprÃ¤sentation auch fÃ¼r dc_pure_symbol.
  *
  * Revision 1.19  1994/01/13  16:36:51  sma
- * Änderung der Symbol-Repräsentation.
+ * Ã„nderung der Symbol-ReprÃ¤sentation.
  *
  * Revision 1.18  1993/12/10  15:14:48  sma
  * in main.c wird stack_cont(stack, 0, 0) aufgerufen, was bis eben als
- * ungültiges Argument angesehen wurde. Ist korrigiert.
+ * ungÃ¼ltiges Argument angesehen wurde. Ist korrigiert.
  *
  * Revision 1.17  1993/12/10  11:35:39  sma
  * extern-Declaration in stack_cont vergessen.
  *
  * Revision 1.16  1993/12/09  15:00:29  sma
- * Änderungen für neue array-Repräsentation. Code für jetzt unbenutzte Typen wie
- * CL_SMAR_FIXNUM entfernt. Source neu eingerückt. Check für stack_cont
- * eingebaut, der die "beliebten" BUS-Errors beim Debugen unterdrückt,
+ * Ã„nderungen fÃ¼r neue array-ReprÃ¤sentation. Code fÃ¼r jetzt unbenutzte Typen wie
+ * CL_SMAR_FIXNUM entfernt. Source neu eingerÃ¼ckt. Check fÃ¼r stack_cont
+ * eingebaut, der die "beliebten" BUS-Errors beim Debugen unterdrÃ¼ckt,
  * die entstehen, weil man stack_cont falsch aufruft.
  *
  * Revision 1.15  1993/10/27  12:23:59  sma
- * Auf die Länge von Strukturen und Instanzen wird jetzt (korrekterweise)
+ * Auf die LÃ¤nge von Strukturen und Instanzen wird jetzt (korrekterweise)
  * mit dem AR_SIZE-Makro zugegriffen.
  *
  * Revision 1.14  1993/09/19  18:02:32  sma
@@ -50,10 +50,10 @@
  * show_alist() zeigt formatiert eine a-liste an.
  *
  * Revision 1.13  1993/08/26  16:15:16  hk
- * Noch einen Cast für printf eingefügt.
+ * Noch einen Cast fÃ¼r printf eingefÃ¼gt.
  *
  * Revision 1.12  1993/08/26  15:51:26  hk
- * Einige Casts für Argumente vob printf eingefügt.
+ * Einige Casts fÃ¼r Argumente vob printf eingefÃ¼gt.
  *
  * Revision 1.11  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.
@@ -352,8 +352,8 @@ int offset, nargs;
    extern CL_FORM *fo_heap;     /* aus system.c */
    extern unsigned form_heapsize;
 
-   /* Argumente auf Plausibilität prüfen, um BUS-Errors einzuschränken
-    * Die Zahlen sind so gewählt, daß der häufigste Fall, bei
+   /* Argumente auf PlausibilitÃ¤t prÃ¼fen, um BUS-Errors einzuschrÃ¤nken
+    * Die Zahlen sind so gewÃ¤hlt, daÃŸ der hÃ¤ufigste Fall, bei
     * stack_cont(&Smain[100],0,1) das & zu vergessen, wahrscheinlich 
     * abgefangen wird. */
    if (offset < 0 || nargs < 0 || offset > 10000 || nargs > 1000 ||

@@ -20,7 +20,7 @@
 ;;; Unbenannte Funktionen bekommen nun den Namen LAMBDA statt Gxxx.
 ;;;
 ;;; Revision 1.42  1994/01/05  12:31:17  sma
-;;; Namensänderung im Laufzeitsystem: _INTERNAL bei rt::CATCH-INTERNAL,
+;;; NamensÃ¤nderung im Laufzeitsystem: _INTERNAL bei rt::CATCH-INTERNAL,
 ;;; rt::UNWIND-PROTECT-INTERNAL, rt::THROW-INTERNAL und rt::PROGV-INTERNAL
 ;;; gestrichen.
 ;;;
@@ -28,8 +28,8 @@
 ;;; p1-progn optimiert
 ;;;
 ;;; Revision 1.40  1993/10/06  17:33:23  hk
-;;; In p1-labels/flet :par-spec früher vorläufig setzen, damit eine
-;;; Überprüfung auch bei wechselseitigen Aufrufen erfogen kann.
+;;; In p1-labels/flet :par-spec frÃ¼her vorlÃ¤ufig setzen, damit eine
+;;; ÃœberprÃ¼fung auch bei wechselseitigen Aufrufen erfogen kann.
 ;;;
 ;;; Revision 1.39  1993/09/14  13:36:15  ft
 ;;; rt::type-error in rt::the-type-error umbenannt, da der Name in CLtL2
@@ -464,8 +464,8 @@
         ;;---------------------------------
         (*LOCAL-ENVIRONMENT* (copy-env *LOCAL-ENVIRONMENT*)))
 
-    ;; ZWS-Strukturen fuer die lokalen Funktionen erzeugen und vorläufig
-    ;; :par-spec setzen, damit Aufrufe schon geprüft werden können.
+    ;; ZWS-Strukturen fuer die lokalen Funktionen erzeugen und vorlÃ¤ufig
+    ;; :par-spec setzen, damit Aufrufe schon geprÃ¼ft werden kÃ¶nnen.
     ;;----------------------------------------------------
     (dolist (name_lambda-expr functions)
       (multiple-value-bind (name lambda-list_body)

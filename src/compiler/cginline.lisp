@@ -12,7 +12,7 @@
 ;;; Noch ein Fehler in  get-arg-loc behoben.
 ;;;
 ;;; Revision 1.39  1994/05/18  15:08:51  sma
-;;; EQL-Makro für eql-Funktion eingeführt.
+;;; EQL-Makro fÃ¼r eql-Funktion eingefÃ¼hrt.
 ;;;
 ;;; Revision 1.38  1994/05/18  08:52:56  hk
 ;;; Fehler in get-arg-loc behoben.
@@ -33,49 +33,49 @@
 ;;;
 ;;; Revision 1.33  1994/01/24  16:32:18  sma
 ;;; rt::struct-type entfernt (jetzt in LISP in struct.lisp implementiert).
-;;; Optimierungen für not auskommentiert. Genau Erklärung siehe pred.lisp.
+;;; Optimierungen fÃ¼r not auskommentiert. Genau ErklÃ¤rung siehe pred.lisp.
 ;;;
 ;;; Revision 1.32  1994/01/22  17:51:22  sma
-;;; Fehlende Klammer ergänzt.
+;;; Fehlende Klammer ergÃ¤nzt.
 ;;;
 ;;; Revision 1.31  1994/01/21  16:50:08  sma
-;;; Optimierung! CC-get-int eingeführt. Insbesondere bei instance-ref,
+;;; Optimierung! CC-get-int eingefÃ¼hrt. Insbesondere bei instance-ref,
 ;;; structure-ref und die logischen funktionen bekommen jetzt eine
 ;;; integer-konstante direkt uebergeben statt sie auf den stack zu
 ;;; schieben und sofort wieder davon auszulesen.
 ;;;
 ;;; Revision 1.30  1994/01/21  13:20:42  sma
-;;; Alle für Symbole notwendigen Funktionen des rt::-Packages werden jetzt
-;;; inline compiliert. LOAD_BOOL in pred-result eingeführt. Fehler in
+;;; Alle fÃ¼r Symbole notwendigen Funktionen des rt::-Packages werden jetzt
+;;; inline compiliert. LOAD_BOOL in pred-result eingefÃ¼hrt. Fehler in
 ;;; instance-set und set-svref-internal korriert. slot-set-unbound
-;;; gelöscht.
+;;; gelÃ¶scht.
 ;;;
 ;;; Revision 1.29  1993/12/16  16:30:50  pm
 ;;; FFI-Funktionen vom rt:: Package ins FFI: Package geschoben.
 ;;;
 ;;; Revision 1.28  1993/12/14  12:50:25  sma
-;;; Namensänderungen durch Einführung von plain-vector-Typ.
-;;; rt::%vector-length heißt jetzt rt::plain-vector-length, neue Funktion
+;;; NamensÃ¤nderungen durch EinfÃ¼hrung von plain-vector-Typ.
+;;; rt::%vector-length heiÃŸt jetzt rt::plain-vector-length, neue Funktion
 ;;; rt::plain-vector-p, rt::svref-internal und rt::set-svref-internal.
 ;;;
 ;;; Revision 1.27  1993/12/09  14:13:16  sma
-;;; Änderungen für neue array-Repräsentation. stringp, vectorp, arrayp
-;;; sind in direkt Lisp kodiert, neu/verändert sind simple-bit-vector-p
+;;; Ã„nderungen fÃ¼r neue array-ReprÃ¤sentation. stringp, vectorp, arrayp
+;;; sind in direkt Lisp kodiert, neu/verÃ¤ndert sind simple-bit-vector-p
 ;;; und simple-vector-p.
 ;;;
 ;;; Revision 1.26  1993/11/01  15:25:46  hk
 ;;; Fehler in get-arg-loc (var-ref) behoben. Im Zusammenspiel mit opt-args
-;;; wurden in gewissen Fällen lokale Variablen überschrieben, obwohl sie
-;;; später noch benutzt wurden.
+;;; wurden in gewissen FÃ¤llen lokale Variablen Ã¼berschrieben, obwohl sie
+;;; spÃ¤ter noch benutzt wurden.
 ;;;
 ;;; Revision 1.25  1993/10/26  14:58:14  sma
-;;; EQ Makro wird benutzt; CAR,CDR Makros eingeführt; mehr Typtest-Makros.
+;;; EQ Makro wird benutzt; CAR,CDR Makros eingefÃ¼hrt; mehr Typtest-Makros.
 ;;;
 ;;; Revision 1.24  1993/09/28  14:45:55  pm
 ;;; Die C-Konvertierungsfunktionen werden jetzt inline compileiert
 ;;;
 ;;; Revision 1.23  1993/09/10  15:08:28  hk
-;;; get-arg-loc spezialisiert über form statt t.
+;;; get-arg-loc spezialisiert Ã¼ber form statt t.
 ;;;
 ;;; Revision 1.22  1993/09/10  11:49:54  hk
 ;;; Fehler in cg-eq behoben, wenn beide Argumente einfache Konstanten
@@ -238,8 +238,8 @@
      (let ((var (?var form)))
 
        ;; Der Stackframe des Aufrufers wird evtl. gerade wiederverwendet. Um
-       ;; sicherzustellen, daß bei nachfolgenden Aufrufen von get-arg-loc
-       ;; diese Variable nicht überschrieben wird, mu"s sie ggf. nach unten
+       ;; sicherzustellen, daÃŸ bei nachfolgenden Aufrufen von get-arg-loc
+       ;; diese Variable nicht Ã¼berschrieben wird, mu"s sie ggf. nach unten
        ;; kopiert werden.  Wenn sie bereits an der richtigen Position liegt,
        ;; dann mu"s *stack-top* erh"oht werden, damit sie nicht von
        ;; nachfolgenden Argumenten "uberschrieben wird.
@@ -263,7 +263,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; Hilfsfunktion, die bei Konstanten vom Typ INT sofort die Konstante
-;; zurückliefert und andernfalls einen GET_FIXNUM-Aufruf und den 'üblichen'
+;; zurÃ¼ckliefert und andernfalls einen GET_FIXNUM-Aufruf und den 'Ã¼blichen'
 ;; Code generiert.
 ;;------------------------------------------------------------------------------
 (defun CC-get-int (form)

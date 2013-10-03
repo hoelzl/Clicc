@@ -26,34 +26,34 @@
 ;;; nicht mehr von Restargument verdeckt.
 ;;;
 ;;; Revision 1.32  1994/04/14  17:01:44  sma
-;;; Fehler in gc-form Methode für let*-form beim gemischten Vorkommen von
+;;; Fehler in gc-form Methode fÃ¼r let*-form beim gemischten Vorkommen von
 ;;; Rest-Variablen und normalen Variablen behoben.
 ;;;
 ;;; Revision 1.31  1994/04/11  12:44:38  sma
-;;; Korrektur für rest-variablen, die auf Prädikatsposition stehen.
+;;; Korrektur fÃ¼r rest-variablen, die auf PrÃ¤dikatsposition stehen.
 ;;;
 ;;; Revision 1.30  1994/03/03  13:47:14  jh
 ;;; defined- und imported-named-consts werden jetzt unterschieden.
 ;;;
 ;;; Revision 1.29  1994/02/10  16:00:30  sma
-;;; Korrektur für closures; cdr-rest-funcall-p -> rlo-rest-form;
-;;; Erweiterung für (setq rest-var (let () ... (progn restform))).
+;;; Korrektur fÃ¼r closures; cdr-rest-funcall-p -> rlo-rest-form;
+;;; Erweiterung fÃ¼r (setq rest-var (let () ... (progn restform))).
 ;;;
 ;;; Revision 1.28  1994/02/08  15:39:24  sma
-;;; Statistik verändert und Test auf Benutzung der rest-Variable in
+;;; Statistik verÃ¤ndert und Test auf Benutzung der rest-Variable in
 ;;; rest-optimization-p verschoben.
 ;;;
 ;;; Revision 1.27  1994/02/08  13:58:55  sma
-;;; Diverse Änderungen für rest-Parameter-Optimierungen.
+;;; Diverse Ã„nderungen fÃ¼r rest-Parameter-Optimierungen.
 ;;;
 ;;; Revision 1.26  1994/02/03  17:33:50  sma
-;;; Änderungen für Optimierung von &rest-Paramtern. Wenn möglich, wird das
-;;; Erzeugen einer Restliste mittels Flist unterdrückt und die Restliste
+;;; Ã„nderungen fÃ¼r Optimierung von &rest-Paramtern. Wenn mÃ¶glich, wird das
+;;; Erzeugen einer Restliste mittels Flist unterdrÃ¼ckt und die Restliste
 ;;; direkt auf dem LISP-Stack verwaltet.
 ;;;
 ;;; Revision 1.25  1994/01/07  12:51:06  hk
 ;;; Unbenutzte local-static haben die Annotation write = 1, wenn sie nicht
-;;; benutzt werden. Das wird nun berücksichtigt, um unbenutzte &rest
+;;; benutzt werden. Das wird nun berÃ¼cksichtigt, um unbenutzte &rest
 ;;; Parameter zu erkennen.
 ;;;
 ;;; Revision 1.24  1993/09/10  15:33:24  hk
@@ -64,12 +64,12 @@
 ;;;
 ;;; Revision 1.22  1993/09/10  10:05:41  hk
 ;;; Fehler behoben: Bearbeitung optionaler Parameter hat vorausgesetzt,
-;;; daß die Argumentliste immer mit Offset 0 im Activation-Record liegt.
+;;; daÃŸ die Argumentliste immer mit Offset 0 im Activation-Record liegt.
 ;;; Das ist bei der Bearbeitung von mv-lambda nicht unbedingt gegeben.
 ;;;
 ;;; Revision 1.21  1993/09/06  14:33:00  hk
 ;;; Fehler in (cg-form var-ref) behoben: bei Zugriff auf dynamisch
-;;; gebundene Variablen auf Prädikatsposition eines if.
+;;; gebundene Variablen auf PrÃ¤dikatsposition eines if.
 ;;;
 ;;; Revision 1.20  1993/07/20  15:46:27  hk
 ;;; (cg-form named-const) ist nun definiert, falls der Wert ein Literal
@@ -158,7 +158,7 @@
 ;;------------------------------------------------------------------------------
 ;; Bedeutung von Offset bei Parametern und lokalen Variablen (local-statics)
 ;; bei Rest-Optimierung: In Offset wird ein Typ kodiert, der theoretisch auch
-;; explizit in jede local-static eingetragen werden könnte.
+;; explizit in jede local-static eingetragen werden kÃ¶nnte.
 ;;   .----------------------.
 ;;   | Typ | Level | Offset |
 ;;   `----------------------'
@@ -171,7 +171,7 @@
 ;;
 ;; + Das Funktionsergebnis ist immer an Position 0 (Konvention).
 ;; + Hat die Funktion mindestens ein Argument, welches keine restvariable ist,
-;;   fällt das Funktionsergebnis mit diesem Argument zusammen.
+;;   fÃ¤llt das Funktionsergebnis mit diesem Argument zusammen.
 ;;
 ;; Folgende Kodierung wird eingesetzt:
 ;;   rest_opt := MAX(1, nsimpopts)
@@ -192,7 +192,7 @@
          C-stacktop
          (closure-offset *stack-top*))
 
-    ;; Während der Parametererstellung ausschalten
+    ;; WÃ¤hrend der Parametererstellung ausschalten
     ;;--------------------------------------------
     (setq *rest-optimization* nil)
     (when rlo
@@ -788,9 +788,9 @@
   (and (local-static-p loc) (minusp (?offset loc))))
 
 ;;------------------------------------------------------------------------------
-;; Test, ob &rest-Liste optimiert werden kann. Dazu muß eine &rest-Variable
-;; aber keine &key-Variablen existieren. Außerdem muß die &rest-Variable
-;; überhaupt benutzt werden.  `rest' darf nur in bestimmten
+;; Test, ob &rest-Liste optimiert werden kann. Dazu muÃŸ eine &rest-Variable
+;; aber keine &key-Variablen existieren. AuÃŸerdem muÃŸ die &rest-Variable
+;; Ã¼berhaupt benutzt werden.  `rest' darf nur in bestimmten
 ;; Funktionensaufrufen und Zuweisungen vorkommen und nicht frei in den lokalen
 ;; Funktionen von "fun".
 ;;------------------------------------------------------------------------------
@@ -804,7 +804,7 @@
     (dolist (v (?all-vars params)) (setf (?offset v) 0))
     (setf (?offset (?rest params)) -1)
     
-    ;; Rumpf überprüfen und freie Variablen auf Rest-Variablen überprüfen.
+    ;; Rumpf Ã¼berprÃ¼fen und freie Variablen auf Rest-Variablen Ã¼berprÃ¼fen.
     ;;--------------------------------------------------------------------
     (and (rlo-form body)
          (notany #'(lambda (lfun) 
@@ -822,7 +822,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; Entspricht `form' einem Zugriff auf `rest' oder (L::CDR form), wobei `form'
-;; wieder von der gleichen Art sein muß ?
+;; wieder von der gleichen Art sein muÃŸ ?
 ;;------------------------------------------------------------------------------
 (defun rlo-rest-form (form)
   (or (rest-var-p form)
@@ -910,7 +910,7 @@
   (rlo-form (?form a-labeled-form)))
 
 ;;------------------------------------------------------------------------------
-;; LET*-FORM: Prüfe, ob neue &rest-Variablen gebunden werden sollen.
+;; LET*-FORM: PrÃ¼fe, ob neue &rest-Variablen gebunden werden sollen.
 ;; Untersuche "init-list" und "body". 
 ;;------------------------------------------------------------------------------
 (defmethod rlo-form ((a-let*-form let*-form))
@@ -957,7 +957,7 @@
 
 ;;------------------------------------------------------------------------------
 ;; VAR-REF: Zugriff auf `rest' -> verloren.  Die Benutzung von `rest' innerhalb
-;; der erlaubten Applikationen wird bereits in der Methode für "app" überprüft. 
+;; der erlaubten Applikationen wird bereits in der Methode fÃ¼r "app" Ã¼berprÃ¼ft. 
 ;;------------------------------------------------------------------------------
 (defmethod rlo-form ((a-var-ref var-ref))
   (not (rest-var-p a-var-ref)))

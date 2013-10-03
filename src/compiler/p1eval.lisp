@@ -26,7 +26,7 @@
 ;;; Makroexpansion von (setf getf) und remf entstehen.
 ;;;
 ;;; Revision 1.65  1994/02/08  14:49:09  hk
-;;; eval f‹R mv-lambda eingebaut.
+;;; eval f√úR mv-lambda eingebaut.
 ;;;
 ;;; Revision 1.64  1993/12/09  10:12:53  hk
 ;;; (method zw-apply imported-fun): (declare (ignore env)) gestrichen.

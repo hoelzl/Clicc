@@ -15,13 +15,13 @@
 ;;; defined- und imported-named-consts werden jetzt unterschieden.
 ;;;
 ;;; Revision 1.31  1994/02/08  11:27:11  sma
-;;; Klammer eingefügt (hätte ich bloß nix geändert...)
+;;; Klammer eingefÃ¼gt (hÃ¤tte ich bloÃŸ nix geÃ¤ndert...)
 ;;;
 ;;; Revision 1.30  1994/02/08  11:07:31  sma
-;;; Neue Funktion clicc-message-line zeichnet die übliche Trennline.
+;;; Neue Funktion clicc-message-line zeichnet die Ã¼bliche Trennline.
 ;;;
 ;;; Revision 1.29  1994/02/04  14:25:06  kl
-;;; Formatstring zur Meldung über unbenutzte Klassen korrigiert.
+;;; Formatstring zur Meldung Ã¼ber unbenutzte Klassen korrigiert.
 ;;;
 ;;; Revision 1.28  1994/02/01  12:10:22  hk
 ;;; dec-used-slot nur auf definierte, nicht auf importierte Funktionen
@@ -65,7 +65,7 @@
 ;;; Plural von 'class'.
 ;;;
 ;;; Revision 1.18  1993/07/24  07:59:56  ft
-;;; Erweiterung um das Löschen ungenutzter Klassen.
+;;; Erweiterung um das LÃ¶schen ungenutzter Klassen.
 ;;;
 ;;; Revision 1.17  1993/07/15  12:27:37  hk
 ;;; ~:*~[s~; ~:;s~] durch ~:p ersetzt

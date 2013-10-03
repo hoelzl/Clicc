@@ -11,7 +11,7 @@
 ;;; defined- und imported-named-consts werden jetzt unterschieden.
 ;;;
 ;;; Revision 1.6  1994/02/08  14:48:14  hk
-;;; used Slot nur in defined-fun/sym/class erhöhen.
+;;; used Slot nur in defined-fun/sym/class erhÃ¶hen.
 ;;;
 ;;; Revision 1.5  1993/09/21  12:52:14  jh
 ;;; Voreilig eingecheckten Fehler beseitigt.

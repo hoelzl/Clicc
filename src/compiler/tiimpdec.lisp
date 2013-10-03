@@ -14,7 +14,7 @@
 ;;; Anpassungen an den erweiterten Typverband vorgenommen.
 ;;;
 ;;; Revision 1.45  1994/01/26  19:13:42  kl
-;;; Typisierung für symp, rt::<fix und rt::1-fix eingeführt. Typisierung
+;;; Typisierung fÃ¼r symp, rt::<fix und rt::1-fix eingefÃ¼hrt. Typisierung
 ;;; der member-Familie verbessert.
 ;;;
 ;;; Revision 1.44  1994/01/15  22:30:50  kl
@@ -22,7 +22,7 @@
 ;;;
 ;;; Revision 1.43  1994/01/13  16:09:05  sma
 ;;; Funktionsnamen korrigiert, nicht mehr existierende Funktionen
-;;; gelöscht, mehr Funktionen aus dem Laufzeitsystem hinzugefügt.
+;;; gelÃ¶scht, mehr Funktionen aus dem Laufzeitsystem hinzugefÃ¼gt.
 ;;;
 ;;; Revision 1.42  1993/12/09  10:33:33  hk
 ;;; provide wieder an das Dateiende
@@ -42,7 +42,7 @@
 ;;;
 ;;; Revision 1.37  1993/11/01  16:50:33  hk
 ;;; Typen der Funktionen open und probe korrigiert, new-struct
-;;; hinzugefügt, Schreibfehler behoben.
+;;; hinzugefÃ¼gt, Schreibfehler behoben.
 ;;;
 ;;; Revision 1.36  1993/11/01  15:45:19  hk
 ;;; Typisierung von rt::make-instance-internal korrigiert.
@@ -69,7 +69,7 @@
 ;;; Erweiterung um Typdeklarationen fuer L::class-of.
 ;;;
 ;;; Revision 1.28  1993/07/14  08:52:16  ft
-;;; Anpassung an die geänderten Parameter von instance-ref/set.
+;;; Anpassung an die geÃ¤nderten Parameter von instance-ref/set.
 ;;;
 ;;; Revision 1.27  1993/06/17  08:00:09  hk
 ;;; Copright Notiz eingefuegt
@@ -167,14 +167,14 @@
 (require "timisc")
 
 ;;------------------------------------------------------------------------------
-;; Beim jedem Laden dieser Datei wird dieser Schalter zurückgesetzt, weil sich
-;; Funktionsbeschreibungen geändert haben könnten.
+;; Beim jedem Laden dieser Datei wird dieser Schalter zurÃ¼ckgesetzt, weil sich
+;; Funktionsbeschreibungen geÃ¤ndert haben kÃ¶nnten.
 ;;------------------------------------------------------------------------------
 (setf *ti-type-declarations-are-initialized* nil) 
 
 
 ;;------------------------------------------------------------------------------
-;; Einige häufig verwendete Typabstraktionsfunktionen:
+;; Einige hÃ¤ufig verwendete Typabstraktionsfunktionen:
 ;;------------------------------------------------------------------------------
 (defun the-first-type (type1 &rest other-types)
   (declare (ignore other-types))
@@ -676,7 +676,7 @@
   (dec-type L::reduce      (function-t sequence-t) -> top-t)
 
   ;; Die Funktionen mapcar, maplist, mapc und mapl sind speziell getypt. 
-  ;; Die zugehörigen Typabstraktionsfunktionen liegen tipass2.lisp.
+  ;; Die zugehÃ¶rigen Typabstraktionsfunktionen liegen tipass2.lisp.
 
 
 

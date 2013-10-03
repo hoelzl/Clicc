@@ -8,7 +8,7 @@
 ;;; $Revision: 1.16 $
 ;;; $Log: clicc.lisp,v $
 ;;; Revision 1.16  1994/05/22  15:07:49  sma
-;;; Neuer Kommandoswitch -R zum Einstellen der Datenrepr‰sentation.
+;;; Neuer Kommandoswitch -R zum Einstellen der Datenrepr√§sentation.
 ;;;
 ;;; Revision 1.15  1994/05/19  07:57:02  pm
 ;;; Fehler behoben
@@ -28,8 +28,8 @@
 ;;; Schreibfehler in Usage behoben.
 ;;;
 ;;; Revision 1.10  1993/12/06  16:42:15  hk
-;;; Flag ge‰ndert und erg‰nzt: -v verbose, -V version, -O opt cycles.
-;;; Aufger‰umt. Gemischte Flags -vVo <name> gehen nun. Initialisierung
+;;; Flag ge√§ndert und erg√§nzt: -v verbose, -V version, -O opt cycles.
+;;; Aufger√§umt. Gemischte Flags -vVo <name> gehen nun. Initialisierung
 ;;; globaler Variablen nach clcdef.
 ;;;
 ;;; Revision 1.9  1993/10/26  11:32:34  pm

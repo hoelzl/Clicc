@@ -19,10 +19,10 @@
 ;;; *rlo-statistics-rest-{funs, opt, usage}*
 ;;;
 ;;; Revision 1.14  1994/01/26  13:35:55  ft
-;;; Änderung der Darstellung von ungebundenen Slots.
+;;; Ã„nderung der Darstellung von ungebundenen Slots.
 ;;;
 ;;; Revision 1.13  1994/01/21  16:47:52  ft
-;;; Notlösung für *SECRET-UNBOUND-SLOT-VALUE*.
+;;; NotlÃ¶sung fÃ¼r *SECRET-UNBOUND-SLOT-VALUE*.
 ;;;
 ;;; Revision 1.12  1994/01/21  08:23:55  ft
 ;;; Neue Variable: *SECRET-UNBOUND-SLOT-VALUE* zur Unboundkennzeichnung
@@ -198,20 +198,20 @@
 (defvar *C-file*)
 
 ;;------------------------------------------------------------------------------
-;; Flag, ob eine Optimierung eines Restlistenparamters durchgeführt werden
+;; Flag, ob eine Optimierung eines Restlistenparamters durchgefÃ¼hrt werden
 ;; soll bzw kann. Dieser wird dann direkt als Zeiger auf die im Stack liegende
 ;; Restliste direkt in C verwaltet und das erzeugen der Restliste mit Flist
-;; wird unterdrückt.
+;; wird unterdrÃ¼ckt.
 ;;------------------------------------------------------------------------------
 (defvar *rest-optimization* nil)
 
 ;;------------------------------------------------------------------------------
-;; Zähler für eindeutige Namen von Restvariablen
+;; ZÃ¤hler fÃ¼r eindeutige Namen von Restvariablen
 ;;------------------------------------------------------------------------------
 (defvar *rest-var-count*)
 
 ;;------------------------------------------------------------------------------
-;; Für die Statistik
+;; FÃ¼r die Statistik
 ;;------------------------------------------------------------------------------
 (defvar *rlo-statistics-rest-funs*)
 (defvar *rlo-statistics-rest-opt*)

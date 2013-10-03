@@ -20,9 +20,9 @@
 ;;; make-string benutzt jetzt make-array.
 ;;;
 ;;; Revision 1.8  1993/12/09  17:17:50  sma
-;;; Aufgrund neuer Repräsentation für arrays auch strings verändert. char,
+;;; Aufgrund neuer ReprÃ¤sentation fÃ¼r arrays auch strings verÃ¤ndert. char,
 ;;; schar sind jetzt in Lisp implementiert. (when (not ... -> (unless.
-;;; Weitere kleine Änderungen.
+;;; Weitere kleine Ã„nderungen.
 ;;;
 ;;; Revision 1.7  1993/06/16  15:20:38  hk
 ;;;  Copyright Notiz eingefuegt.
@@ -66,7 +66,7 @@
 ;;-----------------------------------------------------------------------------
 
 ;;------------------------------------------------------------------------------
-;; Für Fehlermeldungen
+;; FÃ¼r Fehlermeldungen
 ;;------------------------------------------------------------------------------
 (defconstant NO_INDEX
    "The index arg ~S for the vector ~S is not a fixnum in range [~S, ~S).")

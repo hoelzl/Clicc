@@ -11,11 +11,11 @@
  * $Revision: 1.10 $
  * $Log: catch.c,v $
  * Revision 1.10  1994/01/05  12:46:50  sma
- * Namensänderung: Alle Laufzeitsystemfunktionen mit dem Präfix rt_
+ * NamensÃ¤nderung: Alle Laufzeitsystemfunktionen mit dem PrÃ¤fix rt_
  * versehen und den Postfix _internal entfernt. STACK(base,x) -> ARG(x)
  *
  * Revision 1.9  1993/07/06  16:27:42  sma
- * OFFSET-Makro eingeführt.
+ * OFFSET-Makro eingefÃ¼hrt.
  *
  * Revision 1.8  1993/06/16  14:43:22  hk
  * Copyright Notiz eingefuegt.

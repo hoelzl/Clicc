@@ -8,7 +8,7 @@
 ;;; $Revision: 1.6 $
 ;;; $Log: coerce.lisp,v $
 ;;; Revision 1.6  1993/12/14  12:38:39  sma
-;;; coerce für simple-string und simple-vector erweitert.
+;;; coerce fÃ¼r simple-string und simple-vector erweitert.
 ;;;
 ;;; Revision 1.5  1993/06/16  15:20:38  hk
 ;;;  Copyright Notiz eingefuegt.

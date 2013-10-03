@@ -10,15 +10,15 @@
 ;;; $Revision: 1.15 $
 ;;; $Log: tail.lisp,v $
 ;;; Revision 1.15  1994/01/04  16:14:44  atr
-;;; Die Funktion tail-rec-fun geändert. Nun werden werden die Level-Slots
-;;; bei den lokalen Funktionen während der Tail-rekursion gesetzt, damit
+;;; Die Funktion tail-rec-fun geÃ¤ndert. Nun werden werden die Level-Slots
+;;; bei den lokalen Funktionen wÃ¤hrend der Tail-rekursion gesetzt, damit
 ;;; die Level-Slots der neu erzeugten Tagbody's auch gesetzt werden
-;;; können.
+;;; kÃ¶nnen.
 ;;;
 ;;; Revision 1.14  1994/01/03  11:58:13  atr
 ;;; Tail-rekursive Aufrufe, die innerhalb eines Let-Konstruktes sind, das
 ;;; dynamische Variablen bindet werden nicht mehr in Spr"unge umgewandelt,
-;;; denn dies kann zu Fehlern führen.
+;;; denn dies kann zu Fehlern fÃ¼hren.
 ;;;
 ;;; Revision 1.13  1993/12/22  11:13:01  atr
 ;;; Die Tail-Rekursion kann jetzt Funktionen mit Multiplen Werte richtig
@@ -37,7 +37,7 @@
 ;;; Revision 1.9  1993/10/15  12:37:10  hk
 ;;; In den used-slot der generierten tagged-forms wird nun die Anzahl der
 ;;; angwandten Vorkommen eingetragen (statt 1), damit beim Wegoptimieren
-;;; unbenutzter tagged-forms die Zählung durcheinander..
+;;; unbenutzter tagged-forms die ZÃ¤hlung durcheinander..
 ;;; In transform-form (switch-form) wurde vergessen, den Slot otherwise zu
 ;;; bearbeiten.
 ;;;
@@ -57,7 +57,7 @@
 ;;; Tail-rekursion eliminiert.
 ;;;
 ;;; Revision 1.4  1993/08/16  16:46:16  hk
-;;; (provide "tail") eingefügt, damit compile-clicc funktioniert
+;;; (provide "tail") eingefÃ¼gt, damit compile-clicc funktioniert
 ;;;
 ;;; Revision 1.3  1993/08/16  14:57:47  atr
 ;;; Nun entsteht nicht, wie bisher, eine setq-form fuer jede
@@ -104,7 +104,7 @@
       (setf (?body function) (transform-tail-rec-calls function)))
     (when (?local-funs *current-function*)
 
-      ;; Die Level-Slots der lokalen Funktionen werden zunächst gesetzt, 
+      ;; Die Level-Slots der lokalen Funktionen werden zunÃ¤chst gesetzt, 
       ;; dann werden die Funktionen behandelt.
       ;;----------------------------------------------------------------
       (dolist (one-local-fun (?local-funs *current-function*))
@@ -127,7 +127,7 @@
 ;;; Der Rumpf der Funktion wird in ein Let/cc-Konstrukt umgewandelt.
 ;;; Dieses Let/cc-Konstrukt enth"alt einen Tagbody mit nur einem Tag. 
 ;;; In diesem Tag wird die Continuation auf den neuen Rumpf der Funktion,
-;;; indem Tail-rec-Aufrufe durch Sprünge ersetzt werden, aufgerufen.
+;;; indem Tail-rec-Aufrufe durch SprÃ¼nge ersetzt werden, aufgerufen.
 ;;;--------------------------------------------------------------------------
 (defun transform-tail-rec-calls (function)
   (let* ((new-body     (make-instance 'let/cc-form
@@ -272,8 +272,8 @@
                    :form new)))
 
 ;;;------------------------------------------------------------------------
-;;; dynamic-var-bound überprüft ob eine Liste von Variablen eine dynamische 
-;;; Variable enthält.
+;;; dynamic-var-bound Ã¼berprÃ¼ft ob eine Liste von Variablen eine dynamische 
+;;; Variable enthÃ¤lt.
 ;;;------------------------------------------------------------------------
 (defun dynamic-var-bound (list-of-var)
   (if (null list-of-var)
@@ -304,7 +304,7 @@
         a-let-form)))
 
 ;;;--------------------------------------------------------------------------
-;;; Bei der (?form a-setq) können keine rekursive Aufrufe durch Sprünge 
+;;; Bei der (?form a-setq) kÃ¶nnen keine rekursive Aufrufe durch SprÃ¼nge 
 ;;; ersetzt werden, weil die letzte Berechnung die Zuweisung an die Variable, 
 ;;; und nicht die Auswertung der (?form a-setq) ist.
 ;;;--------------------------------------------------------------------------
